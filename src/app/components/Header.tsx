@@ -90,7 +90,7 @@ const Header = () => {
             <div className="flex items-center space-x-2 text-sm text-[#2c3a54]">
               <Image width={28} height={28} src={"/map.svg"} alt="Map" />
               <span>
-                Минск, пр-т Любимова 26, <br /> корпус 3
+                Витебск, ул. Терешковой 9В
               </span>
             </div>
 
