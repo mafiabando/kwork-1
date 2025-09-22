@@ -68,13 +68,14 @@ const Header = () => {
       <div className="w-full bg-[#f5f6fa] border-b border-gray-200">
         <div className="max-w-[1300px] mx-auto flex justify-between h-[80px] items-center px-6">
           <div className="flex justify-between items-center w-full">
-            <Image
-              width={232}
-              height={48}
-              src={"/logo_kamenaya_roza.svg"}
-              alt="logo"
-            />
-
+            <Link href={"/"}>
+              <Image
+                width={232}
+                height={48}
+                src={"/logo_kamenaya_roza.svg"}
+                alt="logo"
+              />
+            </Link>
             {/* Рассрочка */}
             <div className="hidden md:flex items-center">
               <Link
@@ -205,12 +206,13 @@ const Header = () => {
               className="text-[#cd5554] font-semibold flex items-center hover:text-[#2c3a5499]"
             >
               <Image
-                    width={22}
-                    height={22}
-                    src={"/percent.svg"}
-                    alt="Telegram"
-                    className="mr-2"
-                  /> Акции
+                width={22}
+                height={22}
+                src={"/percent.svg"}
+                alt="Telegram"
+                className="mr-2"
+              />{" "}
+              Акции
             </Link>
             <div className="relative group">
               <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
