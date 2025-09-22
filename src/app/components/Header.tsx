@@ -146,8 +146,8 @@ const Header = () => {
                 </div>
               </div>
               <div className="flex space-x-3 mt-1 font-bold text-[16px]">
-                <span>+375 33 677-01-66</span>
-                <span>+375 29 182-01-66</span>
+                <span>+375 29 600-00-00</span>
+                <span>+375 33 300-00-01</span>
               </div>
             </div>
 
