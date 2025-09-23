@@ -1,13 +1,11 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Header from './components/Header';
-
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from "next";
+import "./globals.css";
+import Header from "./components/Header";
 
 export const metadata: Metadata = {
-  title: 'ЦентрГранит — Гранитная мастерская',
-  description: 'Производство и установка памятников, оград, аксессуаров из гранита.',
+  title: "ЦентрГранит — Гранитная мастерская",
+  description:
+    "Производство и установка памятников, оград, аксессуаров из гранита.",
 };
 
 export default function RootLayout({
@@ -17,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={inter.className}>
+      <body>
         <Header />
         {children}
       </body>

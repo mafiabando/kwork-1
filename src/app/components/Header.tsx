@@ -463,7 +463,7 @@ const Header = () => {
                 <div className="flex items-center space-x-2">
                   <Image src="/map.svg" alt="Адрес" width={20} height={20} />
                   <span className="font-semibold text-[16px] leading-4">
-                    Минск, пр-т Любимова 26, корпус 3
+                    Витебск, ул. Терешковой 9В
                   </span>
                 </div>
                 <div className="mt-3 mb-1.5 flex space-x-2">
@@ -1253,7 +1253,7 @@ const Header = () => {
 
               {/* Адрес */}
               <div className="flex items-center mt-5.25 text-[16px] text-[#2c3a54]">
-                <span>Минск, пр-т Любимова 26, корпус 3</span>
+                <span>Витебск, ул. Терешковой 9В</span>
               </div>
 
               {/* Кнопка и ссылка внизу */}
@@ -1278,11 +1278,17 @@ const Header = () => {
         {/* Слева - МТС */}
         <a
           href={`tel:${PHONE_MTS.replace(/[\s-]/g, "")}`}
-          className="flex items-center space-x-2 text-[#2c3a54] hover:underline"
+          className="flex items-center space-x-1 text-[#2c3a54] hover:underline"
           aria-label={`Позвонить на номер ${PHONE_MTS}`}
         >
-          <div className="w-6 h-6 relative">
-            <Image src="/mts.svg" alt="MTS" layout="fill" objectFit="contain" />
+          <div className="relative">
+            <Image
+              width={20}
+              height={20}
+              src="/mts.svg"
+              alt="MTS"
+              objectFit="contain"
+            />
           </div>
           <span className="text-sm font-medium">{PHONE_MTS}</span>
         </a>
@@ -1290,11 +1296,17 @@ const Header = () => {
         {/* Справа - A1 */}
         <a
           href={`tel:${PHONE_A1.replace(/[\s-]/g, "")}`}
-          className="flex items-center space-x-2 text-[#2c3a54] hover:underline"
+          className="flex items-center space-x-1 text-[#2c3a54] font-normal text-center hover:underline"
           aria-label={`Позвонить на номер ${PHONE_A1}`}
         >
-          <div className="w-6 h-6 relative">
-            <Image src="/a1.webp" alt="A1" layout="fill" objectFit="contain" />
+          <div className="relative">
+            <Image
+              width={20}
+              height={20}
+              src="/a1.webp"
+              alt="A1"
+              objectFit="contain"
+            />
           </div>
           <span className="text-sm font-medium">{PHONE_A1}</span>
         </a>
