@@ -6,8 +6,8 @@ const Header = () => {
     <header className="w-full">
       {/* Верхняя строка — темно-синяя */}
       <div className="w-full bg-[#2c3a54]">
-        <div className="max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 text-white">
-          <nav className="flex space-x-6 text-[16px] leading-8 font-normal">
+        <div className="max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8 text-white">
+          <nav className="flex space-x-4 xl:space-x-6 text-4 leading-8 font-normal">
             <div className="relative group inline-block">
               <button
                 className="flex items-center text-white hover:underline transition cursor-pointer"
@@ -15,18 +15,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 О компании
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 inline ml-1 text-white"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <Image src={'./arrow-white.svg'} width={17} height={17} alt="arrow"/>
               </button>
 
               {/* Dropdown */}
@@ -66,18 +55,18 @@ const Header = () => {
 
       {/* Средняя полоса — фон #f5f6fa */}
       <div className="w-full bg-[#f5f6fa] border-b border-gray-200">
-        <div className="max-w-[1300px] mx-auto flex justify-between h-[80px] items-center px-6">
+        <div className="max-w-[1300px] mx-auto flex justify-between h-[80px] items-center px-6 xl:px-8">
           <div className="flex justify-between items-center w-full">
             <Link href={"/"}>
               <Image
-                width={232}
+                width={200}
                 height={48}
                 src={"/logo_kamenaya_roza.svg"}
                 alt="logo"
               />
             </Link>
             {/* Рассрочка */}
-            <div className="hidden md:flex items-center">
+            <div className="hidden xl:flex items-center ">
               <Link
                 href={"/"}
                 className="bg-transparent border-3 border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full px-[19px] py-2 text-[14px] leading-7 font-bold text-[#2c3a54]"
@@ -102,20 +91,9 @@ const Header = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <span className="w-2 h-2 bg-[#0bc048] mr-3 rounded-full"></span>
+                  <span className="w-2 h-2 bg-[#0bc048] mr-2 xl:mr-3 rounded-full"></span>
                   <span>Работаем до 19:00</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-gray-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Image src={'./arrow.svg'} width={17} height={17} alt="arrow"/>
                 </button>
 
                 {/* Dropdown */}
@@ -145,7 +123,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex space-x-3 mt-1 font-bold text-[16px]">
+              <div className="flex space-x-3 mt-1 font-bold text-3.5 xl:text-4">
                 <span>+375 29 600-00-00</span>
                 <span>+375 33 300-00-01</span>
               </div>
@@ -155,7 +133,7 @@ const Header = () => {
             <div className="flex items-center justify-between text-sm gap-3 text-[#2c3a54]">
               <div>
                 <div>Есть вопросы?</div>
-                <div className="font-bold">Задайте Online</div>
+                <div className="font-bold leading-3.5">Задайте Online</div>
               </div>
               <div className="flex space-x-2">
                 <a
@@ -199,11 +177,11 @@ const Header = () => {
 
       {/* Нижняя строка — белая */}
       <div className="w-full bg-white border-b border-gray-200">
-        <div className="max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2">
-          <div className="flex space-x-10 text-[18px]">
+        <div className="max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8">
+          <div className="flex space-x-5 xl:space-x-10 text-[16px] xl:text-[18px]">
             <Link
               href="/sales"
-              className="text-[#cd5554] font-semibold flex items-center hover:text-[#2c3a5499]"
+              className="text-[#cd5554] font-semibold flex items-center hover:text-[#2c3a5499] no-wrap"
             >
               <Image
                 width={22}
@@ -214,113 +192,47 @@ const Header = () => {
               />{" "}
               Акции
             </Link>
-            <div className="relative group">
-              <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+            <div className="relative group no-wrap flex items-center">
+              <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer ">
                 Памятники
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline ml-1 text-[#2c3a54]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Image src={'./arrow.svg'} width={17} height={17} alt="arrow"/>
             </div>
-            <div className="relative group">
+            <div className="relative group no-wrap flex items-center">
               <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                 Ограды
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline ml-1 text-[#2c3a54]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Image src={'./arrow.svg'} width={17} height={17} alt="arrow" />
             </div>
-            <div className="relative group">
+            <div className="relative group no-wrap flex items-center">
               <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                 Аксессуары
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline ml-1 text-[#2c3a54]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Image src={'./arrow.svg'} width={17} height={17} alt="arrow" />
             </div>
-            <div className="relative group">
+            <div className="relative group no-wrap flex items-center">
               <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                 Благоустройство
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline ml-1 text-[#2c3a54]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Image src={'./arrow.svg'} width={17} height={17} alt="arrow" />
             </div>
-            <div className="relative group">
+            <div className="relative group no-wrap flex items-center">
               <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                 Услуги
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline ml-1 text-[#2c3a54]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Image src={'./arrow.svg'} width={17} height={17} alt="arrow" />
             </div>
-            <div className="relative group">
+            <div className="relative group no-wrap flex items-center">
               <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                 Оформление памятников
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline ml-1 text-[#2c3a54]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Image src={'./arrow.svg'} width={17} height={17} alt="arrow" />
             </div>
           </div>
           <div className="flex items-center">
             <a
               href="#"
-              className="rounded-full flex items-center justify-center text-white"
+              className="hidden show-from-1100 rounded-full flex items-center justify-center text-white"
             >
               <Image width={24} height={24} src={"/ig.svg"} alt="Instagram" />
             </a>
