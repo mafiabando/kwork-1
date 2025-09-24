@@ -219,7 +219,7 @@ const HeroSlider = () => {
                   paddingTop: padding.y,
                   paddingBottom: padding.y,
                   minWidth: "45vw",
-                  maxWidth: "52vw",
+                  maxWidth: "54vw",
                   color: color,
                 }}
               >
