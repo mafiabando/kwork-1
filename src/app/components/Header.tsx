@@ -318,8 +318,8 @@ const Header = () => {
 
         {/* Нижняя строка — белая */}
         <div className="relative">
-          <div className="w-full bg-white border-b border-gray-200">
-            <div ref={headerContainerRef} className="relative content-box max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8">
+          <div className="w-full bg-white">
+            <div ref={headerContainerRef} className="relative h-10 content-box max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8">
               <div className="flex space-x-5 xl:space-x-10 text-[16px] xl:text-[18px]">
                 <Link
                   href="/sales"
@@ -340,7 +340,7 @@ const Header = () => {
                   onMouseEnter={() => handleCategoryMouseEnter('monuments')}
                   onMouseLeave={() => handleCategoryMouseLeave('monuments')}
                 >
-                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer ">
+                  <span className="font-bold text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer ">
                     Памятники
                   </span>
                   <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
@@ -351,7 +351,7 @@ const Header = () => {
                   onMouseEnter={() => handleCategoryMouseEnter('fences')}
                   onMouseLeave={() => handleCategoryMouseLeave('fences')}
                 >
-                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                  <span className="font-bold text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                     Ограды
                   </span>
                   <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
@@ -362,7 +362,7 @@ const Header = () => {
                   onMouseEnter={() => handleCategoryMouseEnter('accessories')}
                   onMouseLeave={() => handleCategoryMouseLeave('accessories')}
                 >
-                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                  <span className="font-bold text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                     Аксессуары
                   </span>
                   <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
@@ -373,7 +373,7 @@ const Header = () => {
                   onMouseEnter={() => handleCategoryMouseEnter('landscape')}
                   onMouseLeave={() => handleCategoryMouseLeave('landscape')}
                 >
-                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                  <span className="font-bold text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                     Благоустройство
                   </span>
                   <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
@@ -384,7 +384,7 @@ const Header = () => {
                   onMouseEnter={() => handleCategoryMouseEnter('services')}
                   onMouseLeave={() => handleCategoryMouseLeave('services')}
                 >
-                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                  <span className="font-bold text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                     Услуги
                   </span>
                   <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
@@ -395,7 +395,7 @@ const Header = () => {
                   onMouseEnter={() => handleCategoryMouseEnter('design')}
                   onMouseLeave={() => handleCategoryMouseLeave('design')}
                 >
-                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                  <span className="font-bold text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
                     Оформление памятников
                   </span>
                   <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
@@ -651,7 +651,7 @@ const Header = () => {
   // === Ниже адаптив для < 1000px ===
 
   return (
-    <header className="w-full bg-white border-b border-gray-200 select-none">
+    <header className="w-full bg-white select-none">
       {/* Верхняя строка (первая) */}
       <div
         className="flex justify-between items-center max-w-[1300px] mx-auto px-6 py-[10px] border-[1px] border-[#e3e5ef]"
