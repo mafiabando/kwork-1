@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, useLayoutEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,12 +11,79 @@ const Header = () => {
   // Состояния открытия dropdown-меню
   const [isPhoneDropdownOpen, setPhoneDropdownOpen] = useState(false);
   const [isBurgerDropdownOpen, setBurgerDropdownOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [dropdownPosition, setDropdownPosition] = useState({ left: 0, top: 0 });
 
   const phoneButtonRef = useRef<HTMLButtonElement>(null);
   const burgerButtonRef = useRef<HTMLButtonElement>(null);
   const phoneDropdownRef = useRef<HTMLDivElement>(null);
   const burgerDropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutIdRef = useRef<NodeJS.Timeout | null>(null);
+  const headerContainerRef = useRef<HTMLDivElement>(null);
+
+  // Рефы для каждого пункта меню
+  const categoryRefs = {
+    monuments: useRef<HTMLDivElement>(null),
+    fences: useRef<HTMLDivElement>(null),
+    accessories: useRef<HTMLDivElement>(null),
+    landscape: useRef<HTMLDivElement>(null),
+    services: useRef<HTMLDivElement>(null),
+    design: useRef<HTMLDivElement>(null),
+  };
+
+  // Обработчики для каждой категории
+  const handleCategoryMouseEnter = useCallback((category: string) => {
+    if (timeoutIdRef.current) {
+      clearTimeout(timeoutIdRef.current);
+      timeoutIdRef.current = null;
+    }
+    setActiveCategory(category);
+  }, []);
+
+  const handleCategoryMouseLeave = useCallback((category: string) => {
+    timeoutIdRef.current = setTimeout(() => {
+      if (activeCategory === category) {
+        setActiveCategory(null);
+      }
+    }, 300);
+  }, []);
+
+  // Для выпадающего меню onMouseEnter/onMouseLeave
+  const handleDropdownMouseEnter = useCallback(() => {
+    if (timeoutIdRef.current) {
+      clearTimeout(timeoutIdRef.current);
+      timeoutIdRef.current = null;
+    }
+  }, []);
+
+  const handleDropdownMouseLeave = useCallback(() => {
+    timeoutIdRef.current = setTimeout(() => {
+      setActiveCategory(null);
+    }, 300);
+  }, []);
+
+  // При изменении activeCategory — обновляем позицию
+  useLayoutEffect(() => {
+    if (!activeCategory) return;
+
+    const categoryElement = categoryRefs[activeCategory as keyof typeof categoryRefs]?.current;
+
+    if (!categoryElement) {
+      console.log('Категория не найдена:', activeCategory);
+      return;
+    }
+
+    const rect = categoryElement.getBoundingClientRect();
+    const containerRect = headerContainerRef.current?.getBoundingClientRect();
+    const containerStyle = window.getComputedStyle(headerContainerRef.current!);
+    const paddingBottom = parseInt(containerStyle.paddingBottom, 10);
+
+    setDropdownPosition({
+      left: rect.left,
+      top: rect.bottom - containerRect!.top + paddingBottom,
+    });
+  }, [activeCategory]);
 
   // Отслеживаем ширину окна
   useEffect(() => {
@@ -250,68 +317,328 @@ const Header = () => {
         </div>
 
         {/* Нижняя строка — белая */}
-        <div className="w-full bg-white border-b border-gray-200">
-          <div className="max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8">
-            <div className="flex space-x-5 xl:space-x-10 text-[16px] xl:text-[18px]">
-              <Link
-                href="/sales"
-                className="text-[#cd5554] font-semibold flex items-center hover:text-[#2c3a5499] no-wrap"
-              >
-                <Image
-                  width={22}
-                  height={22}
-                  src={"/percent.svg"}
-                  alt="Telegram"
-                  className="mr-2"
-                />{" "}
-                Акции
-              </Link>
-              <div className="relative group no-wrap flex items-center">
-                <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer ">
-                  Памятники
-                </span>
-                <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+        <div className="relative">
+          <div className="w-full bg-white border-b border-gray-200">
+            <div ref={headerContainerRef} className="relative content-box max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8">
+              <div className="flex space-x-5 xl:space-x-10 text-[16px] xl:text-[18px]">
+                <Link
+                  href="/sales"
+                  className="text-[#cd5554] font-semibold flex items-center hover:text-[#2c3a5499] no-wrap"
+                >
+                  <Image
+                    width={22}
+                    height={22}
+                    src={"/percent.svg"}
+                    alt="Акции"
+                    className="mr-2"
+                  />{" "}
+                  Акции
+                </Link>
+                {/* Памятники */}
+                <div className="relative group no-wrap flex items-center"
+                  ref={categoryRefs.monuments}
+                  onMouseEnter={() => handleCategoryMouseEnter('monuments')}
+                  onMouseLeave={() => handleCategoryMouseLeave('monuments')}
+                >
+                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer ">
+                    Памятники
+                  </span>
+                  <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+                </div>
+                {/* Ограды */}
+                <div className="relative group no-wrap flex items-center"
+                  ref={categoryRefs.fences}
+                  onMouseEnter={() => handleCategoryMouseEnter('fences')}
+                  onMouseLeave={() => handleCategoryMouseLeave('fences')}
+                >
+                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                    Ограды
+                  </span>
+                  <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+                </div>
+                {/* Аксессуары */}
+                <div className="relative group no-wrap flex items-center"
+                  ref={categoryRefs.accessories}
+                  onMouseEnter={() => handleCategoryMouseEnter('accessories')}
+                  onMouseLeave={() => handleCategoryMouseLeave('accessories')}
+                >
+                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                    Аксессуары
+                  </span>
+                  <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+                </div>
+                {/* Благоустройство */}
+                <div className="relative group no-wrap flex items-center"
+                  ref={categoryRefs.landscape}
+                  onMouseEnter={() => handleCategoryMouseEnter('landscape')}
+                  onMouseLeave={() => handleCategoryMouseLeave('landscape')}
+                >
+                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                    Благоустройство
+                  </span>
+                  <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+                </div>
+                {/* Услуги */}
+                <div className="relative group no-wrap flex items-center"
+                  ref={categoryRefs.services}
+                  onMouseEnter={() => handleCategoryMouseEnter('services')}
+                  onMouseLeave={() => handleCategoryMouseLeave('services')}
+                >
+                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                    Услуги
+                  </span>
+                  <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+                </div>
+                {/* Оформление памятников */}
+                <div className="relative group no-wrap flex items-center"
+                  ref={categoryRefs.design}
+                  onMouseEnter={() => handleCategoryMouseEnter('design')}
+                  onMouseLeave={() => handleCategoryMouseLeave('design')}
+                >
+                  <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
+                    Оформление памятников
+                  </span>
+                  <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+                </div>
               </div>
-              <div className="relative group no-wrap flex items-center">
-                <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
-                  Ограды
-                </span>
-                <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
+              <div className="flex items-center">
+                <Link
+                  href="#"
+                  className="hidden lg:block flex items-center justify-center"
+                >
+                  <Image width={24} height={24} src={"/ig.svg"} alt="Instagram" />
+                </Link>
               </div>
-              <div className="relative group no-wrap flex items-center">
-                <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
-                  Аксессуары
-                </span>
-                <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
-              </div>
-              <div className="relative group no-wrap flex items-center">
-                <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
-                  Благоустройство
-                </span>
-                <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
-              </div>
-              <div className="relative group no-wrap flex items-center">
-                <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
-                  Услуги
-                </span>
-                <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
-              </div>
-              <div className="relative group no-wrap flex items-center">
-                <span className="font-medium text-[#2c3a54] hover:text-[#2c3a5499] cursor-pointer">
-                  Оформление памятников
-                </span>
-                <Image src={"/arrow.svg"} width={17} height={17} alt="arrow" />
-              </div>
-            </div>
-            <div className="flex items-center">
-              <Link
-                href="#"
-                className="hidden lg:block flex items-center justify-center"
-              >
-                <Image width={24} height={24} src={"/ig.svg"} alt="Instagram" />
-              </Link>
             </div>
           </div>
+
+          {/* Dropdowns */}
+          {activeCategory === 'monuments' && (
+            <div
+              className="absolute mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2"
+              style={{
+                left: `${dropdownPosition.left}px`,
+                top: `${dropdownPosition.top}px`,
+                boxShadow: `0 0 30px 0 #2c3A5426`,
+              }}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+            >
+              <div className="grid grid-cols-[repeat(2,232px)] gap-4">
+                {[
+                  { name: 'Одиночные', href: '/monuments/single', img: '/monuments/single.webp' },
+                  { name: 'Двойные', href: '/monuments/double', img: '/monuments/double.webp' },
+                  { name: 'Эксклюзивные', href: '/monuments/exclusive', img: '/monuments/exclusive.webp' },
+                  { name: 'Недорогие', href: '/monuments/cheap', img: '/monuments/cheap.webp' },
+                  { name: 'В виде креста', href: '/monuments/cross', img: '/monuments/cross.webp' },
+                  { name: 'В виде сердца', href: '/monuments/heart', img: '/monuments/heart.webp' },
+                  { name: 'Детские', href: '/monuments/kids', img: '/monuments/kids.webp' },
+                  { name: 'Мемориальные комплексы', href: '/monuments/complex', img: '/monuments/complex.webp' },
+                  { name: 'Со стеклом', href: '/monuments/glass', img: '/monuments/glass.webp' },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="rounded"
+                    />
+                    <span className="text-[#2c3a54]">{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeCategory === 'fences' && (
+            <div
+              className="absolute mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2"
+              style={{
+                left: `${dropdownPosition.left}px`,
+                top: `${dropdownPosition.top}px`,
+              }}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+            >
+              <div className="grid grid-cols-[repeat(2,232px)] gap-4">
+                {[
+                  { name: 'Гранитные ограды', href: '/fences/granite', img: '/fences/granite.webp' },
+                  { name: 'Кованые ограды', href: '/fences/forged', img: '/fences/forged.webp' },
+                  { name: 'Металлические ограды', href: '/fences/metal', img: '/fences/metal.webp' },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="rounded"
+                    />
+                    <span className="text-[#2c3a54]">{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeCategory === 'accessories' && (
+            <div
+              className="absolute mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2"
+              style={{
+                left: `${dropdownPosition.left}px`,
+                top: `${dropdownPosition.top}px`,
+              }}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+            >
+              <div className="grid grid-cols-[repeat(2,232px)] gap-4">
+                {[
+                  { name: 'Вазы', href: '/accessories/vases', img: '/accessories/vases.webp' },
+                  { name: 'Лампы', href: '/accessories/lamps', img: '/accessories/lamps.webp' },
+                  { name: 'Скульптуры', href: '/accessories/sculptures', img: '/accessories/sculptures.webp' },
+                  { name: 'Рамки', href: '/accessories/frames', img: '/accessories/frames.webp' },
+                  { name: 'Изделия из бронзы', href: '/accessories/bronze', img: '/accessories/bronze.webp' },
+                  { name: 'Надгробные плиты', href: '/accessories/plates', img: '/accessories/plates.webp' },
+                  { name: 'Гранитные таблички', href: '/accessories/tables', img: '/accessories/tables.webp' },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="rounded"
+                    />
+                    <span className="text-[#2c3a54]">{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeCategory === 'landscape' && (
+            <div
+              className="absolute mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2"
+              style={{
+                left: `${dropdownPosition.left}px`,
+                top: `${dropdownPosition.top}px`,
+              }}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+            >
+              <div className="grid grid-cols-[repeat(2,232px)] gap-4">
+                {[
+                  { name: 'Благоустройство могил', href: '/landscape/graves', img: '/landscape/graves.webp' },
+                  { name: 'Фундамент для памятников', href: '/landscape/foundation', img: '/landscape/foundation.webp' },
+                  { name: 'Укладка плитки', href: '/landscape/tiles', img: '/landscape/tiles.webp' },
+                  { name: 'Столы и скамейки', href: '/landscape/tables', img: '/landscape/tables.webp' },
+                  { name: 'Щебень декоративный', href: '/landscape/gravel', img: '/landscape/gravel.webp' },
+                  { name: 'Искусственный газон', href: '/landscape/lawn', img: '/landscape/lawn.webp' },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="rounded"
+                    />
+                    <span className="text-[#2c3a54]">{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeCategory === 'services' && (
+            <div
+              className="absolute mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2"
+              style={{
+                left: `${dropdownPosition.left}px`,
+                top: `${dropdownPosition.top}px`,
+              }}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+            >
+              <div className="grid grid-cols-[repeat(2,232px)] gap-4">
+                {[
+                  { name: 'Установка памятников', href: '/services/monument-installation', img: '/services/monument-installation.webp' },
+                  { name: 'Установка оград', href: '/services/fence-installation', img: '/services/fence-installation.webp' },
+                  { name: 'Изготовление памятников', href: '/services/monument-production', img: '/services/monument-production.webp' },
+                  { name: 'Демонтаж памятников', href: '/services/monument-dismantle', img: '/services/monument-dismantle.webp' },
+                  { name: '3D-моделирование', href: '/services/3d-modeling', img: '/services/3d-modeling.webp' },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="rounded"
+                    />
+                    <span className="text-[#2c3a54]">{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeCategory === 'design' && (
+            <div
+              className="absolute mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2"
+              style={{
+                left: `${dropdownPosition.left}px`,
+                top: `${dropdownPosition.top}px`,
+              }}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+            >
+              <div className="grid grid-cols-[repeat(2,232px)] gap-4">
+                {[
+                  { name: 'Эпитафии', href: '/design/epitaphs', img: '/design/epitaphs.webp' },
+                  { name: 'Гравировка портрета', href: '/design/portrait', img: '/design/portrait.webp' },
+                  { name: 'Медальоны на памятник', href: '/design/medallions', img: '/design/medallions.webp' },
+                  { name: 'Гравировка текста', href: '/design/text-engraving', img: '/design/text-engraving.webp' },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="rounded"
+                    />
+                    <span className="text-[#2c3a54]">{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </header>
     );
