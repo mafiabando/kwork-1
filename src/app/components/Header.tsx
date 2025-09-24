@@ -46,7 +46,7 @@ const Header = () => {
       if (activeCategory === category) {
         setActiveCategory(null);
       }
-    }, 300);
+    }, 100);
   }, []);
 
   // Для выпадающего меню onMouseEnter/onMouseLeave
@@ -60,7 +60,7 @@ const Header = () => {
   const handleDropdownMouseLeave = useCallback(() => {
     timeoutIdRef.current = setTimeout(() => {
       setActiveCategory(null);
-    }, 300);
+    }, 100);
   }, []);
 
   // При изменении activeCategory — обновляем позицию
@@ -404,7 +404,7 @@ const Header = () => {
               <div className="flex items-center">
                 <Link
                   href="#"
-                  className="hidden lg:block flex items-center justify-center"
+                  className="hidden lg:block items-center justify-center"
                 >
                   <Image width={24} height={24} src={"/ig.svg"} alt="Instagram" />
                 </Link>
@@ -866,7 +866,7 @@ const Header = () => {
                   <Link
                     href="/sales"
                     role="menuitem"
-                    className="block px-6 py-3 font-semibold text-[#cd5554] hover:underline gap-4 flex"
+                    className="px-6 py-3 font-semibold text-[#cd5554] hover:underline gap-4 flex"
                   >
                     <Image
                       src="/percent.svg"

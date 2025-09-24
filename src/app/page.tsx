@@ -4,7 +4,7 @@ import HeroSlider from "./components/HeroSlider";
 
 export default function Home() {
    return (
-    <main className="px-6">
+    <main className="px-4 lg:px-6">
         <HeroSlider />
     </main>
   );
