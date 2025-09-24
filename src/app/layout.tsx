@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 
 export const metadata: Metadata = {
-  title: "ЦентрГранит — Гранитная мастерская",
+  title: "Каменная Роза в Витебске",
   description:
     "Производство и установка памятников, оград, аксессуаров из гранита.",
 };

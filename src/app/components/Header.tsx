@@ -461,6 +461,7 @@ const Header = () => {
               style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
+                boxShadow: `0 0 30px 0 #2c3A5426`,
               }}
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
@@ -496,6 +497,7 @@ const Header = () => {
               style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
+                boxShadow: `0 0 30px 0 #2c3A5426`,
               }}
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
@@ -535,6 +537,7 @@ const Header = () => {
               style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
+                boxShadow: `0 0 30px 0 #2c3A5426`,
               }}
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
@@ -573,6 +576,7 @@ const Header = () => {
               style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
+                boxShadow: `0 0 30px 0 #2c3A5426`,
               }}
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
@@ -610,6 +614,7 @@ const Header = () => {
               style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
+                boxShadow: `0 0 30px 0 #2c3A5426`,
               }}
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
