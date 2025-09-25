@@ -163,6 +163,67 @@ const StoreInfo = () => {
       refs.current.isDragging = false;
     };
 
+    const handleTouchStart = (e: React.TouchEvent) => {
+      e.preventDefault();
+      refs.current.startX = e.touches[0].clientX;
+      refs.current.startY = e.touches[0].clientY;
+      refs.current.isDragging = true;
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+      if (!refs.current.isDragging) return;
+
+      const deltaX = e.touches[0].clientX - refs.current.startX;
+      const deltaY = e.touches[0].clientY - refs.current.startY;
+
+      // Только горизонтальный свайп
+      if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+
+      e.preventDefault();
+
+      const movePercent = (deltaX / window.innerWidth) * 100;
+      const newTransform = safeCurrentSlide * slideWidthPercent + movePercent;
+
+      const slider =
+        e.currentTarget.parentElement?.parentElement?.querySelector(".flex");
+      if (slider) {
+        (
+          slider as HTMLElement
+        ).style.transform = `translateX(-${newTransform}%)`;
+      }
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+      if (!refs.current.isDragging) return;
+
+      const deltaX = e.changedTouches[0].clientX - refs.current.startX;
+      const deltaY = e.changedTouches[0].clientY - refs.current.startY;
+
+      // Только горизонтальный свайп
+      if (Math.abs(deltaY) > Math.abs(deltaX)) {
+        refs.current.isDragging = false;
+        return;
+      }
+
+      // Определяем направление
+      if (Math.abs(deltaX) < 50) {
+        refs.current.isDragging = false;
+        return;
+      }
+
+      let newSlide = safeCurrentSlide;
+      if (deltaX > 0) {
+        // Вправо — предыдущий слайд
+        newSlide = Math.max(0, safeCurrentSlide - 1);
+      } else {
+        // Влево — следующий слайд
+        newSlide = Math.min(maxSlide, safeCurrentSlide + 1);
+      }
+
+      setCurrentSlide(newSlide);
+      refs.current.isDragging = false;
+    };
+
     return (
       <div
         className={`relative overflow-hidden ${className}`}
@@ -170,6 +231,9 @@ const StoreInfo = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={() => (refs.current.isDragging = false)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div
           className="flex transition-transform duration-300 ease-in-out"
