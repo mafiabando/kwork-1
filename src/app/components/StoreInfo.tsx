@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -28,6 +28,45 @@ const StoreInfo = () => {
   const [currentSlideDesktop, setCurrentSlideDesktop] = useState(0);
   const [currentSlideTablet, setCurrentSlideTablet] = useState(0);
   const [currentSlideMobile, setCurrentSlideMobile] = useState(0);
+
+  // Состояние модального окна
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentModalSlide, setCurrentModalSlide] = useState(0);
+
+  // Закрытие по Esc
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isModalOpen) return;
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "ArrowLeft") {
+        prevSlide();
+      } else if (e.key === "ArrowRight") {
+        nextSlide();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
+
+  const openModal = (index: number) => {
+    setCurrentModalSlide(index);
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden"; // Блокируем скролл
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "auto"; // Возвращаем скролл
+  };
+
+  const nextSlide = () => {
+    setCurrentModalSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentModalSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   // Функция для отображения слайдов и индикаторов
   const renderSlides = (
@@ -129,8 +168,9 @@ const StoreInfo = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="flex-shrink-0 px-2.5"
+              className="flex-shrink-0 px-2.5 cursor-pointer"
               style={{ width: `${slideWidthPercent}%` }}
+              onClick={() => openModal(index)} // Открываем модалку при клике
             >
               <img
                 src={slide.src}
@@ -248,9 +288,9 @@ const StoreInfo = () => {
                     </span>
                   </a>
                   <a href="tel:+375333000001">
-                  <span className="text-gray-600 text-[16px]">
-                    +375 33 300-00-01
-                  </span>
+                    <span className="text-gray-600 text-[16px]">
+                      +375 33 300-00-01
+                    </span>
                   </a>
                 </div>
               </div>
@@ -429,15 +469,15 @@ const StoreInfo = () => {
               />
               <div className="flex flex-col font-bold">
                 <a href="tel:+375296000000">
-                    <span className="text-gray-600 text-[16px]">
-                      +375 29 600-00-00
-                    </span>
-                  </a>
+                  <span className="text-gray-600 text-[16px]">
+                    +375 29 600-00-00
+                  </span>
+                </a>
                 <a href="tel:+375333000001">
                   <span className="text-gray-600 text-[16px]">
                     +375 33 300-00-01
                   </span>
-                  </a>
+                </a>
               </div>
             </div>
           </div>
@@ -523,15 +563,15 @@ const StoreInfo = () => {
               />
               <div className="flex flex-col font-bold">
                 <a href="tel:+375296000000">
-                    <span className="text-gray-600 text-[16px]">
-                      +375 29 600-00-00
-                    </span>
-                  </a>
+                  <span className="text-gray-600 text-[16px]">
+                    +375 29 600-00-00
+                  </span>
+                </a>
                 <a href="tel:+375333000001">
                   <span className="text-gray-600 text-[16px]">
                     +375 33 300-00-01
                   </span>
-                  </a>
+                </a>
               </div>
             </div>
           </div>
@@ -541,6 +581,47 @@ const StoreInfo = () => {
           </button>
         </div>
       </div>
+
+      {/* Модальное окно */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "rgba(0,0,0,0.8)" }}
+          onClick={closeModal} // Закрытие при клике вне изображения
+        >
+          <div
+            className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center p-4"
+            onClick={(e) => e.stopPropagation()} // Не закрывать при клике на контент
+          >
+            {/* Стрелка влево */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-white text-lg sm:text-xl rounded-full hover:bg-opacity-70 transition cursor-pointer"
+              style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+            >
+              {"<"}
+            </button>
+
+            {/* Стрелка вправо */}
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-white text-lg sm:text-xl rounded-full hover:bg-opacity-70 transition cursor-pointer"
+              style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+            >
+              {">"}
+            </button>
+
+            {/* Изображение */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img
+                src={slides[currentModalSlide].src}
+                alt={slides[currentModalSlide].alt}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
