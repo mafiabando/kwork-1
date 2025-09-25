@@ -33,6 +33,19 @@ const StoreInfo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentModalSlide, setCurrentModalSlide] = useState(0);
 
+  // Рефы для свайпа — по одному набору на каждый слайдер
+  const desktopRefs = useRef({ startX: 0, startY: 0, isDragging: false });
+  const tabletRefs = useRef({ startX: 0, startY: 0, isDragging: false });
+  const mobileRefs = useRef({ startX: 0, startY: 0, isDragging: false });
+
+  const nextSlide = () => {
+    setCurrentModalSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentModalSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   // Закрытие по Esc
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -47,7 +60,7 @@ const StoreInfo = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isModalOpen]);
+  }, [isModalOpen, nextSlide, prevSlide]);
 
   const openModal = (index: number) => {
     setCurrentModalSlide(index);
@@ -58,14 +71,6 @@ const StoreInfo = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     document.body.style.overflow = "auto"; // Возвращаем скролл
-  };
-
-  const nextSlide = () => {
-    setCurrentModalSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentModalSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   // Функция для отображения слайдов и индикаторов
@@ -83,22 +88,29 @@ const StoreInfo = () => {
     const slideWidthPercent = 100 / count;
 
     // Для свайпа
-    const startXRef = useRef(0);
-    const startYRef = useRef(0);
-    const isDraggingRef = useRef(false);
+    let refs;
+    if (isSmallScreen) {
+      refs = mobileRefs;
+    } else if (className.includes("flex-nowrap")) {
+      // Это tablet (2 слайда)
+      refs = tabletRefs;
+    } else {
+      // Это desktop (3 слайда)
+      refs = desktopRefs;
+    }
 
     const handleMouseDown = (e: React.MouseEvent) => {
       e.preventDefault();
-      startXRef.current = e.clientX;
-      startYRef.current = e.clientY;
-      isDraggingRef.current = true;
+      refs.current.startX = e.clientX;
+      refs.current.startY = e.clientY;
+      refs.current.isDragging = true;
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
-      if (!isDraggingRef.current) return;
+      if (!refs.current.isDragging) return;
 
-      const deltaX = e.clientX - startXRef.current;
-      const deltaY = e.clientY - startYRef.current;
+      const deltaX = e.clientX - refs.current.startX;
+      const deltaY = e.clientY - refs.current.startY;
 
       // Только горизонтальный свайп
       if (Math.abs(deltaY) > Math.abs(deltaX)) return;
@@ -120,21 +132,21 @@ const StoreInfo = () => {
     };
 
     const handleMouseUp = (e: React.MouseEvent) => {
-      if (!isDraggingRef.current) return;
+      if (!refs.current.isDragging) return;
 
-      const deltaX = e.clientX - startXRef.current;
-      const deltaY = e.clientY - startYRef.current;
+      const deltaX = e.clientX - refs.current.startX;
+      const deltaY = e.clientY - refs.current.startY;
 
       // Только горизонтальный свайп
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
-        isDraggingRef.current = false;
+        refs.current.isDragging = false;
         return;
       }
 
       // Определяем направление
       if (Math.abs(deltaX) < 50) {
         // Слабый свайп — не переключаем
-        isDraggingRef.current = false;
+        refs.current.isDragging = false;
         return;
       }
 
@@ -148,7 +160,7 @@ const StoreInfo = () => {
       }
 
       setCurrentSlide(newSlide);
-      isDraggingRef.current = false;
+      refs.current.isDragging = false;
     };
 
     return (
@@ -157,7 +169,7 @@ const StoreInfo = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onMouseLeave={() => (isDraggingRef.current = false)}
+        onMouseLeave={() => (refs.current.isDragging = false)}
       >
         <div
           className="flex transition-transform duration-300 ease-in-out"
