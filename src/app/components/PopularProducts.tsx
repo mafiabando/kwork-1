@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 
 type ColorOption = {
@@ -507,10 +508,10 @@ const PopularProducts = () => {
       {/* Кнопки внизу */}
       <div className="mt-10 flex flex-col sm:flex-row gap-4 font-bold">
         <button className="md:min-w-[330px] px-7.5 py-3 bg-white border border-[#2c3a54] text-[#2c3a54] rounded-full hover:bg-[#2c3a54] hover:text-white transition">
-          <a href="/">Показать все</a>
+          <Link href="/">Показать все</Link>
         </button>
         <button className="md:min-w-[330px] px-7.5 py-3 bg-[#2c3a54] text-white rounded-full hover:bg-white hover:border-1 hover:border-[#2c3a54] hover:text-[#2c3a54] transition">
-          <a href="/">Перейти в каталог</a>
+          <Link href="/">Перейти в каталог</Link>
         </button>
       </div>
     </div>
