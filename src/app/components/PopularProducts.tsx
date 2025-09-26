@@ -278,7 +278,7 @@ const PopularProducts = () => {
           if (Math.abs(deltaX) > 50) {
             // Threshold
             const direction = deltaX > 0 ? -1 : 1; // Вправо: назад (предыдущий), влево: следующий
-            let newIndex =
+            const newIndex =
               (selectedColorIndex + direction + expandedColors.length) %
               expandedColors.length;
             setSelectedColorIndex(newIndex);
