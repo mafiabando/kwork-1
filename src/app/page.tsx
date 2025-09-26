@@ -2,6 +2,7 @@ import Image from "next/image";
 import HeroSlider from "./components/HeroSlider";
 import PopularCategories from "./components/PopularCategories";
 import StoreInfo from "./components/StoreInfo";
+import PopularProducts from "./components/PopularProducts";
 
 export default function Home() {
    return (
@@ -9,6 +10,7 @@ export default function Home() {
         <HeroSlider />
         <PopularCategories />
         <StoreInfo />
+        <PopularProducts />
     </main>
   );
 }
