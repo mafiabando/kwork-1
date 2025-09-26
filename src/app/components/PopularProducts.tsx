@@ -489,7 +489,7 @@ const PopularProducts = () => {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded-full text-[16px] font-medium transition ${
+            className={`px-4 py-2 border-gray-300 rounded-full text-[16px] font-medium transition ${
               activeCategory === category
                 ? "bg-[#2c3a54] text-white"
                 : "text-[#2c3a54] hover:bg-[#2c3a54] hover:text-white"
