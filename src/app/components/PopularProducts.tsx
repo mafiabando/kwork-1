@@ -153,26 +153,6 @@ const products: Product[] = [
     image: "/popular-products/a21.jpg",
     colors: [
       {
-        name: "Красный гранит",
-        color: "#a52a2a",
-        image: "/popular-products/a21-red.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
         name: "Черный гранит",
         color: "#000000",
         image: "/popular-products/a21-black.jpg",
@@ -215,15 +195,15 @@ const products: Product[] = [
 
 const PopularProducts = () => {
   const [activeCategory, setActiveCategory] = useState("Все");
-  const [isMobile, setIsMobile] = useState(false);
-  const [isNarrowMobile, setIsNarrowMobile] = useState(false); // <= 420px
+  const [isTablet, setIsTablet] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); 
 
   // Для адаптивности
   useEffect(() => {
   const checkScreenSize = () => {
     const width = window.innerWidth;
-    setIsMobile(width < 1024);
-    setIsNarrowMobile(width <= 420);
+    setIsTablet(width < 1024);
+    setIsMobile(width <= 420);
   };
 
   checkScreenSize();
@@ -252,7 +232,7 @@ const PopularProducts = () => {
     ];
 
     // Изображение для отображения
-    const displayImage = isMobile
+    const displayImage = isTablet
       ? expandedColors[selectedColorIndex]?.image
       : expandedColors[hoveredColorIndex]?.image;
 
@@ -261,7 +241,7 @@ const PopularProducts = () => {
 
     // Обработчик свайпа по изображению (для моб+десктоп)
     const handleTouchStartImage = (e: React.TouchEvent) => {
-      if (isMobile) {
+      if (isTablet) {
         // На мобиле: свайп меняет selectedColorIndex
         const startX = e.touches[0].clientX;
         const startY = e.touches[0].clientY;
@@ -365,10 +345,10 @@ const PopularProducts = () => {
       <img
         src={displayImage}
         alt={product.name}
-        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
       />
       {/* Индикаторы цветов для десктопа — на фото, при hover */}
-      {!isMobile &&
+      {!isTablet &&
         expandedColors.length > 1 && ( // >1, чтобы был смысл
           <div
             className={`absolute bottom-3 left-[10%] right-[10%] flex space-x-0.5 transition-all duration-300 z-10 ${
@@ -392,7 +372,7 @@ const PopularProducts = () => {
             )}
           </div>
         )}
-      {isMobile && expandedColors.length > 1 && (
+      {isTablet && expandedColors.length > 1 && (
         <div className="absolute bottom-0 right-3 flex flex-col items-end z-10">
           {/* Серая полоса + кружочки */}
           <div className="bg-gray-300 h-2 rounded-full px-1.5 flex space-x-1 justify-end">
@@ -416,13 +396,13 @@ const PopularProducts = () => {
       {/* Title: Адаптив шрифт */}
       <h3
         className={`font-semibold text-gray-800 mb-1 ${
-          isMobile ? "text-base" : "text-lg"
+          isTablet ? "text-base" : "text-lg"
         }`}
       >
         {product.name}
       </h3>
       {/* Высота: Адаптив отступ */}
-      <p className={`text-sm text-gray-600 ${isMobile ? "mb-4" : "mb-3"}`}>
+      <p className={`text-sm text-gray-600 ${isTablet ? "mb-4" : "mb-3"}`}>
         Общая высота: {product.height}
       </p>
       {/* Цены: Адаптив layout (убрали mb-1, чтобы mt-auto управлял пространством) */}
@@ -430,7 +410,7 @@ const PopularProducts = () => {
         // Скидка: flex-row на мобиле (актуальная слева, зачёркнутая справа); на деск — col слева
         <div
   className={`${
-    isMobile && !isNarrowMobile 
+    isTablet && !isMobile 
       ? "flex items-center mb-2" 
       : "flex flex-col mb-2"
   }`}
@@ -442,7 +422,7 @@ const PopularProducts = () => {
           </span>
           <span
             className={`text-[12px] text-gray-500 line-through ${
-              isMobile && isNarrowMobile ? "ml-2" : ""
+              isTablet && isMobile ? "ml-2" : ""
             }`}
           >
             {product.oldPrice} руб.
@@ -454,14 +434,14 @@ const PopularProducts = () => {
           <span className="text-xl font-bold text-[#2c3a54]">
             {product.price} руб.
           </span>
-          {!isMobile && <span className="h-[18px]" />}
+          {!isTablet && <span className="h-[18px]" />}
         </div>
       )}
       {/* Кнопка: mt-auto для выравнивания по низу, адаптив на мобиле */}
       <div className="mt-auto hidden md:block">
         <button
           className={`py-[9px] px-[15px] bg-white border border-[#2c3a54] text-[#2c3a54] rounded-full font-medium hover:bg-[#2c3a54] hover:text-white transition w-full sm:w-auto sm:ml-auto ${
-            isMobile ? "max-w-[200px]" : ""
+            isTablet ? "max-w-[200px]" : ""
           }`}
         >
           Подробнее
@@ -473,7 +453,7 @@ const PopularProducts = () => {
   };
 
   return (
-    <div className="w-full max-w-[1300px] mx-auto">
+    <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
       <h2 className="text-4xl font-bold text-[#2c3a54] mb-3.5 md:mb-7.5">
         Популярные товары
       </h2>

@@ -3,6 +3,7 @@ import HeroSlider from "./components/HeroSlider";
 import PopularCategories from "./components/PopularCategories";
 import StoreInfo from "./components/StoreInfo";
 import PopularProducts from "./components/PopularProducts";
+import RelatedProductsSlider from "./components/RelatedProductsSlider";
 
 export default function Home() {
    return (
@@ -11,6 +12,7 @@ export default function Home() {
         <PopularCategories />
         <StoreInfo />
         <PopularProducts />
+        <RelatedProductsSlider />
     </main>
   );
 }

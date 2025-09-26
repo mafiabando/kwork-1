@@ -278,7 +278,7 @@ const StoreInfo = () => {
   };
 
   return (
-    <div className="w-full max-w-[1300px] mx-auto px-4 py-6 mt-17 md:mt-30">
+    <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
       <h2 className="text-4xl font-bold text-[#2c3a54] mb-3.5 md:mb-7.5">
         Наш магазин
       </h2>
