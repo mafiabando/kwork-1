@@ -203,7 +203,7 @@ const products: Product[] = [
     category: "Одиночные",
     image: "/popular-products/a3.jpg", // placeholder
     colors: [
-        {
+      {
         name: "Черный гранит",
         color: "#000000",
         image: "/popular-products/a21-black.jpg",
@@ -230,7 +230,7 @@ const products: Product[] = [
     category: "Одиночные",
     image: "/popular-products/a2.jpg", // placeholder
     colors: [
-        {
+      {
         name: "Черный гранит",
         color: "#000000",
         image: "/popular-products/a21-black.jpg",
@@ -254,6 +254,7 @@ const RelatedProductsSlider = () => {
   const [isMobile, setIsMobile] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeCategory, setActiveCategory] = useState("Все");
 
   // Для адаптивности
   useEffect(() => {
@@ -470,7 +471,9 @@ const RelatedProductsSlider = () => {
           <div className="flex-1 flex flex-col xl:flex-row xl:justify-between">
             {/* Цены в одну строку */}
             <div
-              className={`flex items-center gap-2 xl:flex-col xl:items-start ${isTablet ? "mb-2" : ""}`}
+              className={`flex items-center gap-2 xl:flex-col xl:items-start ${
+                isTablet ? "mb-2" : ""
+              }`}
             >
               {hasDiscount ? (
                 <>
@@ -503,7 +506,12 @@ const RelatedProductsSlider = () => {
   };
 
   // Фильтр только товары со скидкой (discount !== undefined)
-  const discountedProducts = products.filter((p) => p.discount !== undefined);
+  const discountedProducts = products
+    .filter((p) => p.discount !== undefined)
+    .filter(
+      (product) =>
+        activeCategory === "Все" || product.category === activeCategory
+    );
 
   return (
     <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
@@ -511,50 +519,93 @@ const RelatedProductsSlider = () => {
         Товары со скидкой
       </h2>
 
-      <div ref={containerRef} className="relative">
-  {!isMobile && (
-    <>
-      <button
-        onClick={scrollLeft}
-        className="absolute left-[-16px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2c3a54" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-      </button>
-      <div
-        ref={sliderRef}
-        className="flex overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-0.5"
-        style={{
-          scrollSnapType: "x mandatory",
-          msOverflowStyle: "none",
-          scrollbarWidth: "none",
-          WebkitOverflowScrolling: "touch",
-        }}
-      >
-        {discountedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+      {/* Панель категорий */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {[
+          "Все",
+          "Одиночные",
+          "Двойные",
+          "Эксклюзивные",
+          "Гранитные ограды",
+        ].map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-4 py-2 border border-gray-300 rounded-full text-[16px] font-medium transition ${
+              activeCategory === category
+                ? "bg-[#2c3a54] text-white"
+                : "text-[#2c3a54] hover:bg-[#2c3a54] hover:text-white"
+            }`}
+          >
+            {category}
+          </button>
         ))}
       </div>
-      <button
-        onClick={scrollRight}
-        className="absolute right-[-16px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2c3a54" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 6l6 6-6 6" />
-        </svg>
-      </button>
-    </>
-  )}
 
-  {isMobile && (
-    <div className="grid grid-cols-2 ">
-      {discountedProducts.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
-  )}
-</div>
+      <div ref={containerRef} className="relative">
+        {!isMobile && (
+          <>
+            <button
+              onClick={scrollLeft}
+              className="absolute left-[-16px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2c3a54"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <div
+              ref={sliderRef}
+              className="flex overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-0.5"
+              style={{
+                scrollSnapType: "x mandatory",
+                msOverflowStyle: "none",
+                scrollbarWidth: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {discountedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+            <button
+              onClick={scrollRight}
+              className="absolute right-[-16px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2c3a54"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </>
+        )}
+
+        {isMobile && (
+          <div className="grid grid-cols-2 ">
+            {discountedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Кнопка внизу */}
       <div className="mt-10 flex">
