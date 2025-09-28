@@ -1,253 +1,8 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
-
-type ColorOption = {
-  name: string;
-  color: string;
-  image: string;
-};
-
-type Product = {
-  id: number;
-  name: string;
-  height: string;
-  price: number;
-  oldPrice?: number;
-  discount?: number;
-  category: string;
-  image: string;
-  colors: ColorOption[];
-};
-
-// Используем те же данные продуктов из вашего компонента (но отфильтруем только с скидкой для "Товары со скидкой")
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Одиночный памятник А-3",
-    height: "120 см",
-    price: 1025,
-    oldPrice: 1185,
-    discount: 13,
-    category: "Одиночные",
-    image: "/popular-products/a3.jpg", // базовое изображение
-    colors: [
-      {
-        name: "Красный гранит",
-        color: "#a52a2a",
-        image: "/popular-products/a3-red.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a3-black.jpg",
-      },
-      {
-        name: "Белый мрамор",
-        color: "#ffffff",
-        image: "/popular-products/a3-white.jpg",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Одиночный памятник А-2",
-    height: "110 см",
-    price: 965,
-    oldPrice: 1080,
-    discount: 15,
-    category: "Одиночные",
-    image: "/popular-products/a2.jpg",
-    colors: [
-      {
-        name: "Красный гранит",
-        color: "#a52a2a",
-        image: "/popular-products/a2-red.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a2-black.jpg",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Одиночный памятник А-5",
-    height: "120 см",
-    price: 1060,
-    oldPrice: 1215,
-    discount: 12,
-    category: "Одиночные",
-    image: "/popular-products/a5.jpg",
-    colors: [
-      {
-        name: "Зеленый гранит",
-        color: "#006400",
-        image: "/popular-products/a5-green.jpg",
-      },
-      {
-        name: "Серый гранит",
-        color: "#808080",
-        image: "/popular-products/a5-gray.jpg",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Одиночный памятник А-6",
-    height: "130 см",
-    price: 1025,
-    oldPrice: 1150,
-    discount: 10,
-    category: "Одиночные",
-    image: "/popular-products/a6.jpg",
-    colors: [
-      {
-        name: "Красный гранит",
-        color: "#a52a2a",
-        image: "/popular-products/a6-red.jpg",
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Одиночный памятник А-7",
-    height: "120 см",
-    price: 1025,
-    oldPrice: 1185,
-    discount: 13,
-    category: "Одиночные",
-    image: "/popular-products/a7.jpg",
-    colors: [
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a7-black.jpg",
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "Одиночный памятник А-11",
-    height: "115 см",
-    price: 990,
-    oldPrice: 1100,
-    discount: 10,
-    category: "Одиночные",
-    image: "/popular-products/a11.jpg",
-    colors: [
-      {
-        name: "Белый мрамор",
-        color: "#000",
-        image: "/popular-products/a11-white.jpg",
-      },
-    ],
-  },
-  {
-    id: 7,
-    name: "Одиночный памятник А-21",
-    height: "125 см",
-    price: 1765,
-    oldPrice: 2000,
-    discount: 11,
-    category: "Двойные",
-    image: "/popular-products/a21.jpg",
-    colors: [
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-    ],
-  },
-  {
-    id: 8,
-    name: "Одиночный памятник А-18",
-    height: "120 см",
-    price: 1965,
-    oldPrice: 2200,
-    discount: 10,
-    category: "Эксклюзивные",
-    image: "/popular-products/a18.jpg",
-    colors: [
-      {
-        name: "Золотой гранит",
-        color: "#ffd700",
-        image: "/popular-products/a18-gold.jpg",
-      },
-    ],
-  },
-  {
-    id: 9,
-    name: "Одиночный памятник А-9",
-    height: "120 см",
-    price: 1100,
-    oldPrice: 1250,
-    discount: 12,
-    category: "Одиночные",
-    image: "/popular-products/a3.jpg", // placeholder
-    colors: [
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-    ],
-  },
-  {
-    id: 10,
-    name: "Одиночный памятник А-10",
-    height: "130 см",
-    price: 1150,
-    oldPrice: 1300,
-    discount: 11,
-    category: "Одиночные",
-    image: "/popular-products/a2.jpg", // placeholder
-    colors: [
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-      {
-        name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a21-black.jpg",
-      },
-    ],
-  },
-];
+import { ColorOption, Product } from "../types/types";
+import { products  } from "../mock/products";
 
 const RelatedProductsSlider = () => {
   const [isTablet, setIsTablet] = useState(false);
@@ -457,7 +212,7 @@ const RelatedProductsSlider = () => {
         <div className="p-3 flex flex-col">
           {/* Title */}
           <h3
-            className={`font-semibold text-gray-800 mb-1 ${
+            className={`font-bold text-gray-800 mb-1 ${
               isTablet ? "text-base" : "text-lg"
             }`}
           >
@@ -493,7 +248,7 @@ const RelatedProductsSlider = () => {
 
             {/* Кнопка "Подробнее" — только если tablet, но не mobile */}
             {!isMobile && (
-              <button className="w-max mt-2 py-[9px] px-[15px] bg-white border border-[#2c3a54] text-[#2c3a54] rounded-full font-medium hover:bg-[#2c3a54] hover:text-white transition whitespace-nowrap">
+              <button className="w-max mt-2 py-[9px] px-[15px] bg-white border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition whitespace-nowrap">
                 Подробнее
               </button>
             )}
@@ -565,7 +320,7 @@ const RelatedProductsSlider = () => {
             </button>
             <div
               ref={sliderRef}
-              className="flex overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-0.5"
+              className="flex overflow-x-auto pb-4 snap-x snap-mandatory"
               style={{
                 scrollSnapType: "x mandatory",
                 msOverflowStyle: "none",

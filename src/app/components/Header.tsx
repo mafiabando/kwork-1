@@ -323,7 +323,7 @@ const Header = () => {
               <div className="flex space-x-5 xl:space-x-10 text-[16px] xl:text-[18px]">
                 <Link
                   href="/sales"
-                  className="text-[#cd5554] font-semibold flex items-center hover:text-[#2c3a5499] no-wrap"
+                  className="text-[#cd5554] font-bold flex items-center hover:text-[#2c3a5499] no-wrap"
                 >
                   <Image
                     width={22}
@@ -794,7 +794,7 @@ const Header = () => {
               <div>
                 <div className="flex items-center space-x-2">
                   <Image src="/map.svg" alt="Адрес" width={20} height={20} />
-                  <span className="font-semibold text-[16px] leading-4">
+                  <span className="font-bold text-[16px] leading-4">
                     Витебск, ул. Терешковой 9В
                   </span>
                 </div>
@@ -866,7 +866,7 @@ const Header = () => {
                   <Link
                     href="/sales"
                     role="menuitem"
-                    className="px-6 py-3 font-semibold text-[#cd5554] hover:underline gap-4 flex"
+                    className="px-6 py-3 font-bold text-[#cd5554] hover:underline gap-4 flex"
                   >
                     <Image
                       src="/percent.svg"

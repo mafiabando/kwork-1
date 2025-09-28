@@ -1,62 +1,5 @@
 import React from "react";
-
-type Category = {
-  title: string;
-  price: string;
-  img: string;
-  link: string;
-};
-
-const categories: Category[] = [
-  {
-    title: "Недорогие",
-    price: "от 610 руб.",
-    img: "/section/cheap.webp",
-    link: "/",
-  },
-  {
-    title: "Одиночные",
-    price: "от 900 руб.",
-    img: "/section/single.webp",
-    link: "/",
-  },
-  {
-    title: "Двойные",
-    price: "от 815 руб.",
-    img: "/section/double.webp",
-    link: "/",
-  },
-  {
-    title: "Эксклюзивные",
-    price: "от 1 685 руб.",
-    img: "/section/exclusive.webp",
-    link: "/",
-  },
-  {
-    title: "Мемориальные комплексы",
-    price: "",
-    img: "/section/complex.webp",
-    link: "/",
-  },
-  {
-    title: "Гранитные ограды",
-    price: "от 515 руб.",
-    img: "/section/granite.webp",
-    link: "/",
-  },
-  {
-    title: "Благоустройство могил",
-    price: "",
-    img: "/section/landscape.webp",
-    link: "/",
-  },
-  {
-    title: "Памятники",
-    price: "от 610 руб.",
-    img: "/section/monuments.webp",
-    link: "/",
-  },
-];
+import { categories } from "../mock/categories";
 
 function IconArrow() {
   return (
@@ -105,7 +48,7 @@ export default function PopularCategories() {
           ))}
         </ul>
 
-        <button className="mt-6 w-full bg-[#2c3a54] text-white text-lg font-semibold py-3 rounded-4xl">
+        <button className="mt-6 w-full bg-[#2c3a54] text-white text-lg font-bold py-3 rounded-4xl">
           Смотреть весь каталог
         </button>
       </div>
@@ -126,7 +69,7 @@ export default function PopularCategories() {
                 width={198}
                 height={198}
               />
-              <h3 className="font-semibold text-gray-800">{title}</h3>
+              <h3 className="font-bold text-gray-800">{title}</h3>
               <div className="flex-grow" />
               <p className="text-[#cd5554] leading-6 min-h-[1.25rem]">
                 {price && price.trim() !== "" ? price : "\u00A0"}

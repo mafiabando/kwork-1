@@ -4,6 +4,8 @@ import PopularCategories from "./components/PopularCategories";
 import StoreInfo from "./components/StoreInfo";
 import PopularProducts from "./components/PopularProducts";
 import RelatedProductsSlider from "./components/RelatedProductsSlider";
+import CompleteSolutionSlider from "./components/CompleteSolutionSlider";
+
 
 export default function Home() {
    return (
@@ -13,6 +15,7 @@ export default function Home() {
         <StoreInfo />
         <PopularProducts />
         <RelatedProductsSlider />
+        <CompleteSolutionSlider />
     </main>
   );
 }
