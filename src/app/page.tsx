@@ -5,6 +5,7 @@ import StoreInfo from "./components/StoreInfo";
 import PopularProducts from "./components/PopularProducts";
 import RelatedProductsSlider from "./components/RelatedProductsSlider";
 import CompleteSolutionSlider from "./components/CompleteSolutionSlider";
+import BannerForm from "./components/BannerForm";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <PopularProducts />
         <RelatedProductsSlider />
         <CompleteSolutionSlider />
+        <BannerForm />
     </main>
   );
 }

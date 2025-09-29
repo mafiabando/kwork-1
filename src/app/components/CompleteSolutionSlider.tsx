@@ -189,11 +189,11 @@ const CompleteSolutionSlider = () => {
           </>
         )}
       </div>
-      {/* Кнопка внизу: centered */}
+      {/* Кнопка внизу */}
       <div className="mt-10 flex">
-        <button className="font-bold px-7.5 py-3 bg-[#2c3a54] text-white rounded-full hover:bg-white hover:border border-[#2c3a54] hover:text-[#2c3a54] transition">
+        <button className="font-bold w-full md:w-max px-7.5 py-3 bg-[#2c3a54] text-white rounded-full hover:bg-white hover:border border-[#2c3a54] hover:text-[#2c3a54] transition">
           <Link href="/">Смотреть все</Link>
-        </button>
+        </button> 
       </div>
     </div>
   );

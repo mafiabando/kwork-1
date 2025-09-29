@@ -7,6 +7,7 @@ import { products  } from "../mock/products";
 const RelatedProductsSlider = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isNarrowMobile, setIsNarrowMobile] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState("Все");
@@ -17,6 +18,7 @@ const RelatedProductsSlider = () => {
       const width = window.innerWidth;
       setIsTablet(width < 1200);
       setIsMobile(width < 768);
+      setIsNarrowMobile(width < 420)
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -226,8 +228,8 @@ const RelatedProductsSlider = () => {
           <div className="flex-1 flex flex-col xl:flex-row xl:justify-between">
             {/* Цены в одну строку */}
             <div
-              className={`flex items-center gap-2 xl:flex-col xl:items-start ${
-                isTablet ? "mb-2" : ""
+              className={`flex items-center xl:flex-col xl:items-start ${
+                isNarrowMobile ? "flex-col gap-0 items-start" : "gap-2"
               }`}
             >
               {hasDiscount ? (

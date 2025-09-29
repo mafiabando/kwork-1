@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: LatoBold;
+    src: url(/fonts/LatoBold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: LatoRegular;
+    src: url(/fonts/LatoRegular.ttf) format("truetype");
+}
 
 :root {
   --background: #ffffff;
@@ -16,6 +25,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: LatoRegular, Arial, sans-serif;
   max-width: (100px, 200px);
+}
+
+.font-bold {
+  font-family: LatoBold, Arial, sans-serif;
+  font-weight: 700;
 }
