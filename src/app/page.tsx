@@ -6,6 +6,7 @@ import PopularProducts from "./components/PopularProducts";
 import RelatedProductsSlider from "./components/RelatedProductsSlider";
 import CompleteSolutionSlider from "./components/CompleteSolutionSlider";
 import BannerForm from "./components/BannerForm";
+import PaymentInfo from "./components/PaymentInfo";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <RelatedProductsSlider />
         <CompleteSolutionSlider />
         <BannerForm />
+        <PaymentInfo />
     </main>
   );
 }
