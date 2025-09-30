@@ -366,12 +366,12 @@ const RelatedProductsSlider = () => {
 
       {/* Кнопка внизу */}
       <div className="mt-10 flex">
-        <button className="font-bold md:min-w-[330px] px-7.5 py-3 bg-white border border-[#2c3a54] text-[#2c3a54] rounded-full hover:bg-[#2c3a54] hover:text-white transition">
+        <button className="font-bold md:min-w-[330px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
           <Link href="/">Смотреть все</Link>
         </button>
       </div>
     </div>
-  );
+  );  
 };
 
 export default RelatedProductsSlider;

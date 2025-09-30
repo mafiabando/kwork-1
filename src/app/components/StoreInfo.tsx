@@ -267,9 +267,8 @@ const StoreInfo = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2.5 h-2.5 border-1 border-black rounded-full ${
-                index === safeCurrentSlide ? "bg-[#2c3a54]" : "bg-white"
-              }`}
+              className={`w-2.5 h-2.5 border-1 border-black rounded-full ${index === safeCurrentSlide ? "bg-[#2c3a54]" : "bg-white"
+                }`}
             ></button>
           ))}
         </div>
@@ -669,6 +668,10 @@ const StoreInfo = () => {
             className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center p-4"
             onClick={(e) => e.stopPropagation()} // Не закрывать при клике на контент
           >
+            {/* Индикатор текущего слайда (например, "1 / 5") */}
+            <div className="absolute top-4 left-4 text-white text-sm bg-black bg-opacity-70 px-2 py-1 rounded z-10">
+              {currentModalSlide + 1} / {slides.length}
+            </div>
             {/* Стрелка влево */}
             <button
               onClick={prevSlide}

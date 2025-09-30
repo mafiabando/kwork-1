@@ -7,19 +7,23 @@ import RelatedProductsSlider from "./components/RelatedProductsSlider";
 import CompleteSolutionSlider from "./components/CompleteSolutionSlider";
 import BannerForm from "./components/BannerForm";
 import PaymentInfo from "./components/PaymentInfo";
+import OurWorksSlider from "./components/OurWorksSlider";
+import OrderStepsSection from "./components/OrderStepsSection";
 
 
 export default function Home() {
    return (
     <main className="px-4 lg:px-6">
-        <HeroSlider />
+        <HeroSlider/>
         <PopularCategories />
         <StoreInfo />
         <PopularProducts />
         <RelatedProductsSlider />
         <CompleteSolutionSlider />
         <BannerForm />
+        <OurWorksSlider />
         <PaymentInfo />
+        <OrderStepsSection />
     </main>
   );
 }

@@ -50,7 +50,7 @@ const BannerForm = () => {
                         alt="Viber"
                     />
                 </Link>
-                <a
+                <Link
                     href="#"
                     className="rounded-full flex items-center justify-center text-white"
                 >
@@ -60,8 +60,8 @@ const BannerForm = () => {
                         src={"/tm.svg"}
                         alt="Telegram"
                     />
-                </a>
-                <a
+                </Link>
+                <Link
                     href="#"
                     className="rounded-full flex items-center justify-center text-white"
                 >
@@ -71,7 +71,7 @@ const BannerForm = () => {
                         src={"/wa.svg"}
                         alt="WhatsApp"
                     />
-                </a>
+                </Link>
             </div>
         </div>
     )
