@@ -114,7 +114,7 @@ const OurWorksSlider = () => {
     };
 
     // Карточка работы (без цен, без кнопок, только фото)
-    const WorkCard = ({ work, index }: { work: any; index: number }) => {
+    const WorkCard = ({ work, index }: { work: { id: number; src: string; alt: string }; index: number }) => {
         const cardBasis = isMobile
             ? "basis-[calc(100%_+_10px)]" // 100% + немного перекрытия
             : isTablet
