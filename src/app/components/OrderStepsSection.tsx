@@ -26,7 +26,7 @@ const OrderStepsSection = () => {
 
   return (
     <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
-      <h2 className="text-4xl font-bold text-[#2c3a54] mb-6 text-center">Как сделать заказ</h2>
+      <h1 className="text-4xl font-bold text-[#2c3a54] mb-11.5 md:text-center">Как сделать заказ</h1>
 
       <div className={`flex ${isMobile ? 'flex-col gap-10' : isTablet ? 'flex-col md:flex-row md:flex-wrap' : 'flex-row'}`}>
         {/* Карточка 1: Оставьте заявку */}
