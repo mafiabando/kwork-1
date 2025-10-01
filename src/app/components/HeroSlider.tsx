@@ -188,7 +188,7 @@ const HeroSlider = () => {
 
   return (
     <section
-      className="relative w-full"
+      className="relative container-centered"
       style={{ height: getSliderHeight() }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

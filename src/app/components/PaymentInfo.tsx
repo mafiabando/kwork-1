@@ -18,8 +18,8 @@ const PaymentInfo = () => {
   }, []);
 
   return (
-    <div className="pt-5.5 pb-8 md:py-17.25 mt-17 md:mt-30 mx-[-16px] lg:mx-[-24px] bg-[#2c3a54]">
-      <div className="w-full px-4 md:px-8 lg:px-12 max-w-7xl mx-auto">
+    <section className="pt-5.5 pb-8 md:py-17.25 mt-17 md:mt-30 bg-[#2c3a54]">
+      <div className="w-full px-4 md:px-4 lg:px-5 max-w-[1300px] ">
         <div className={`flex ${isMobile ? 'flex-col' : 'md:flex-row'} gap-8 md:gap-12 items-start`}>
           {/* Левая колонка — текст и кнопка */}
           <div className={`${isMobile ? 'w-full' : 'md:w-1/3'}`}>
@@ -82,7 +82,7 @@ const PaymentInfo = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

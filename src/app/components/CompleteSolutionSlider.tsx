@@ -110,8 +110,8 @@ const CompleteSolutionSlider = () => {
   };
 
   return (
-    <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
-      {" "}
+    <section className="max-w-[1300px] mt-17 md:mt-30 container-centered">
+
       <h2 className="text-4xl font-bold text-[#2c3a54] mb-6">Готовые решения</h2>
       <div
         ref={containerRef}
@@ -195,7 +195,7 @@ const CompleteSolutionSlider = () => {
           <Link href="/">Смотреть все</Link>
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

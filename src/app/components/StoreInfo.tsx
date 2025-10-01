@@ -277,7 +277,7 @@ const StoreInfo = () => {
   };
 
   return (
-    <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
+    <section className="max-w-[1300px]  mt-17 md:mt-30 container-centered">
       <h2 className="text-4xl font-bold text-[#2c3a54] mb-3.5 md:mb-7.5">
         Наш магазин
       </h2>
@@ -701,7 +701,7 @@ const StoreInfo = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -7,38 +7,21 @@ const WhyTrustUs = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Для адаптивности — используем matchMedia
+  // Для адаптивности
   useEffect(() => {
-    const mediaQueryTablet = window.matchMedia("(max-width: 1023px)");
-    const mediaQueryMobile = window.matchMedia("(max-width: 767px)");
-
-    // Устанавливаем начальное значение
-    setIsTablet(mediaQueryTablet.matches);
-    setIsMobile(mediaQueryMobile.matches);
-
-    // Функция для обновления состояния
-    const handleChangeTablet = (e: MediaQueryListEvent) => {
-      setIsTablet(e.matches);
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsTablet(width < 1024);
+      setIsMobile(width < 768);
     };
-
-    const handleChangeMobile = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches);
-    };
-
-    // Добавляем слушатели
-    mediaQueryTablet.addEventListener("change", handleChangeTablet);
-    mediaQueryMobile.addEventListener("change", handleChangeMobile);
-
-    // Убираем слушатели при размонтировании
-    return () => {
-      mediaQueryTablet.removeEventListener("change", handleChangeTablet);
-      mediaQueryMobile.removeEventListener("change", handleChangeMobile);
-    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   return (
     <section className="bg-gray-50">
-      <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
+      <div className=" max-w-[1300px] mt-17 md:mt-30 container-centered">
         <div className="pt-[93px] mb-[30px]">
           <h2 className="text-4xl font-bold text-[#2c3a54] mb-6">
             Почему нам доверяют
@@ -135,7 +118,7 @@ const WhyTrustUs = () => {
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
               <div className="w-full  mb-6">
                 <div
-                  className="relative p-6 min-h-[250px] rounded-lg bg-[#4F6BD5] flex flex-col justify-between"
+                  className="relative p-6 min-h-[250px] rounded-lg bg-[#4f6be7] flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
                 >
                   <div className="">
@@ -182,7 +165,7 @@ const WhyTrustUs = () => {
             </div>
 
             {/* Карточка 6 */}
-            <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div style={{ display: 'flex', alignItems: 'stretch' }}>
               <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#EAE0D5] flex flex-col justify-between"
@@ -220,7 +203,7 @@ const WhyTrustUs = () => {
         ) : isTablet ? (
           <>
             {/* Ряд 1 */}
-            <div className="flex flex-wrap -mx-2.5 mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="flex flex-wrap mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 1: широкая */}
               <div className="w-[50%]  mb-6">
                 <div
@@ -276,7 +259,7 @@ const WhyTrustUs = () => {
             </div>
 
             {/* Ряд 2 */}
-            <div className="flex flex-wrap -mx-2.5 mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="flex flex-wrap  mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 3: узкая */}
               <div className="w-[50%]  mb-6">
                 <div
@@ -304,7 +287,7 @@ const WhyTrustUs = () => {
               {/* Карточка 4: узкая */}
               <div className="w-[50%]  mb-6">
                 <div
-                  className="relative p-6 min-h-[250px] rounded-lg bg-[#4F6BD5] flex flex-col justify-between"
+                  className="relative p-6 min-h-[250px] rounded-lg bg-[#4f6be7] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
                 >
                   <div className="">
@@ -326,7 +309,7 @@ const WhyTrustUs = () => {
             </div>
 
             {/* Ряд 3 */}
-            <div className="flex flex-wrap -mx-2.5" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="flex flex-wrap " style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 5: узкая */}
               <div className="w-[50%]  mb-6">
                 <div
@@ -388,7 +371,7 @@ const WhyTrustUs = () => {
         ) : (
           <>
             {/* Верхний ряд */}
-            <div className="flex flex-wrap -mx-2.5 mb-5" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="flex flex-wrap  mb-5" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 1: широкая */}
               <div className="w-[50%]  mb-6">
                 <div
@@ -468,11 +451,11 @@ const WhyTrustUs = () => {
             </div>
 
             {/* Нижний ряд */}
-            <div className="flex flex-wrap -mx-2.5" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="flex flex-wrap " style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 4: узкая */}
               <div className="w-[25%]  mb-6">
                 <div
-                  className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#4F6BD5] flex flex-col justify-between"
+                  className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#4f6be7] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
                 >
                   <div className="max-w-[92%]">

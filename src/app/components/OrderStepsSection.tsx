@@ -25,7 +25,7 @@ const OrderStepsSection = () => {
   };
 
   return (
-    <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
+    <section className="max-w-[1300px] mt-17 md:mt-30 container-centered">
       <h1 className="text-4xl font-bold text-[#2c3a54] mb-11.5 md:text-center">Как сделать заказ</h1>
 
       <div className={`flex ${isMobile ? 'flex-col gap-10' : isTablet ? 'flex-col md:flex-row md:flex-wrap' : 'flex-row'}`}>
@@ -64,7 +64,7 @@ const OrderStepsSection = () => {
 
         {/* Карточка 2: Проконсультируйтесь с менеджером */}
         <div className={`relative flex flex-col justify-between px-4.5 pt-12.5 mx-2.5 rounded-xl bg-[#f5f6fa] ${isMobile ? 'w-full' : isTablet ? 'w-full md:w-[calc(50%-20px)]' : 'w-[calc(25%-20px)]'}`}>
-          <div className="absolute top-[-24px] left-1/2 transform -translate-x-1/2 w-8 h-8 w-13 h-13 border-5 border-white bg-[#cd5554] font-bold rounded-full flex items-center justify-center">2</div>
+          <div className="absolute top-[-24px] left-1/2 transform -translate-x-1/2 w-13 h-13 border-5 border-white bg-[#cd5554] font-bold rounded-full flex items-center justify-center">2</div>
           <div>
             <h3 className="text-[#2c3a54] font-bold text-xl mb-3 text-center">Проконсультируйтесь с менеджером</h3>
             <p className="text-[#2c3a54] mb-4 text-center">
@@ -78,7 +78,7 @@ const OrderStepsSection = () => {
 
         {/* Карточка 3: Сделаем расчет */}
         <div className={`relative flex flex-col justify-between px-4.5 pt-12.5 mx-2.5 rounded-xl bg-[#f5f6fa] ${isMobile ? 'w-full' : isTablet ? 'w-full md:w-[calc(50%-20px)]' : 'w-[calc(25%-20px)]'}`}>
-          <div className="absolute top-[-24px] left-1/2 transform -translate-x-1/2 w-8 h-8 w-13 h-13 border-5 border-white bg-[#cd5554] font-bold rounded-full flex items-center justify-center">3</div>
+          <div className="absolute top-[-24px] left-1/2 transform -translate-x-1/2 w-13 h-13 border-5 border-white bg-[#cd5554] font-bold rounded-full flex items-center justify-center">3</div>
           <div>
             <h3 className="text-[#2c3a54] font-bold text-xl mb-3 text-center">Сделаем расчет</h3>
             <p className="text-[#2c3a54] mb-4 text-center">
@@ -92,7 +92,7 @@ const OrderStepsSection = () => {
 
         {/* Карточка 4: Заключим договор и подберём удобный способ оплаты */}
         <div className={`relative flex flex-col justify-between px-4.5 pt-12.5 mx-2.5 rounded-xl bg-[#f5f6fa] ${isMobile ? 'w-full' : isTablet ? 'w-full md:w-[calc(50%-20px)]' : 'w-[calc(25%-20px)]'}`}>
-          <div className="absolute top-[-24px] left-1/2 transform -translate-x-1/2 w-8 h-8 w-13 h-13 border-5 border-white bg-[#cd5554] font-bold rounded-full flex items-center justify-center">4</div>
+          <div className="absolute top-[-24px] left-1/2 transform -translate-x-1/2 w-13 h-13 border-5 border-white bg-[#cd5554] font-bold rounded-full flex items-center justify-center">4</div>
           <div>
             <h3 className="text-[#2c3a54] font-bold text-xl mb-3 text-center">Заключим договор и подберём удобный способ оплаты</h3>
             <p className="text-[#2c3a54] mb-4 text-center">
@@ -104,7 +104,7 @@ const OrderStepsSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

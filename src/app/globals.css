@@ -33,3 +33,31 @@ body {
   font-family: LatoBold, Arial, sans-serif;
   font-weight: 700;
 }
+
+@media (min-width: 1380px) {
+  .container-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1379px) {
+  .container-centered {
+    margin-left: 40px; 
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 1299px) {
+  .container-centered {
+    margin-left: 20px; 
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 999px) {
+  .container-centered {
+    margin-left: 16px; 
+    margin-right: 16px;
+  }
+}

@@ -15,7 +15,7 @@ import ReviewsSlider from "./components/ReviewsSlider";
 
 export default function Home() {
    return (
-    <main className="px-4 lg:px-6">
+    <main className="overflow-hidden">
         <HeroSlider/>
         <PopularCategories />
         <StoreInfo />

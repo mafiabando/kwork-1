@@ -11,33 +11,16 @@ const ReviewsSlider = () => {
   const startX = useRef(0);
   const isDragging = useRef(false);
 
-  // Для адаптивности — используем matchMedia
+  // Для адаптивности
   useEffect(() => {
-    const mediaQueryTablet = window.matchMedia("(max-width: 1023px)");
-    const mediaQueryMobile = window.matchMedia("(max-width: 767px)");
-
-    // Устанавливаем начальное значение
-    setIsTablet(mediaQueryTablet.matches);
-    setIsMobile(mediaQueryMobile.matches);
-
-    // Функция для обновления состояния
-    const handleChangeTablet = (e: MediaQueryListEvent) => {
-      setIsTablet(e.matches);
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsTablet(width < 1024);
+      setIsMobile(width < 768);
     };
-
-    const handleChangeMobile = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches);
-    };
-
-    // Добавляем слушатели
-    mediaQueryTablet.addEventListener("change", handleChangeTablet);
-    mediaQueryMobile.addEventListener("change", handleChangeMobile);
-
-    // Убираем слушатели при размонтировании
-    return () => {
-      mediaQueryTablet.removeEventListener("change", handleChangeTablet);
-      mediaQueryMobile.removeEventListener("change", handleChangeMobile);
-    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   // Данные отзывов
@@ -205,7 +188,7 @@ const ReviewsSlider = () => {
       <span
         key={i}
         className={`inline-block w-4 h-4 ${
-          i < rating ? "text-yellow-500" : "text-gray-300"
+          i < rating ? "text-orange-500" : "text-gray-300"
         }`}
       >
         ★
@@ -221,8 +204,8 @@ const ReviewsSlider = () => {
     return reviews.map((review) => (
       <div
         key={review.id}
-        className="w-full p-6 bg-white shadow-sm"
-        style={{ padding: "0 0 17px", margin: "20px 0" }}
+        className="w-full p-6 bg-gray-50 space-y-5"
+        style={{ padding: "0 0 17px" }}
       >
         <div className="flex-1">
           <h3 className="font-bold text-lg text-[#2c3a54]">{review.name}</h3>
@@ -263,7 +246,7 @@ const ReviewsSlider = () => {
 
   return (
     <section className="bg-gray-50">
-      <div className="w-full max-w-[1300px] mx-auto pt-17 md:pt-30 md:pb-[140px]">
+      <div className="max-w-[1300px] pt-17 md:pt-30 md:pb-[140px] container-centered">
         <div className="mb-6">
           <h2 className="text-4xl font-bold text-[#2c3a54] mb-4">
             Клиенты о нас
@@ -280,7 +263,10 @@ const ReviewsSlider = () => {
                   Все отзывы
                 </Link>
                 <div className="flex items-center space-x-2">
-                  <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
+                  <Link
+                    href={"/"}
+                    className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
+                  >
                     <Image
                       src="/review/1.webp"
                       alt="Google"
@@ -294,7 +280,10 @@ const ReviewsSlider = () => {
                   </Link>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
+                  <Link
+                    href={"/"}
+                    className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
+                  >
                     <Image
                       src="/review/2.webp"
                       alt="Yandex"
@@ -308,7 +297,10 @@ const ReviewsSlider = () => {
                   </Link>
                 </div>
               </div>
-              <Link href={'/'} className="w-full py-3 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
+              <Link
+                href={"/"}
+                className="w-full text-center px-3.75 py-2.25 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition"
+              >
                 Оставить свой отзыв
               </Link>
             </div>
@@ -322,7 +314,10 @@ const ReviewsSlider = () => {
                 Все отзывы
               </Link>
               <div className="flex items-center space-x-2">
-                <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
+                <Link
+                  href={"/"}
+                  className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
+                >
                   <Image
                     src="/review/1.webp"
                     alt="Google"
@@ -336,7 +331,10 @@ const ReviewsSlider = () => {
                 </Link>
               </div>
               <div className="flex items-center space-x-2">
-                <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
+                <Link
+                  href={"/"}
+                  className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
+                >
                   <Image
                     src="/review/2.webp"
                     alt="Yandex"
@@ -350,7 +348,10 @@ const ReviewsSlider = () => {
                 </Link>
               </div>
               <div className="border-l border-gray-300 mx-4 h-8"></div>
-              <Link href={'/'} className="px-6 py-2 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
+              <Link
+                href={"/"}
+                className="px-3.75 py-2.25 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition"
+              >
                 Оставить свой отзыв
               </Link>
             </div>
@@ -358,29 +359,15 @@ const ReviewsSlider = () => {
         </div>
 
         {/* Слайдер (только если НЕ мобильный или мобильный, но НЕ показаны все отзывы) */}
-        {!isMobile || !showAllReviews ? (
-          <div
-            className="relative overflow-hidden"
-            onTouchStart={handleTouchStart}
-            onMouseDown={handleMouseDown}
-          >
-            <div
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{
-                transform: `translateX(-${currentSlide * slideWidth}%)`,
-              }}
-            >
-              {reviews.map((review) => (
+        {isMobile ? (
+          // Мобильная версия: если НЕ показаны все отзывы — показываем первые 2 отзыва
+          !showAllReviews ? (
+            <div className="mt-6 space-y-4">
+              {reviews.slice(0, 2).map((review) => (
                 <div
                   key={review.id}
-                  className={`flex-shrink-0 ${
-                    isMobile ? "w-full" : isTablet ? "w-1/2" : "w-1/4"
-                  } p-6 bg-white shadow-sm relative`}
-                  style={
-                    isMobile
-                      ? { padding: "0 0 17px", margin: "20px 0" }
-                      : { padding: "33px 24px 67px" }
-                  }
+                  className="w-full p-6 bg-gray-50"
+                  style={{ padding: "0 0 17px", margin: "20px 0" }}
                 >
                   <div className="flex-1">
                     <h3 className="font-bold text-lg text-[#2c3a54]">
@@ -410,31 +397,31 @@ const ReviewsSlider = () => {
                     >
                       {review.text}
                     </p>
-                    {/* Позиционирование "Отзыв из Google" — абсолютное для >=768px, margin-top для <768px */}
                     <p
-                      className={`text-sm text-[#2c3a54] font-bold ${
-                        isMobile ? "mt-3.75" : "absolute bottom-8.25 left-6"
-                      }`}
-                      style={
-                        isMobile
-                          ? {
-                              fontSize: "16px",
-                              lineHeight: "22px",
-                              marginTop: "15px",
-                            }
-                          : {
-                              fontSize: "16px",
-                              lineHeight: "22px",
-                            }
-                      }
+                      className="text-sm text-[#2c3a54] font-bold mt-3.75"
+                      style={{
+                        fontSize: "16px",
+                        lineHeight: "22px",
+                        marginTop: "15px",
+                      }}
                     >
                       {review.source}
                     </p>
                   </div>
                 </div>
               ))}
+              {/* Кнопка "Показать ещё" */}
+              <button
+                onClick={() => setShowAllReviews(true)}
+                className="w-full py-3 bg-[#2c3a54] text-white rounded-full font-bold text-center hover:bg-opacity-90 transition"
+              >
+                Показать ещё
+              </button>
             </div>
-          </div>
+          ) : (
+            // Если showAllReviews === true — показываем все отзывы
+            <div className="mt-6">{renderMobileReviews()}</div>
+          )
         ) : null}
 
         {/* Индикаторы — только если НЕ мобильный ИЛИ если мобильный, но НЕ показаны все отзывы */}
@@ -458,18 +445,6 @@ const ReviewsSlider = () => {
                 ></button>
               )
             )}
-          </div>
-        )}
-
-        {/* Кнопка "Показать ещё" — только на мобильных, если не показаны все отзывы */}
-        {isMobile && !showAllReviews && (
-          <div className="mt-6">
-            <button
-              onClick={() => setShowAllReviews(true)}
-              className="w-full py-3 bg-[#2c3a54] text-white rounded-full font-bold text-center hover:bg-opacity-90 transition"
-            >
-              Показать ещё
-            </button>
           </div>
         )}
 
