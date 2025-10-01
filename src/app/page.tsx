@@ -10,6 +10,7 @@ import PaymentInfo from "./components/PaymentInfo";
 import OurWorksSlider from "./components/OurWorksSlider";
 import OrderStepsSection from "./components/OrderStepsSection";
 import WhyTrustUs from "./components/WhyTrustUs";
+import ReviewsSlider from "./components/ReviewsSlider";
 
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
         <PaymentInfo />
         <OrderStepsSection />
         <WhyTrustUs />
+        <ReviewsSlider />
     </main>
   );
 }

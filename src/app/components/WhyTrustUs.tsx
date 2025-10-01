@@ -37,10 +37,10 @@ const WhyTrustUs = () => {
   }, []);
 
   return (
-    <section className="w-[100vw] bg-gray-50">
+    <section className="bg-gray-50">
       <div className="w-full max-w-[1300px] mx-auto mt-17 md:mt-30">
         <div className="pt-[93px] mb-[30px]">
-          <h2 className="text-4xl font-bold px-2.5 text-[#2c3a54] mb-6">
+          <h2 className="text-4xl font-bold text-[#2c3a54] mb-6">
             Почему нам доверяют
           </h2>
         </div>
@@ -50,7 +50,7 @@ const WhyTrustUs = () => {
           <>
             {/* Карточка 1 */}
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-              <div className="w-full px-2.5 mb-6">
+              <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-white flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
@@ -81,7 +81,7 @@ const WhyTrustUs = () => {
 
             {/* Карточка 2 */}
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-              <div className="w-full px-2.5 mb-6">
+              <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#B2DBFD] flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
@@ -107,7 +107,7 @@ const WhyTrustUs = () => {
 
             {/* Карточка 3 */}
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-              <div className="w-full px-2.5 mb-6">
+              <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#F6D1AA] flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
@@ -133,7 +133,7 @@ const WhyTrustUs = () => {
 
             {/* Карточка 4 */}
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-              <div className="w-full px-2.5 mb-6">
+              <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#4F6BD5] flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
@@ -158,7 +158,7 @@ const WhyTrustUs = () => {
 
             {/* Карточка 5 */}
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-              <div className="w-full px-2.5 mb-6">
+              <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#fff] flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
@@ -183,7 +183,7 @@ const WhyTrustUs = () => {
 
             {/* Карточка 6 */}
             <div className="mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-              <div className="w-full px-2.5 mb-6">
+              <div className="w-full  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#EAE0D5] flex flex-col justify-between"
                   style={{ padding: "18px 17px 66px 18px", height: '100%' }}
@@ -222,7 +222,7 @@ const WhyTrustUs = () => {
             {/* Ряд 1 */}
             <div className="flex flex-wrap -mx-2.5 mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 1: широкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-white flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -251,7 +251,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 2: узкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#B2DBFD] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -278,7 +278,7 @@ const WhyTrustUs = () => {
             {/* Ряд 2 */}
             <div className="flex flex-wrap -mx-2.5 mb-4" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 3: узкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#F6D1AA] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -302,7 +302,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 4: узкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#4F6BD5] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -328,7 +328,7 @@ const WhyTrustUs = () => {
             {/* Ряд 3 */}
             <div className="flex flex-wrap -mx-2.5" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 5: узкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#fff] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -351,7 +351,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 6: широкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] rounded-lg bg-[#EAE0D5] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -390,7 +390,7 @@ const WhyTrustUs = () => {
             {/* Верхний ряд */}
             <div className="flex flex-wrap -mx-2.5 mb-5" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 1: широкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-white flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -419,7 +419,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 2: узкая */}
-              <div className="w-[25%] px-2.5 mb-6">
+              <div className="w-[25%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#B2DBFD] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -443,7 +443,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 3: узкая */}
-              <div className="w-[25%] px-2.5 mb-6">
+              <div className="w-[25%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#F6D1AA] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -470,7 +470,7 @@ const WhyTrustUs = () => {
             {/* Нижний ряд */}
             <div className="flex flex-wrap -mx-2.5" style={{ display: 'flex', alignItems: 'stretch' }}>
               {/* Карточка 4: узкая */}
-              <div className="w-[25%] px-2.5 mb-6">
+              <div className="w-[25%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#4F6BD5] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -493,7 +493,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 5: узкая */}
-              <div className="w-[25%] px-2.5 mb-6">
+              <div className="w-[25%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#fff] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
@@ -516,7 +516,7 @@ const WhyTrustUs = () => {
               </div>
 
               {/* Карточка 6: широкая */}
-              <div className="w-[50%] px-2.5 mb-6">
+              <div className="w-[50%]  mb-6">
                 <div
                   className="relative p-6 min-h-[250px] mx-2.5 rounded-lg bg-[#EAE0D5] flex flex-col justify-between"
                   style={{ padding: "22px 22px 60px 23px", height: '100%' }}
