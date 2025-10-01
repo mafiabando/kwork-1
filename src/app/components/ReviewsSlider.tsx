@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ReviewsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -272,64 +273,86 @@ const ReviewsSlider = () => {
             // Мобильная версия: 3 кнопки + отдельная кнопка "Оставить отзыв"
             <div className="flex flex-col space-y-4">
               <div className="flex items-center space-x-2">
-                <button className="px-4 py-2 bg-[#2c3a54] text-white rounded-full font-bold">
+                <Link
+                  href={"/"}
+                  className="px-4.5 py-2.5 bg-[#2c3a54] text-white rounded-full border-1 border-[#2c3a54] hover:bg-white hover:text-[#2c3a54]"
+                >
                   Все отзывы
-                </button>
+                </Link>
                 <div className="flex items-center space-x-2">
-                  <div className="w-max px-4.5 py-2.5 bg-white border border-[#2c3a54] rounded-full flex items-center justify-center">
+                  <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
                     <Image
                       src="/review/1.webp"
                       alt="Google"
-                      width={22}
-                      height={22}
+                      width={21}
+                      height={21}
                       className="mr-2.5"
                     />
-                    <span className="text-lg text-[#2c3a54]">
+                    <span className="text-md leading-5.5 text-[#2c3a54]">
                       5.0
                     </span>
-                  </div>
+                  </Link>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-max px-4.5 py-2.5 bg-white border border-[#2c3a54] rounded-full flex items-center justify-center">
+                  <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
                     <Image
                       src="/review/2.webp"
                       alt="Yandex"
-                      width={22}
-                      height={22}
+                      width={21}
+                      height={21}
                       className="mr-2.5"
                     />
-                    <span className="text-lg text-[#2c3a54]">
+                    <span className="text-md leading-5.5 text-[#2c3a54]">
                       4.9
                     </span>
-                  </div>
+                  </Link>
                 </div>
               </div>
-              <button className="w-full py-3 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
+              <Link href={'/'} className="w-full py-3 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
                 Оставить свой отзыв
-              </button>
+              </Link>
             </div>
           ) : (
             // Десктоп/планшет: 3 кнопки + кнопка "Оставить отзыв" в одной строке с разделителем
             <div className="flex items-center space-x-4">
-              <button className="px-4 py-2 bg-[#2c3a54] text-white rounded-full font-bold">
+              <Link
+                href={"/"}
+                className="px-4.5 py-2.5 bg-[#2c3a54] text-white rounded-full border-1 border-[#2c3a54] hover:bg-white hover:text-[#2c3a54]"
+              >
                 Все отзывы
-              </button>
+              </Link>
               <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-white border border-[#2c3a54] rounded-full flex items-center justify-center">
-                  <img src="/google.svg" alt="Google" className="w-5 h-5" />
-                </div>
-                <span className="text-lg font-bold">5.0</span>
+                <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
+                  <Image
+                    src="/review/1.webp"
+                    alt="Google"
+                    width={21}
+                    height={21}
+                    className="mr-2.5"
+                  />
+                  <span className="text-md leading-5.5 text-[#2c3a54]">
+                    5.0
+                  </span>
+                </Link>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-white border border-[#2c3a54] rounded-full flex items-center justify-center">
-                  <img src="/yandex.svg" alt="Yandex" className="w-5 h-5" />
-                </div>
-                <span className="text-lg font-bold">4.9</span>
+                <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
+                  <Image
+                    src="/review/2.webp"
+                    alt="Yandex"
+                    width={21}
+                    height={21}
+                    className="mr-2.5"
+                  />
+                  <span className="text-md leading-5.5 text-[#2c3a54]">
+                    4.9
+                  </span>
+                </Link>
               </div>
               <div className="border-l border-gray-300 mx-4 h-8"></div>
-              <button className="px-6 py-2 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
+              <Link href={'/'} className="px-6 py-2 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
                 Оставить свой отзыв
-              </button>
+              </Link>
             </div>
           )}
         </div>
