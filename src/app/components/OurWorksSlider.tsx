@@ -237,9 +237,9 @@ const OurWorksSlider = () => {
 
             {/* Кнопка внизу */}
             <div className="mt-10 flex">
-                <button className="font-bold md:min-w-[330px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
-                    <Link href="/">Смотреть все</Link>
-                </button>
+                <Link href={'/'} className="font-bold md:min-w-[330px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
+                    Смотреть все
+                </Link>
             </div>
 
             {/* Модальное окно */}

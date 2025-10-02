@@ -32,12 +32,11 @@ const Promo = () => {
     <section className="max-w-[1300px] container-centered mt-17 md:mt-30">
       <h2 className="text-4xl font-bold text-[#2c3a54] mb-7.5">Наши акции</h2>
 
-      {/* Используем flex + gap, чтобы отступы не ломали ширину */}
-      <div className="flex flex-col md:flex-row space-x-2.5 space-y-5 md:space-y-0">
+      <div className="flex flex-col md:flex-row space-y-5 md:space-y-0">
         {campaigns.map((campaign) => (
           <div
             key={campaign.id}
-            className="w-full md:w-1/3 bg-[#f5f6fa] rounded-lg shadow-sm overflow-hidden"
+            className="w-full md:w-1/3 bg-[#f5f6fa] mx-2.5 rounded-lg shadow-sm overflow-hidden"
           >
             <a href={campaign.link} className="block">
               <img
@@ -57,7 +56,7 @@ const Promo = () => {
       </div>
 
       <div className="mt-6 md:mt-8 flex text-center">
-        <Link href={'/'} className="font-bold w-full md:min-w-[338px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
+        <Link href={'/'} className="font-bold w-full md:max-w-[338px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
           Смотреть все
         </Link>
       </div>

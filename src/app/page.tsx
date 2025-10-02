@@ -11,7 +11,7 @@ import OrderStepsSection from "./components/OrderStepsSection";
 import WhyTrustUs from "./components/WhyTrustUs";
 import ReviewsSlider from "./components/ReviewsSlider";
 import Promo from "./components/Promo";
-
+import Blog from "./components/Blog";
 
 export default function Home() {
    return (
@@ -29,6 +29,7 @@ export default function Home() {
         <WhyTrustUs />
         <ReviewsSlider />
         <Promo />
+        <Blog />
     </main>
   );
 }
