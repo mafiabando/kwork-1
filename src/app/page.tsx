@@ -12,6 +12,7 @@ import WhyTrustUs from "./components/WhyTrustUs";
 import ReviewsSlider from "./components/ReviewsSlider";
 import Promo from "./components/Promo";
 import Blog from "./components/Blog";
+import FAQ from "./components/FAQ";
 
 export default function Home() {
    return (
@@ -30,6 +31,7 @@ export default function Home() {
         <ReviewsSlider />
         <Promo />
         <Blog />
+        <FAQ />
     </main>
   );
 }

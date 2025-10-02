@@ -138,10 +138,10 @@ const OurWorksSlider = () => {
 
     return (
         <section className="max-w-[1300px]  mt-17 md:mt-30 container-centered">
-            <h2 className="text-4xl font-bold text-[#2c3a54] mb-6">Наши работы</h2>
+            <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-6">Наши работы</h2>
 
             {/* Панель категорий */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 ml-2.5 mb-6">
                 {["Все", "Одиночные", "Двойные", "В виде креста"].map((category) => (
                     <button
                         key={category}

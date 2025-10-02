@@ -30,7 +30,7 @@ const Promo = () => {
 
   return (
     <section className="max-w-[1300px] container-centered mt-17 md:mt-30">
-      <h2 className="text-4xl font-bold text-[#2c3a54] mb-7.5">Наши акции</h2>
+      <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-7.5">Наши акции</h2>
 
       <div className="flex flex-col md:flex-row space-y-5 md:space-y-0">
         {campaigns.map((campaign) => (
@@ -55,7 +55,7 @@ const Promo = () => {
         ))}
       </div>
 
-      <div className="mt-6 md:mt-8 flex text-center">
+      <div className="ml-2.5 mt-6 md:mt-8 flex text-center">
         <Link href={'/'} className="font-bold w-full md:max-w-[338px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
           Смотреть все
         </Link>
