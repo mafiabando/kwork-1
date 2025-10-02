@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HeroSlider from "./components/HeroSlider";
 import PopularCategories from "./components/PopularCategories";
 import StoreInfo from "./components/StoreInfo";
@@ -11,6 +10,7 @@ import OurWorksSlider from "./components/OurWorksSlider";
 import OrderStepsSection from "./components/OrderStepsSection";
 import WhyTrustUs from "./components/WhyTrustUs";
 import ReviewsSlider from "./components/ReviewsSlider";
+import Promo from "./components/Promo";
 
 
 export default function Home() {
@@ -28,6 +28,7 @@ export default function Home() {
         <OrderStepsSection />
         <WhyTrustUs />
         <ReviewsSlider />
+        <Promo />
     </main>
   );
 }

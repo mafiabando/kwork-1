@@ -282,7 +282,7 @@ const StoreInfo = () => {
         Наш магазин
       </h2>
 
-      <div className="bg-gray-50 rounded-xl p-4 md:p-6 shadow-sm">
+      <div className="bg-[#f5f6fa] rounded-xl p-4 md:p-6 shadow-sm">
         {/* Десктоп: >=1200px (3 слайда) */}
         <div className="hidden lg:flex gap-6">
           <div className="flex-1 content-center">

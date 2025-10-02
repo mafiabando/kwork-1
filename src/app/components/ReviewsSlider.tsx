@@ -168,7 +168,7 @@ const ReviewsSlider = () => {
 
   // Добавляем и убираем слушатели событий
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && !isMobile) {
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
       document.addEventListener("touchmove", handleTouchMove, {
@@ -180,16 +180,15 @@ const ReviewsSlider = () => {
         document.removeEventListener("touchmove", handleTouchMove);
       };
     }
-  }, []);
+  }, [isMobile]);
 
   // Отображение звезд рейтинга
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <span
         key={i}
-        className={`inline-block w-4 h-4 ${
-          i < rating ? "text-orange-500" : "text-gray-300"
-        }`}
+        className={`inline-block w-4 h-4 ${i < rating ? "text-yellow-500" : "text-gray-300"
+          }`}
       >
         ★
       </span>
@@ -204,8 +203,8 @@ const ReviewsSlider = () => {
     return reviews.map((review) => (
       <div
         key={review.id}
-        className="w-full p-6 bg-gray-50 space-y-5"
-        style={{ padding: "0 0 17px" }}
+        className="w-full p-6 bg-[#f5f6fa]"
+        style={{ padding: "0 0 17px", margin: "20px 0" }}
       >
         <div className="flex-1">
           <h3 className="font-bold text-lg text-[#2c3a54]">{review.name}</h3>
@@ -245,7 +244,7 @@ const ReviewsSlider = () => {
   };
 
   return (
-    <section className="bg-gray-50">
+    <section className="bg-[#f5f6fa]">
       <div className="max-w-[1300px] pt-17 md:pt-30 md:pb-[140px] container-centered">
         <div className="mb-6">
           <h2 className="text-4xl font-bold text-[#2c3a54] mb-4">
@@ -263,10 +262,7 @@ const ReviewsSlider = () => {
                   Все отзывы
                 </Link>
                 <div className="flex items-center space-x-2">
-                  <Link
-                    href={"/"}
-                    className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
-                  >
+                  <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
                     <Image
                       src="/review/1.webp"
                       alt="Google"
@@ -280,10 +276,7 @@ const ReviewsSlider = () => {
                   </Link>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Link
-                    href={"/"}
-                    className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
-                  >
+                  <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
                     <Image
                       src="/review/2.webp"
                       alt="Yandex"
@@ -297,10 +290,7 @@ const ReviewsSlider = () => {
                   </Link>
                 </div>
               </div>
-              <Link
-                href={"/"}
-                className="w-full text-center px-3.75 py-2.25 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition"
-              >
+              <Link href={'/'} className="w-full text-center px-3.75 py-2.25 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
                 Оставить свой отзыв
               </Link>
             </div>
@@ -314,10 +304,7 @@ const ReviewsSlider = () => {
                 Все отзывы
               </Link>
               <div className="flex items-center space-x-2">
-                <Link
-                  href={"/"}
-                  className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
-                >
+                <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
                   <Image
                     src="/review/1.webp"
                     alt="Google"
@@ -331,10 +318,7 @@ const ReviewsSlider = () => {
                 </Link>
               </div>
               <div className="flex items-center space-x-2">
-                <Link
-                  href={"/"}
-                  className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center"
-                >
+                <Link href={'/'} className="px-4.5 py-2.5 bg-white border border-[#2c3a54] hover:bg-[#2c3a54] hover:text-white rounded-full flex items-center justify-center">
                   <Image
                     src="/review/2.webp"
                     alt="Yandex"
@@ -348,10 +332,7 @@ const ReviewsSlider = () => {
                 </Link>
               </div>
               <div className="border-l border-gray-300 mx-4 h-8"></div>
-              <Link
-                href={"/"}
-                className="px-3.75 py-2.25 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition"
-              >
+              <Link href={'/'} className="px-3.75 py-2.25 border border-[#2c3a54] text-[#2c3a54] rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">
                 Оставить свой отзыв
               </Link>
             </div>
@@ -359,15 +340,28 @@ const ReviewsSlider = () => {
         </div>
 
         {/* Слайдер (только если НЕ мобильный или мобильный, но НЕ показаны все отзывы) */}
-        {isMobile ? (
-          // Мобильная версия: если НЕ показаны все отзывы — показываем первые 2 отзыва
-          !showAllReviews ? (
-            <div className="mt-6 space-y-4">
-              {reviews.slice(0, 2).map((review) => (
+        {!isMobile || !showAllReviews ? (
+          <div
+            className="relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onMouseDown={handleMouseDown}
+          >
+            <div
+              className="flex transition-transform duration-300 ease-in-out"
+              style={{
+                transform: `translateX(-${currentSlide * slideWidth}%)`,
+              }}
+            >
+              {reviews.map((review) => (
                 <div
                   key={review.id}
-                  className="w-full p-6 bg-gray-50"
-                  style={{ padding: "0 0 17px", margin: "20px 0" }}
+                  className={`flex-shrink-0 ${isMobile ? "w-full bg-[#f5f6fa]" : isTablet ? "w-1/2 shadow-sm" : "w-1/4 shadow-sm"
+                    } p-6 bg-white relative`}
+                  style={
+                    isMobile
+                      ? { padding: "0 0 17px", margin: "20px 0" }
+                      : { padding: "33px 24px 67px" }
+                  }
                 >
                   <div className="flex-1">
                     <h3 className="font-bold text-lg text-[#2c3a54]">
@@ -397,31 +391,30 @@ const ReviewsSlider = () => {
                     >
                       {review.text}
                     </p>
+                    {/* Позиционирование "Отзыв из Google" — абсолютное для >=768px, margin-top для <768px */}
                     <p
-                      className="text-sm text-[#2c3a54] font-bold mt-3.75"
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "22px",
-                        marginTop: "15px",
-                      }}
+                      className={`text-sm text-[#2c3a54] font-bold ${isMobile ? "mt-3.75" : "absolute bottom-8.25 left-6"
+                        }`}
+                      style={
+                        isMobile
+                          ? {
+                            fontSize: "16px",
+                            lineHeight: "22px",
+                            marginTop: "15px",
+                          }
+                          : {
+                            fontSize: "16px",
+                            lineHeight: "22px",
+                          }
+                      }
                     >
                       {review.source}
                     </p>
                   </div>
                 </div>
               ))}
-              {/* Кнопка "Показать ещё" */}
-              <button
-                onClick={() => setShowAllReviews(true)}
-                className="w-full py-3 bg-[#2c3a54] text-white rounded-full font-bold text-center hover:bg-opacity-90 transition"
-              >
-                Показать ещё
-              </button>
             </div>
-          ) : (
-            // Если showAllReviews === true — показываем все отзывы
-            <div className="mt-6">{renderMobileReviews()}</div>
-          )
+          </div>
         ) : null}
 
         {/* Индикаторы — только если НЕ мобильный ИЛИ если мобильный, но НЕ показаны все отзывы */}
@@ -432,19 +425,30 @@ const ReviewsSlider = () => {
                 length: isMobile
                   ? reviews.length
                   : isTablet
-                  ? reviews.length - 1
-                  : reviews.length - 3,
+                    ? reviews.length - 1
+                    : reviews.length - 3,
               },
               (_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-2.5 h-2.5 rounded-full ${
-                    index === currentSlide ? "bg-[#2c3a54]" : "bg-gray-300"
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full ${index === currentSlide ? "bg-[#2c3a54]" : "bg-gray-300"
+                    }`}
                 ></button>
               )
             )}
+          </div>
+        )}
+
+        {/* Кнопка "Показать ещё" — только на мобильных, если не показаны все отзывы */}
+        {isMobile && !showAllReviews && (
+          <div className="mt-6">
+            <button
+              onClick={() => setShowAllReviews(true)}
+              className="w-full py-3 bg-[#2c3a54] text-white rounded-full font-bold text-center hover:bg-opacity-90 transition"
+            >
+              Показать ещё
+            </button>
           </div>
         )}
 
