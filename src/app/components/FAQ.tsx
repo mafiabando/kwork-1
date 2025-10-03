@@ -49,10 +49,10 @@ const FAQ = () => {
   }, [openIndex]);
 
   return (
-    <section className="bg-[#f5f6fa]">
+    <section className="bg-[#f5f6fa] py-10.5 md:py-22.5">
       <div className="max-w-[1300px] container-centered">
         <div className="max-w-[1000px] px-4 ">
-          <div className="justify-items-start mb-5 pt-10.5 md:pt-22.5">
+          <div className="justify-items-start mb-5">
             <h2 className="text-[28px] font-bold text-center text-[#2c3a54]">
               Часто задаваемые вопросы
             </h2>
