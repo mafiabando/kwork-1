@@ -22,7 +22,7 @@ function IconArrow() {
 export default function PopularCategories() {
   return (
     <section className="max-w-[1300px] container-centered mt-17 md:mt-30">
-      <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-3.5 md:mb-7.5">Популярные категории</h2>
+      <h2 className="text-4xl font-bold text-[#2c3a54] md:ml-2.5 mb-3.5 md:mb-7.5">Популярные категории</h2>
 
       {/* Список для экранов <768px */}
       <div className="block md:hidden">

@@ -26,7 +26,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: LatoRegular, Arial, sans-serif;
-  max-width: (100px, 200px);
 }
 
 .font-bold {
@@ -60,4 +59,8 @@ body {
     margin-left: 16px; 
     margin-right: 16px;
   }
+}
+
+.gradient {
+  background: linear-gradient(180deg,#f5f6fa 0,rgba(245,246,250,0) 100%);
 }

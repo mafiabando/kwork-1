@@ -30,8 +30,10 @@ export default function Home() {
         <WhyTrustUs />
         <ReviewsSlider />
         <Promo />
+        <div className="gradient">
         <Blog />
         <FAQ />
+        </div>
     </main>
   );
 }

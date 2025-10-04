@@ -188,13 +188,13 @@ const HeroSlider = () => {
 
   return (
     <section
-      className="relative container-centered"
+      className="relative"
       style={{ height: getSliderHeight() }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Слайды */}
-      <div className="w-full h-full relative">
+      <div className="max-w-[1300px] container-centered h-full relative">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -290,14 +290,13 @@ const HeroSlider = () => {
             )}
           </div>
         ))}
-      </div>
 
       {/* Кнопки навигации */}
       {windowWidth >= 768 && (
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-[-16px] border-1 border-[#2c3a54] top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
+            className="absolute -left-4 border-1 border-[#2c3a54] top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -315,7 +314,7 @@ const HeroSlider = () => {
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-[-16px] border-1 border-[#2c3a54] top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
+            className="absolute -right-4 border-1 border-[#2c3a54] top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -333,6 +332,7 @@ const HeroSlider = () => {
           </button>
         </>
       )}
+      </div>
 
       {/* Индикаторы */}
       <div

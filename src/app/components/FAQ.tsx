@@ -49,7 +49,7 @@ const FAQ = () => {
   }, [openIndex]);
 
   return (
-    <section className="bg-[#f5f6fa] py-10.5 md:py-22.5">
+    <section className="py-10.5 md:py-22.5">
       <div className="max-w-[1300px] container-centered">
         <div className="max-w-[1000px] px-4 ">
           <div className="justify-items-start mb-5">
@@ -63,11 +63,7 @@ const FAQ = () => {
                 {/* Заголовок-кнопка */}
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className={`w-full flex justify-between items-center py-5 text-left transition-colors ${
-                    openIndex === index
-                      ? "bg-[#f5f6fa] text-[#2c3a54]"
-                      : "text-[#2c3a54] hover:bg-[#f9fafb]"
-                  }`}
+                  className={`w-full flex justify-between text-[#2c3a54] items-center py-5 text-left transition-colors`}
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-content-${index}`}
                 >
