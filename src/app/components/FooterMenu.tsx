@@ -61,6 +61,10 @@ const FooterMenu = () => {
   const BurgerDropdownClick = () => {
     toggleBurgerDropdown();
     if (isPhoneDropdownOpen) setPhoneDropdownOpen(false); // закрываем телефон, если открыт
+
+    if (!isBurgerDropdownOpen && window.scrollY > 0) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
   };
 
   return (
