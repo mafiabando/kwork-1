@@ -8,7 +8,7 @@ export const menuCategories = [
   },
   {
     name: 'Памятники',
-    href: null, // Нет прямой ссылки, только dropdown
+    href: '/monuments', // Нет прямой ссылки, только dropdown
     icon: '/monuments.webp',
     subcategories: [
       { name: 'Одиночные', href: '/monuments/single', img: '/monuments/single.webp' },
@@ -24,7 +24,7 @@ export const menuCategories = [
   },
   {
     name: 'Ограды',
-    href: null,
+    href: '/fences',
     icon: '/fences.webp',
     subcategories: [
       { name: 'Гранитные ограды', href: '/fences/granite', img: '/fences/granite.webp' },
@@ -34,7 +34,7 @@ export const menuCategories = [
   },
   {
     name: 'Аксессуары',
-    href: null,
+    href: "/accessories",
     icon: '/accessories.webp',
     subcategories: [
       { name: 'Вазы', href: '/accessories/vases', img: '/accessories/vases.webp' },
@@ -48,7 +48,7 @@ export const menuCategories = [
   },
   {
     name: 'Благоустройство',
-    href: null,
+    href: "/landscape",
     icon: '/landscape.webp',
     subcategories: [
       { name: 'Благоустройство могил', href: '/landscape/graves', img: '/landscape/graves.webp' },
@@ -61,7 +61,7 @@ export const menuCategories = [
   },
   {
     name: 'Услуги',
-    href: null,
+    href: "/services",
     icon: '/services.webp',
     subcategories: [
       { name: 'Установка памятников', href: '/services/monument-installation', img: '/services/monument-installation.webp' },
@@ -73,7 +73,7 @@ export const menuCategories = [
   },
   {
     name: 'Оформление памятников',
-    href: null,
+    href: "/design",
     icon: '/design.webp',
     subcategories: [
       { name: 'Эпитафии', href: '/design/epitaphs', img: '/design/epitaphs.webp' },

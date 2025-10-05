@@ -348,7 +348,7 @@ const Header = () => {
           <div className="w-full bg-white">
             <div
               ref={headerContainerRef}
-              className="relative h-10 content-box max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8"
+              className="relative h-10 box-content max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8"
             >
               <div className="flex space-x-5 xl:space-x-10 text-[16px] xl:text-[18px]">
                 {menuCategories.map((category, index) => (
