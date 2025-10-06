@@ -116,10 +116,10 @@ const OurWorksSlider = () => {
     // Карточка работы (без цен, без кнопок, только фото)
     const WorkCard = ({ work, index }: { work: { id: number; src: string; alt: string }; index: number }) => {
         const cardBasis = isMobile
-            ? "basis-[calc(100%_+_10px)]" // 100% + немного перекрытия
+            ? "basis-[100%]" // 100% + немного перекрытия
             : isTablet
-                ? "basis-[calc(50%_+_5px)]" // 50% + немного перекрытия
-                : "basis-[calc(25%_+_2px)]"; // 25% + немного перекрытия
+                ? "basis-[50%]" // 50% + немного перекрытия
+                : "basis-[25%]"; // 25% + немного перекрытия
 
         return (
             <div
@@ -137,7 +137,8 @@ const OurWorksSlider = () => {
     };
 
     return (
-        <section className="max-w-[1300px]  mt-17 md:mt-30 container-centered">
+        <section className="mb-15 md:mb-22.5 mt-17 md:mt-30 gradient">
+            <div className="pt-15 md:pt-[93px] max-w-[1300px] container-centered">
             <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-6">Наши работы</h2>
 
             {/* Панель категорий */}
@@ -179,7 +180,7 @@ const OurWorksSlider = () => {
                         {!isTablet && (
                             <button
                                 onClick={scrollLeft}
-                                className="absolute left-[-16px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
+                                className="absolute left-[-8px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +215,7 @@ const OurWorksSlider = () => {
                         {!isTablet && (
                             <button
                                 onClick={scrollRight}
-                                className="absolute right-[-16px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
+                                className="absolute right-[-8px] border border-[#2c3a54] top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center hover:bg-opacity-100 transition"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -292,6 +293,7 @@ const OurWorksSlider = () => {
                     </div>
                 </div>
             )}
+            </div>
         </section>
     );
 };

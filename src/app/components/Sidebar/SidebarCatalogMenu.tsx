@@ -29,7 +29,7 @@ const SidebarCatalogMenu = () => {
             </div>
 
             {/* Список категорий */}
-            <ul className="relative border border-gray-200 rounded-xl">
+            <ul className="relative border border-gray-200 rounded-b-xl">
                 {menuCategories.map((category, index) => (
                     <li
                         key={index}

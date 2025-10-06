@@ -7,7 +7,7 @@ import SidebarStickyHelp from "./SidebarStickyHelp";
 const Sidebar = () => {
 
     return ( 
-        <div className="w-[25%] hidden lg:block space-y-7.5 flex flex-col">
+        <div className="max-w-[25%] w-full hidden lg:block space-y-7.5 flex-col">
             <SidebarCatalogMenu />
             <SidebarInfoMenu />
             <SidebarStickyHelp />
