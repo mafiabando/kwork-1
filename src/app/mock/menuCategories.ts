@@ -91,7 +91,7 @@ export const additionalMenuItems = [
       href: null, // Dropdown в мобильной
       icon: '/about.svg',
       subcategories: [
-        { name: 'Политика конфиденциальности', href: '/privacy-policy' },
+        { name: 'Политика конфиденциальности', href: '/policy' },
       ],
     },
   {

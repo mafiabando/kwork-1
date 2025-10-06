@@ -162,7 +162,7 @@ const Header = () => {
   };
 
   // По условию при ширине >=1000px выводим старую шапку
-  if (windowWidth >= 1000) {
+  if (windowWidth >= 1024) {
     return (
       <header className="w-full">
         {/* Верхняя строка — темно-синяя */}

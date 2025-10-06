@@ -34,7 +34,7 @@ const HeroSlider = () => {
         subtitle: "18px",
         button: "18px",
       };
-    } else if (windowWidth > 1000) {
+    } else if (windowWidth > 1024) {
       return {
         title: "24px",
         subtitle: "18px",
@@ -57,7 +57,7 @@ const HeroSlider = () => {
 
   // Определение padding для контейнера
   const getPadding = () => {
-    if (windowWidth > 1000) {
+    if (windowWidth > 1024) {
       return {
         x: "80px",
         y: "60px",

@@ -6,7 +6,7 @@ import { products } from "../mock/products";
 
 const CompleteSolutionSlider = () => {
   const [isMobile, setIsMobile] = useState(false); // <768px
-  const [isTablet, setIsTablet] = useState(false); // <1000px
+  const [isTablet, setIsTablet] = useState(false); // <1024px
   const [isSmallDesktop, setIsSmallDesktop] = useState(false); // <1280px
   const sliderRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,7 +15,7 @@ const CompleteSolutionSlider = () => {
     const checkScreenSize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 768);
-      setIsTablet(width < 1000);
+      setIsTablet(width < 1024);
       setIsSmallDesktop(width < 1280);
     };
     checkScreenSize();
@@ -26,7 +26,7 @@ const CompleteSolutionSlider = () => {
   // Функции для навигации слайдера (скролл на ширину visible карточек)
   const getVisibleCards = () => {
     if (isMobile) return 1;
-    return isTablet ? 2 : 3; // <1000: 2, ≥1000: 3
+    return isTablet ? 2 : 3; 
   };
 
   const getSlideWidth = () => {
@@ -56,8 +56,8 @@ const CompleteSolutionSlider = () => {
     const cardBasis = isMobile
       ? "basis-full" // 100% для 1 карточки <768
       : isTablet
-      ? "basis-[calc(100%_/_2)]" // 50% для 2 <1000 ≥768
-      : "basis-[calc(100%_/_3)]"; // ~33% для 3 ≥1000
+      ? "basis-[calc(100%_/_2)]"
+      : "basis-[calc(100%_/_3)]"; 
 
     return (
       <div
