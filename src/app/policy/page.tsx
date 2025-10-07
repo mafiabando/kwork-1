@@ -14,12 +14,12 @@ const PolicyPage = () => {
     <>
     <section className="lg:container-centered lg:mt-5 max-w-[1300px] flex">
       <Sidebar />
-      <div className="lg:ml-5 lg:max-w-[75%]">
+      <div className="w-[100%] lg:ml-5 lg:max-w-[75%]">
         <div className="w-[100%]"><SidebarInfoDropdown /></div>
         <PathPage />
       <div className="shadow-sm p-5 lg:p-7.5 w-full">
-        <h1 className="text-black text-[40px] leading-12">
-          <strong>Политика конфиденциальности</strong>
+        <h1 className="text-black text-[40px] font-[600] leading-12">
+          Политика конфиденциальности
         </h1>
         <div className="mt-7.5 text-[11pt] text-[#2c3a54]">
           <p>
