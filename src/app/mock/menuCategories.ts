@@ -1,4 +1,3 @@
-// menuCategories.ts
 export const menuCategories = [
   {
     name: 'Акции',
@@ -86,18 +85,13 @@ export const menuCategories = [
 
 // Дополнительные элементы меню (без подкатегорий, для мобильной версии)
 export const additionalMenuItems = [
-    {
-      name: 'О компании',
-      href: null, // Dropdown в мобильной
-      icon: '/about.svg',
-      subcategories: [
-        { name: 'Политика конфиденциальности', href: '/policy' },
-      ],
-    },
   {
-    name: 'Избранное',
-    href: '/favorites',
-    icon: '/star.svg',
+    name: 'О компании',
+    href: null, // Dropdown в мобильной
+    icon: '/about.svg',
+    subcategories: [
+      { name: 'Политика конфиденциальности', href: '/policy' },
+    ],
   },
   {
     name: 'Наши работы',
@@ -118,6 +112,11 @@ export const additionalMenuItems = [
     name: 'Виды гранита',
     href: '/granite',
     icon: '/granite.svg',
+  },
+  {
+    name: 'Избранное',
+    href: '/favorites',
+    icon: '/star.svg',
   },
   {
     name: 'Контакты',

@@ -2,6 +2,7 @@ import OurWorksSlider from "../components/OurWorksSlider";
 import PathPage from "../components/PathPage";
 import Sidebar from "../components/Sidebar/Sidebar";
 import type { Metadata } from "next";
+import SidebarInfoDropdown from "../components/Sidebar/SidebarInfoDropdown";
 
 export const metadata: Metadata = {
   title: "Политика конфиденциальности",
@@ -11,11 +12,12 @@ export const metadata: Metadata = {
 const PolicyPage = () => {
   return (
     <>
-    <section className="container-centered mt-5 max-w-[1300px] flex">
+    <section className="lg:container-centered lg:mt-5 max-w-[1300px] flex">
       <Sidebar />
-      <div className="ml-5 max-w-[75%]">
+      <div className="lg:ml-5 lg:max-w-[75%]">
+        <div><SidebarInfoDropdown /></div>
         <PathPage />
-      <div className="shadow-sm p-7.5 w-full">
+      <div className="shadow-sm p-5 lg:p-7.5 w-full">
         <h1 className="text-black text-[40px] leading-12">
           <strong>Политика конфиденциальности</strong>
         </h1>
@@ -23,11 +25,11 @@ const PolicyPage = () => {
           <p>
             Настоящая политика конфиденциальности регулирует порядок обработки и
             использования персональных и иных данных сайта{" "}
-            <strong>centrgranit.by (далее - centrgranit.by).</strong>
+            <strong>stonerose.ru (далее - stonerose.ru).</strong>
             <br />
             <br />
             <span>
-              Передавая <strong>centrgranit.by</strong> персональные и иные
+              Передавая <strong>stonerose.ru</strong> персональные и иные
               данные посредством Сайта, Пользователь подтверждает свое согласие
               на использование указанных данных на условиях, изложенных в
               настоящей Политике конфиденциальности.
@@ -75,14 +77,14 @@ const PolicyPage = () => {
                 textDecoration: "underline",
               }}
               href="
-            https://centrgranit.by/"
+            https://stonerose.ru/"
             >
-              https://centrgranit.by/
+              https://stonerose.ru/
             </a>
             <br />
             <span>
               Все исключительные права на Сайт и его отдельные элементы (включая
-              программное обеспечение, дизайн) принадлежат centrgranit.by в
+              программное обеспечение, дизайн) принадлежат stonerose.ru в
               полном объеме.
             </span>
             <br />
@@ -108,7 +110,7 @@ const PolicyPage = () => {
             <br />
             <span>
               <strong>1.6.</strong> Услуга (и) — услуги, предоставляемые
-              centrgranit.by
+              stonerose.ru
             </span>
           </p>
           <h2 className="leading-7.5 mt-10">
@@ -116,9 +118,9 @@ const PolicyPage = () => {
           </h2>
           <p className="mt-3.75">
             <span>
-              <strong>2.1.</strong> Centrgranit.by собирает и хранит только те
+              <strong>2.1.</strong> stonerose.ru собирает и хранит только те
               Персональные данные, которые необходимы для оказания Услуг
-              centrgranit.by и взаимодействия с Пользователем.
+              stonerose.ru и взаимодействия с Пользователем.
             </span>
             <br />
             <span>
@@ -150,7 +152,7 @@ const PolicyPage = () => {
             </span>
             <br />
             <span>
-              <strong>2.3.</strong> Centrgranit.by в том числе обрабатывает
+              <strong>2.3.</strong> stonerose.ru в том числе обрабатывает
               следующие данные:
             </span>
             <br />
@@ -190,7 +192,7 @@ const PolicyPage = () => {
           </h2>
           <p className="mt-3.75">
             <span>
-              <strong>3.1.</strong> Centrgranit.by обязуется использовать
+              <strong>3.1.</strong> stonerose.ru обязуется использовать
               Персональные данные в соответствии с действующим законодательством
               Республики Беларусь.
             </span>
@@ -202,12 +204,12 @@ const PolicyPage = () => {
             </span>
             <br />
             <span>
-              <strong>3.3.</strong> Centrgranit.by имеет право сохранять
+              <strong>3.3.</strong> stonerose.ru имеет право сохранять
               архивную копию Персональных данных и Данных.
             </span>
             <br />
             <span>
-              <strong>3.4.</strong> Centrgranit.by имеет право передавать
+              <strong>3.4.</strong> stonerose.ru имеет право передавать
               Персональные данные и Данные Пользователя без согласия
               Пользователя следующим лицам:
             </span>
@@ -219,7 +221,7 @@ const PolicyPage = () => {
             </span>
             <br />
             <span>
-              <strong>3.4.2.</strong> партнерам centrgranit.by;
+              <strong>3.4.2.</strong> партнерам stonerose.ru;
             </span>
             <br />
             <span>
@@ -228,7 +230,7 @@ const PolicyPage = () => {
             </span>
             <br />
             <span>
-              <strong>3.5.</strong> Centrgranit.by имеет право передавать
+              <strong>3.5.</strong> stonerose.ru имеет право передавать
               Персональные данные и Данные третьим лицам, не указанным в п. 3.4.
               настоящей Политики конфиденциальности, в следующих случаях:
             </span>
@@ -264,7 +266,7 @@ const PolicyPage = () => {
           </h2>
           <p className="mt-3.75">
             <span>
-              <strong>4.1.</strong> Centrgranit.by осуществляет надлежащую
+              <strong>4.1.</strong> stonerose.ru осуществляет надлежащую
               защиту Персональных и иных данных в соответствии с
               Законодательством и принимает необходимые и достаточные
               организационные и технические меры для защиты Персональных данных.
@@ -285,7 +287,7 @@ const PolicyPage = () => {
           <p className="mt-3.75">
             <span>
               <strong>5.1.</strong> К настоящей Политике конфиденциальности и
-              отношениям между Пользователем и centrgranit.by, возникающим в
+              отношениям между Пользователем и stonerose.ru, возникающим в
               связи с применением Политики конфиденциальности, подлежит
               применению право Республики Беларусь.
             </span>
@@ -293,9 +295,9 @@ const PolicyPage = () => {
             <span>
               <strong>5.2.</strong> Все возможные споры, вытекающие из
               настоящего Соглашения, подлежат разрешению в соответствии с
-              действующим законодательством по месту регистрации centrgranit.by.
+              действующим законодательством по месту регистрации stonerose.ru.
               Перед обращением в суд Пользователь должен соблюсти обязательный
-              досудебный порядок и направить centrgranit.by соответствующую
+              досудебный порядок и направить stonerose.ru соответствующую
               претензию в письменном виде. Срок ответа на претензию составляет
               30 (тридцать) рабочих дней.
             </span>
@@ -309,7 +311,7 @@ const PolicyPage = () => {
             </span>
             <br />
             <span>
-              <strong>5.4.</strong> Centrgranit.by имеет право в любой момент
+              <strong>5.4.</strong> stonerose.ru имеет право в любой момент
               изменять Политику конфиденциальности (полностью или в части) в
               одностороннем порядке без предварительного согласования с
               Пользователем. Все изменения вступают в силу на следующий день
@@ -326,7 +328,7 @@ const PolicyPage = () => {
                   fontFamily: "Arial",
                 }}
               >
-                https://centrgranit.by/policy/.
+                https://stonerose.ru/policy/.
               </span>
             </span>
           </p>
@@ -360,7 +362,7 @@ const PolicyPage = () => {
           </p>
 
           <h2 className="leading-7.5 mt-10">
-            <strong>7. КОНТАКТНАЯ ИНФОРМАЦИЯ CENTRGRANIT.BY</strong>
+            <strong>7. КОНТАКТНАЯ ИНФОРМАЦИЯ stonerose.ru</strong>
           </h2>
           <p className="mt-3.75">
             <span>

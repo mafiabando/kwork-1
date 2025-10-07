@@ -167,13 +167,13 @@ const Header = () => {
       <header className="w-full">
         {/* Верхняя строка — темно-синяя */}
         <div className="w-full bg-[#2c3a54]">
-          <div className="max-w-[1300px] mx-auto flex justify-between items-center px-6 py-2 xl:px-8 text-white">
-            <nav className="flex space-x-4 xl:space-x-6 text-4 leading-8 font-normal">
+          <div className="max-w-[1300px] relative mx-auto flex justify-between items-center px-6 xl:px-8 text-white">
+            <nav className="flex space-x-4 xl:space-x-6 font-[600] text-4 leading-[24px]">
               {additionalMenuItems.map((item, index) =>
                 item.subcategories && item.subcategories.length > 0 ? (
-                  <div key={index} className="relative group inline-block">
+                  <div key={index} className="group inline-block">
                     <button
-                      className="flex items-center text-white hover:underline transition cursor-pointer"
+                      className="flex items-center text-white py-1.5 hover:underline transition cursor-pointer"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
@@ -188,7 +188,7 @@ const Header = () => {
                     </button>
 
                     {/* Dropdown */}
-                    <div className="absolute left-0 top-full mt-0 w-48 bg-[#2c3a54] border border-transparent rounded-md shadow-lg z-50 hidden group-hover:block focus-within:block">
+                    <div className="absolute left-1.25 top-full mt-0 w-48 bg-[#2c3a54] border border-transparent rounded-b-md shadow-lg z-50 hidden group-hover:block focus-within:block">
                       {item.subcategories.map((sub, subIndex) => (
                         <Link
                           key={subIndex}
@@ -204,14 +204,14 @@ const Header = () => {
                   <Link
                     key={index}
                     href={item.href!}
-                    className="hover:underline transition"
+                    className="py-1.5 hover:underline transition"
                   >
                     {item.name}
                   </Link>
                 )
               )}
             </nav>
-            <button className="bg-[#cd5554] hover:bg-transparent hover:text-[#cd5554] border-1 border-[#cd5554] text-white px-[19px] py-[4px] rounded-full text-sm font-medium transition">
+            <button className="bg-[#cd5554] hover:bg-transparent font-[600] hover:text-[#cd5554] border-1 border-[#cd5554] text-white px-[19px] py-[4px] rounded-full text-sm font-medium transition">
               Заказать звонок
             </button>
           </div>
@@ -460,7 +460,7 @@ const Header = () => {
     <header className="w-full select-none">
       {/* Верхняя строка (первая) */}
       <div
-        className="flex justify-between items-center max-w-[1300px] mx-auto px-6 py-[10px] border-[1px] border-[#e3e5ef]"
+        className="flex justify-between items-center max-w-[1300px] mx-auto px-6 py-[10px] border-b-[1px] border-[#e3e5ef]"
         style={{ height: "60-70px" }}
       >
         {/* Логотип слева */}

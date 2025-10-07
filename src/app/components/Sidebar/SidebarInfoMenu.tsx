@@ -2,18 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-
-// Данные для меню "Информация"
-const infoLinks = [
-  { name: 'Виды гранита', href: '/vidy-granita' },
-  { name: 'Работаем более чем с 30 породами гранита', href: '/granit-30' },
-  { name: 'Работаем строго по договору', href: '/dogovor' },
-  { name: 'Фото и видео-отчёт о работе', href: '/foto-video' },
-  { name: 'Хранение памятников', href: '/hranenie' },
-  { name: 'О компании', href: '/about' },
-  { name: 'Оплата и доставка', href: '/oplata-dostavka' },
-  { name: 'Политика конфиденциальности', href: '/policy' },
-];
+import { infoLinks } from '@/app/mock/sidebarInfo';
 
 export default function SidebarInfoMenu() {
   const pathname = usePathname(); // Получаем текущий путь
