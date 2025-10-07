@@ -24,12 +24,12 @@ const BurgerDropdown: React.FC<BurgerDropdownProps> = ({
         absolute top-[98px] left-0 right-0
         z-50
         bg-white
-        rounded-xl
         shadow-md
         text-sm
         text-[#2c3a54]
         overflow-y-auto
         max-h-[calc(100vh-158px)]
+        min-w-90
       "
       style={{ boxShadow: "0 8px 24px rgba(0, 0, 0, 0.12)" }}
     >

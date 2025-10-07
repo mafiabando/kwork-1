@@ -459,9 +459,7 @@ const Header = () => {
     <header className="w-full select-none">
       {/* Верхняя строка (первая) */}
       <div
-        className="flex justify-between items-center max-w-[1300px] mx-auto px-6 py-[10px] border-b-[1px] border-[#e3e5ef]"
-        style={{ height: "60-70px" }}
-      >
+        className="flex justify-between items-center max-w-[1300px] mx-auto px-6 py-[10px] border-b-[1px] border-[#e3e5ef]"      >
         {/* Логотип слева */}
         <Link aria-label="На главную" className="flex items-center" href="/">
           <Image
