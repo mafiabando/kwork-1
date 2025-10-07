@@ -161,7 +161,6 @@ const Header = () => {
     if (isPhoneDropdownOpen) setPhoneDropdownOpen(false); // закрываем телефон, если открыт
   };
 
-  // По условию при ширине >=1000px выводим старую шапку
   if (windowWidth >= 1024) {
     return (
       <header className="w-full">
