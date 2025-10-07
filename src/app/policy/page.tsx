@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 const PolicyPage = () => {
   return (
     <>
-    <section className="lg:container-centered lg:mt-5 max-w-[1300px] flex">
+    <section className="page-centered lg:mt-5 max-w-[1300px] flex">
       <Sidebar />
       <div className="w-[100%] lg:ml-5 lg:max-w-[75%]">
         <div className="w-[100%]"><SidebarInfoDropdown /></div>
-        <PathPage />
+        <div></div><PathPage />
       <div className="shadow-sm p-5 lg:p-7.5 w-full">
-        <h1 className="text-black text-[40px] font-[600] leading-12">
+        <h1 className="text-black text-[28px] leading-8 lg:text-[40px] lg:leading-12 font-[600]">
           Политика конфиденциальности
         </h1>
-        <div className="mt-7.5 text-[11pt] text-[#2c3a54]">
+        <div className="mt-5 lg:mt-7.5 text-[11pt] text-[#2c3a54]">
           <p>
             Настоящая политика конфиденциальности регулирует порядок обработки и
             использования персональных и иных данных сайта{" "}
