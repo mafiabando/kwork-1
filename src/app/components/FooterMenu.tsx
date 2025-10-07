@@ -135,9 +135,19 @@ const FooterMenu = () => {
       </div>
 
       {/* Затемнение экрана */}
-      {isPhoneDropdownOpen || isBurgerDropdownOpen&& (
+      {isPhoneDropdownOpen && (
         <div
-          className={`fixed inset-0 bg-black opacity-15 z-40 pointer-events-auto ${isPhoneDropdownOpen ? "inset-0" : 'top-[97px] left-0 right-0'}`}
+          className="fixed inset-0 bg-black opacity-15 z-40 pointer-events-auto"
+          onClick={() => {
+            setPhoneDropdownOpen(false);
+            closeBurgerDropdown();
+          }}
+        ></div>
+      )}
+
+      {isBurgerDropdownOpen && (
+        <div
+          className={`fixed inset-0 bg-black opacity-15 z-40 pointer-events-auto top-[97px] left-0 right-0}`}
           onClick={() => {
             setPhoneDropdownOpen(false);
             closeBurgerDropdown();
