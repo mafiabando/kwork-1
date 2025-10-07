@@ -211,7 +211,7 @@ const Header = () => {
                 )
               )}
             </nav>
-            <button className="bg-[#cd5554] hover:bg-transparent font-[600] hover:text-[#cd5554] border-1 border-[#cd5554] text-white px-[19px] py-[4px] rounded-full text-sm font-medium transition">
+            <button className="bg-[#cd5554] hover:bg-transparent font-[600] hover:text-[#cd5554] border-1 border-[#cd5554] text-white px-[19px] py-[4px] rounded-full text-sm transition">
               Заказать звонок
             </button>
           </div>
