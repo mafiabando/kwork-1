@@ -19,7 +19,7 @@ const PaymentInfo = () => {
 
   return (
     <section className="pt-5.5 pb-8 md:py-17.25 bg-[#2c3a54]">
-      <div className="w-full px-4 md:px-4 lg:px-5 max-w-[1300px] ">
+      <div className="container-centered px-4 md:px-4 lg:px-5 max-w-[1300px] ">
         <div className={`flex ${isMobile ? 'flex-col' : 'md:flex-row'} gap-8 md:gap-12 items-start`}>
           {/* Левая колонка — текст и кнопка */}
           <div className={`${isMobile ? 'w-full' : 'md:w-1/3'}`}>

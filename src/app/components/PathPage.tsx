@@ -22,7 +22,7 @@ export default function PathPage() {
   const pageTitle = pageTitles[pathname] || 'Страница';
 
   return (
-    <div className="ml-5 lg:ml-0 mb-2.5">
+    <div className="mb-2.5">
       <ul className="flex items-center text-xs text-[#cbcbcb] space-x-2">
         <li>
           <Link href="/" className="text-[#2c3a54] hover:underline transition-colors">

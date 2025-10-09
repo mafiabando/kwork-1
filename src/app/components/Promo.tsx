@@ -1,32 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { campaigns } from "../mock/campaigns";
 
 const Promo = () => {
-  // Данные акций
-  const campaigns = [
-    {
-      id: 1,
-      title: "Гранитная ваза в подарок!",
-      description: "При заказе памятника и благоустройства гранитная ваза из двух половин - в подарок",
-      image: "/promo/1.webp",
-      link: "/",
-    },
-    {
-      id: 2,
-      title: "Ваза из полимербетона в подарок!",
-      description: "При заказе памятника и благоустройства ваза из полимербетона на кладбище в подарок",
-      image: "/promo/2.webp",
-      link: "/",
-    },
-    {
-      id: 3,
-      title: "Благоустройство могил на весну-лето 2025 года",
-      description: "Выгода при оформлении договора на установку на весну-лето 2025 года!",
-      image: "/promo/3.webp",
-      link: "/",
-    },
-  ];
 
   return (
     <section className="max-w-[1300px] container-centered mt-17 md:mt-30">
