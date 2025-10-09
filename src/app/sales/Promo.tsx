@@ -2,7 +2,7 @@
 import React from "react";
 import { campaigns } from "../mock/campaigns";
 
-const Sales = () => {
+const Promo = () => {
 
   return (
     <section className="max-w-[1300px]">
@@ -32,4 +32,4 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export default Promo;

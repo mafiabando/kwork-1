@@ -1,8 +1,10 @@
 import OurWorksSlider from "../components/OurWorksSlider";
 import PathPage from "../components/PathPage";
-import Sidebar from "../components/Sidebar/Sidebar";
 import type { Metadata } from "next";
 import SidebarInfoDropdown from "../components/Sidebar/SidebarInfoDropdown";
+import SidebarInfoMenu from "../components/Sidebar/SidebarInfoMenu";
+import SidebarCatalogMenu from "../components/Sidebar/SidebarCatalogMenu";
+import SidebarStickyHelp from "../components/Sidebar/SidebarStickyHelp";
 
 export const metadata: Metadata = {
   title: "Политика конфиденциальности",
@@ -13,9 +15,13 @@ const PolicyPage = () => {
   return (
     <>
       <section className="page-centered lg:mt-5 max-w-[1300px] flex">
-        <Sidebar />
+        <div className="max-w-[25%] w-full hidden lg:block space-y-7.5 ml-5">
+          <SidebarCatalogMenu />
+          <SidebarInfoMenu />
+          <SidebarStickyHelp />
+        </div>
         <div className="w-[100%] lg:ml-5 lg:max-w-[75%]">
-          <div className="w-[100%]"><SidebarInfoDropdown /></div>
+          <div className="w-[100%] block md:hidden"><SidebarInfoDropdown /></div>
           <div className="ml-5 lg:ml-0 "><PathPage /></div>
           <div className="shadow-sm p-5 lg:p-7.5 w-full">
             <h1 className="text-black text-[28px] leading-8 lg:text-[40px] lg:leading-12 font-[600]">
