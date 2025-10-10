@@ -8,7 +8,10 @@ export const footerMenu = {
         { name: "Памятники в виде креста", href: "/monuments/cross" },
         { name: "Памятники в виде сердца", href: "/monuments/heart" },
         { name: "Памятники со стеклом", href: "/monuments/glass" },
-        { name: "Детские памятники", href: "/monuments/kids" },
+        { name: 'Составные', href: '/monuments/composite' },
+        { name: 'Европейские', href: '/monuments/europe' },
+        { name: 'Художественная резка', href: '/monuments/artistic' },
+        { name: 'В виде деревьев', href: '/monuments/tree' },
         { name: "Мемориальные комплексы", href: "/monuments/complex" },
     ],
     accessories: [
