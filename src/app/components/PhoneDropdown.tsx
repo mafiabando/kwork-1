@@ -104,7 +104,7 @@ const PhoneDropdown = forwardRef<HTMLDivElement, PhoneDropdownProps> (({
           <div className="flex items-center space-x-2">
             <Image src="/map.svg" alt="Адрес" width={20} height={20} />
             <span className="font-bold text-[16px] leading-4">
-              Витебск, ул. Терешковой 9В
+              Витебск, ул. Терешковой 9Б
             </span>
           </div>
           <div className="mt-3 mb-1.5 flex space-x-2">

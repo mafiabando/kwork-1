@@ -241,7 +241,7 @@ const Header = () => {
               {/* Адрес */}
               <div className="flex items-center space-x-2 text-sm text-[#2c3a54]">
                 <Image width={28} height={28} src={"/map.svg"} alt="Map" />
-                <span>Витебск, ул. Терешковой 9В</span>
+                <span>Витебск, ул. Терешковой 9Б</span>
               </div>
 
               {/* Работаем до 19:00 + телефоны */}

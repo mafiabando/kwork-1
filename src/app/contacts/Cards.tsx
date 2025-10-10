@@ -14,11 +14,11 @@ const Cards = () => {
                         <span className="text-sm text-[#969ead]">Контакты</span>
                         <div className="flex flex-col mt-2.5">
                             <div className="flex space-x-2.5">
-                                <a href="tel+375296000000">+375 29 600-00-00</a>
+                                <a href="tel+375296000000" className="text-xl lg:text-[16px]">+375 29 600-00-00</a>
                                 <span className="text-sm self-center">МТС</span>
                             </div>
                             <div className="flex space-x-2.5 ">
-                                <a href="tel+375333000001">+375 33 300-00-01</a>
+                                <a href="tel+375333000001" className="text-xl lg:text-[16px]">+375 33 300-00-01</a>
                                 <span className="text-sm self-center">А1</span>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ const Cards = () => {
                     <div className="p-5 border-r-1 border-r-gray-100 lg:border-r-0 lg:shadow-sm bg-white flex-grow flex flex-col">
                         <span className="text-sm text-[#969ead]">Адрес</span>
                         <div className="mt-2.5">
-                            <p>220117, Республика Беларусь, г. Минск, пр-т Любимова, 26, корпус 3</p>
+                            <p>220117, Республика Беларусь, г. Витебск, ул. Терешковой 9Б</p>
                         </div>
                     </div>
                 </div>

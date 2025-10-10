@@ -297,7 +297,7 @@ const StoreInfo = () => {
           <div className="w-1/3 flex flex-col justify-between text-[#2c3a54]">
             <div>
               <p className="font-bold mb-6 text-xl">
-                Витебск, ул. Терешковой 9В
+                Витебск, ул. Терешковой 9Б
               </p>
 
               <div className="relative group mb-6 no-wrap">
@@ -391,7 +391,7 @@ const StoreInfo = () => {
           <div className="w-1/2 flex flex-col justify-between text-[#2c3a54]">
             <div>
               <p className="text-gray-800 font-bold mb-2">
-                Витебск, ул. Терешковой 9В
+                Витебск, ул. Терешковой 9Б
               </p>
 
               <div className="relative group mb-3 whitespace-nowrap">
@@ -482,7 +482,7 @@ const StoreInfo = () => {
 
           <div>
             <p className="text-[#2c3a54] font-bold mb-2">
-              Витебск, ул. Терешковой 9В
+              Витебск, ул. Терешковой 9Б
             </p>
 
             <div className="relative group mb-3 text-[#2c3a54]">
@@ -576,7 +576,7 @@ const StoreInfo = () => {
 
           <div>
             <p className="text-gray-800 font-bold mb-2">
-              Витебск, ул. Терешковой 9В
+              Витебск, ул. Терешковой 9Б
             </p>
 
             <div className="relative group mb-3">

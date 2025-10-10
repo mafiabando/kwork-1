@@ -353,9 +353,9 @@ const PolicyPage = () => {
                       color: "blue",
                       textDecoration: "underline",
                     }}
-                    href="mailto:stonerose@gmail.com"
+                    href="mailto:centrgranitbel@gmail.com"
                   >
-                    stonerose@gmail.com
+                    centrgranitbel@gmail.com
                   </a>
                   .
                 </span>
@@ -405,7 +405,7 @@ const PolicyPage = () => {
                   <strong>7.4. Почтовый адрес:</strong>
                   <br />
                   <br />
-                  220117, г. Минск, пр-т Любимова 26 корпус 3
+                  220117, г. Витебск, ул. Терешковой 9Б
                 </span>
               </p>
             </div>

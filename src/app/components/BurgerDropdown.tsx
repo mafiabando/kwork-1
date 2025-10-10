@@ -214,7 +214,7 @@ const BurgerDropdown: React.FC<BurgerDropdownProps> = ({
         </Link>
 
         <div className="flex items-center mt-5.25 text-[16px] text-[#2c3a54]">
-          <span>Витебск, ул. Терешковой 9В</span>
+          <span>Витебск, ул. Терешковой 9Б</span>
         </div>
 
         <div className="flex justify-between items-center leading-[23px]">
