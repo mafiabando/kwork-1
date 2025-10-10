@@ -5,6 +5,7 @@ import SidebarCatalogMenu from "../components/Sidebar/SidebarCatalogMenu"
 import SidebarStickyHelp from "../components/Sidebar/SidebarStickyHelp"
 import Cards from "./Cards"
 import Gallery from "./Gallery"
+import Map from "./Map."
 
 export const metadata: Metadata = {
     title: "Контакты",
@@ -27,6 +28,7 @@ const ContactsPage = () => {
                         </div>
                         <Cards />
                         <Gallery />
+                        <Map />
                     </div>
                 </div>
             </section>

@@ -27,14 +27,14 @@ const Gallery = () => {
     };
 
     return (
-        <div className="relative mt-2.5 p-7.5">
+        <div className="relative mt-2.5 p-5 lg:p-7.5 max-w-[872px] mx-auto">
             {/* Основной слайдер */}
-            <div className="w-full h-[563px] relative overflow-hidden">
+            <div className="w-full md:max-h-[563px] relative overflow-hidden">
                 {/* Контейнер для основного слайда */}
-                <div className="max-w-[709px] pr-40 box-content h-full relative">
+                <div className="max-w-[747px] md:max-w-[709px] md:pr-[163px] box-content h-full relative">
                     {/* Основное изображение */}
                     <div
-                        className="w-full h-full cursor-pointer"
+                        className="w-full max-h-[563px] cursor-pointer"
                         onClick={() => openModal(currentSlideIndex)} // Открываем модалку при клике
                     >
                         <Image
@@ -42,18 +42,18 @@ const Gallery = () => {
                             alt={slides[currentSlideIndex].alt}
                             width={709}
                             height={506}
-                            className="w-full h-full object-cover"
+                            className="w-full max-h-[563px] object-cover"
                         />
                     </div>
                     {/* Контейнер миниатюр */}
                 <div
-                    className="absolute right-0 top-0 w-[135px] flex flex-col"
+                    className="md:absolute md:right-0 md:top-0 h-[52px] mt-2.5 md:mt-0 justify-self-center md:w-[135px] md:h-auto space-x-2.5 md:space-y-4 flex md:flex-col"
                 >
                     {/* Миниатюры */}
                     {slides.map((slide, index) => (
                         <div
                             key={slide.id}
-                            className={`w-[135px] h-[101px] mb-2 last:mb-0 relative ${
+                            className={`w-[70px] h-[52px] md:w-[135px] md:h-[101px] relative ${
                                 index === currentSlideIndex ? "opacity-100" : "opacity-70"
                             } transition-opacity duration-250 cursor-pointer`}
                             onClick={() => handleThumbnailClick(index)}
@@ -61,8 +61,8 @@ const Gallery = () => {
                             <Image
                                 src={slide.src}
                                 alt={slide.alt}
-                                width={135}
-                                height={101}
+                                width={70}
+                                height={52}
                                 className="w-full h-full object-cover"
                             />
                         </div>
