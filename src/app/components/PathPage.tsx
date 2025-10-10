@@ -23,7 +23,7 @@ export default function PathPage() {
 
   return (
     <div className="mb-2.5">
-      <ul className="flex items-center text-xs text-[#cbcbcb] space-x-2">
+      <ul className="flex items-center text-xs text-[#cbcbcb] space-x-2 font-[600]">
         <li>
           <Link href="/" className="text-[#2c3a54] hover:underline transition-colors">
             Главная

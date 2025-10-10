@@ -6,7 +6,7 @@ const Promo = () => {
 
   return (
     <section className="max-w-[1300px]">
-      <div className="flex flex-col -mx-2.5 md:flex-row space-y-5 md:space-y-0">
+      <div className="flex flex-col flex-wrap -mx-2.5 md:flex-row space-y-5">
         {campaigns.map((campaign) => (
           <div
             key={campaign.id}

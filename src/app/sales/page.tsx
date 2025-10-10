@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Акции",
 };
 
-const PolicyPage = () => {
+const SalesPage = () => {
     return (
         <>
             <section className="container-centered mt-5 max-w-[1300px] flex">
@@ -20,9 +20,8 @@ const PolicyPage = () => {
                 </div>
                 <div className="w-[100%] lg:ml-5 lg:max-w-[75%]">
                     <PathPage />
-                    <div className="mb-5 lg:mb-7.5">
-                        <h1 className="text-black text-[28px] leading-8 lg:text-[40px] lg:leading-12 font-[600]">Акции</h1>
-                    </div>
+
+                    <h1 className="text-black text-[28px] mb-5 lg:mb-7.5 leading-8 lg:text-[40px] lg:leading-12 font-[600]">Акции</h1>
                     <Promo />
                 </div>
             </section>
@@ -33,4 +32,4 @@ const PolicyPage = () => {
     );
 };
 
-export default PolicyPage;
+export default SalesPage;

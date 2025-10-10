@@ -353,9 +353,9 @@ const PolicyPage = () => {
                       color: "blue",
                       textDecoration: "underline",
                     }}
-                    href="mailto:centrgranitbel@gmail.com"
+                    href="mailto:stonerose@gmail.com"
                   >
-                    centrgranitbel@gmail.com
+                    stonerose@gmail.com
                   </a>
                   .
                 </span>
