@@ -18,7 +18,7 @@ const BannerForm = () => {
     }, []);
 
     return (
-        <section className="min-h-[657px] md:min-h-[412px] max-w-[1300px] md:rounded-3xl px-7 pt-6 pb-43.75 md:p-10 mt-17 md:mt-30 container-centered" style={{
+        <section className="min-h-[657px] md:min-h-[412px] max-w-[1300px] md:rounded-3xl px-7 pt-6 pb-43.75 md:p-10 mt-17 lg:mt-30 container-centered" style={{
             backgroundImage: isMobile ? "url('/banner-form-m.jpg')" : "url(/banner-form.jpg)",
             backgroundSize: isMobile ? "cover" : "",
             backgroundRepeat: "no-repeat",

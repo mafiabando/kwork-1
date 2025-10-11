@@ -264,7 +264,7 @@ const PopularProducts = () => {
   };
 
   return (
-    <section className="max-w-[1300px] mt-17 md:mt-30 container-centered">
+    <section className="max-w-[1300px] mt-17 lg:mt-30 container-centered">
       <h2 className="text-4xl font-bold text-[#2c3a54] mb-3.5 md:mb-7.5">
         Популярные товары
       </h2>

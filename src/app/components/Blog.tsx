@@ -52,7 +52,7 @@ const Blog = () => {
   ];
 
   return (
-    <section className="mt-17 md:mt-30 gradient">
+    <section className="mt-17 lg:mt-30 gradient">
       <div className="max-w-[1300px] pt-[93px] container-centered">
         <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-7.5">
           Блог

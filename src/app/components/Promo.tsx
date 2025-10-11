@@ -6,7 +6,7 @@ import { campaigns } from "../mock/campaigns";
 const Promo = () => {
 
   return (
-    <section className="max-w-[1300px] container-centered mt-17 md:mt-30">
+    <section className="max-w-[1300px] container-centered mt-17 lg:mt-30">
       <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-7.5">Наши акции</h2>
 
       <div className="flex flex-col md:flex-row space-y-5 md:space-y-0">

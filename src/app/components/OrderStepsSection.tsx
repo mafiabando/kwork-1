@@ -108,7 +108,7 @@ const OrderStepsSection = () => {
 
   return (
     <>
-    <section className="max-w-[1300px] mt-17 md:mt-30 container-centered">
+    <section className="max-w-[1300px] mt-17 lg:mt-30 container-centered">
       <h1 className="text-4xl font-bold text-[#2c3a54] ml-2.5 md:ml-0 mb-11.5 md:text-center">Как сделать заказ</h1>
 
       <div className={`flex ${isMobile ? 'flex-col gap-10' : isTablet ? 'flex-col md:flex-row md:flex-wrap' : 'flex-row'}`}>

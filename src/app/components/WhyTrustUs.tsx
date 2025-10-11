@@ -21,7 +21,7 @@ const WhyTrustUs = () => {
 
   return (
     <section className="bg-[#f5f6fa]">
-      <div className=" max-w-[1300px] mt-17 md:mt-30 container-centered">
+      <div className=" max-w-[1300px] mt-17 lg:mt-30 container-centered">
         <div className="md:ml-2.5 pt-[93px] mb-[30px]">
           <h2 className="text-4xl font-bold text-[#2c3a54] mb-6">
             Почему нам доверяют

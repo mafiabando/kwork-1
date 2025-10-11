@@ -123,7 +123,7 @@ const OurWorksSlider = () => {
     };
 
     return (
-        <section className="mb-15 md:mb-22.5 mt-17 md:mt-30 gradient">
+        <section className="mb-15 md:mb-22.5 mt-17 lg:mt-30 gradient">
             <div className="pt-15 md:pt-[93px] max-w-[1300px] container-centered">
                 <h2 className="text-4xl font-bold text-[#2c3a54] ml-2.5 mb-6">Наши работы</h2>
 
