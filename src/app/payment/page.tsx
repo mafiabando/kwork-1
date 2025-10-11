@@ -157,7 +157,7 @@ const PaymentDeliveryPage = () => {
                         {/* Примеры наших работ */}
                         <div className="mb-7.5">
                             <h2 className="font-bold text-[#2D4266] mb-2.5">Примеры наших работ</h2>
-                                <img src="/delivery/7.webp" alt="Пример работы 1" className="w-full h-auto rounded-lg" />
+                            <img src="/delivery/7.webp" alt="Пример работы 1" className="w-full h-auto rounded-lg" />
                         </div>
 
                         {/* Контакты для уточнения условий */}

@@ -130,7 +130,7 @@ const OurWorksSlider = () => {
                 <img
                     src={work.src}
                     alt={work.alt}
-                    className="w-full h-auto rounded-xl "
+                    className="w-full h-auto rounded-xl hover:opacity-80 duration-500"
                 />
             </div>
         );
