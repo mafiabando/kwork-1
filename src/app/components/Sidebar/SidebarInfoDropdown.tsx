@@ -17,7 +17,7 @@ export default function SidebarInfoDropdown() {
     };
 
     return (
-        <div className="bg-white border border-gray-200 mb-5">
+        <div className="bg-white border-b border-t border-gray-200 mb-5">
             {/* Заголовок */}
             <button
                 onClick={toggleMenu}

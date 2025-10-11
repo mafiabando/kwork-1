@@ -21,7 +21,7 @@ const PolicyPage = () => {
           <SidebarStickyHelp />
         </div>
         <div className="w-[100%] lg:ml-5 lg:max-w-[75%]">
-          <div className="w-[100%] block md:hidden"><SidebarInfoDropdown /></div>
+          <div className="w-[100%] block lg:hidden"><SidebarInfoDropdown /></div>
           <div className="ml-5 lg:ml-0 "><PathPage /></div>
           <div className="shadow-sm p-5 lg:p-7.5 w-full">
             <h1 className="text-black text-[28px] leading-8 lg:text-[40px] lg:leading-12 font-[600]">
@@ -412,9 +412,7 @@ const PolicyPage = () => {
           </div>
         </div>
       </section>
-      <div className="mb-22.5">
         <OurWorksSlider />
-      </div>
     </>
   );
 };

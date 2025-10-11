@@ -4,6 +4,7 @@ import PathPage from '../components/PathPage';
 import SidebarCatalogMenu from '../components/Sidebar/SidebarCatalogMenu';
 import SidebarStickyHelp from '../components/Sidebar/SidebarStickyHelp';
 import SidebarInfoMenu from '../components/Sidebar/SidebarInfoMenu';
+import SidebarInfoDropdown from '../components/Sidebar/SidebarInfoDropdown';
 
 export const metadata: Metadata = {
     title: "Онлайн и доставка",
@@ -21,6 +22,7 @@ const PaymentDeliveryPage = () => {
                     <SidebarStickyHelp />
                 </div>
                 <div className="w-[100%] lg:ml-5 lg:max-w-[75%]">
+                    <div className="w-[100%] block lg:hidden"><SidebarInfoDropdown /></div>
                     <div className='ml-5 lg:ml-0'><PathPage /></div>
                     <div className='p-5 lg:p-7.5 shadow-sm font-[600]'>
                         <h1 className="text-black text-[28px] mb-5 lg:mb-7.5 leading-8 lg:text-[40px] lg:leading-12 font-[600]">Оплата и доставка</h1>
@@ -172,9 +174,7 @@ const PaymentDeliveryPage = () => {
             </section>
 
             {/* OurWorksSlider внизу страницы */}
-            <div className="mb-22.5">
-                <OurWorksSlider />
-            </div>
+            <OurWorksSlider />
         </>
     );
 };

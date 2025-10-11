@@ -527,9 +527,7 @@ const Header = () => {
 
       {/* Нижняя строка (вторая белая строка) */}
       <div
-        className="flex justify-between items-center max-w-[1300px] mx-auto px-4 py-2.5"
-        style={{ height: "40-50px" }}
-      >
+        className="flex justify-between items-center max-w-[1300px] mx-auto px-4 py-2.5">
         {/* Слева - МТС */}
         <a
           href={`tel:${PHONE_MTS.replace(/[\s-]/g, "")}`}

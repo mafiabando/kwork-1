@@ -25,9 +25,7 @@ const SalesPage = () => {
                     <Promo />
                 </div>
             </section>
-            <div className="mb-22.5">
                 <OurWorksSlider />
-            </div>
         </>
     );
 };
