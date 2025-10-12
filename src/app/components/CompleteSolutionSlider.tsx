@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 import { Product } from "../types/types";
-import { products } from "../mock/products";
+import { productsMonuments } from "../mock/products";
 
 const CompleteSolutionSlider = () => {
   const [isMobile, setIsMobile] = useState(false); // <768px
@@ -129,7 +129,7 @@ const CompleteSolutionSlider = () => {
               WebkitOverflowScrolling: "touch",
             }}
           >
-            {products.map((product) => (
+            {productsMonuments.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -164,7 +164,7 @@ const CompleteSolutionSlider = () => {
                 WebkitOverflowScrolling: "touch",
               }}
             >
-              {products.map((product) => (
+              {productsMonuments.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

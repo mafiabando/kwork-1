@@ -7,10 +7,11 @@ export type ColorOption = {
 export type Product = {
   id: number;
   name: string;
-  height: string;
-  price: number;
+  height?: string;
+  price?: number;
   oldPrice?: number;
   discount?: number;
+  textPrice?: string;
   category: string;
   image: string;
   colors: ColorOption[];

@@ -1,5 +1,5 @@
 import React from "react";
-import { categories } from "../mock/categories";
+import { categoriesMonuments } from "../mock/categories";
 
 function IconArrow() {
   return (
@@ -27,7 +27,7 @@ export default function PopularCategories() {
       {/* Список для экранов <768px */}
       <div className="block md:hidden">
         <ul className="space-y-3">
-          {categories.map(({ title, img, link }) => (
+          {categoriesMonuments.map(({ title, img, link }) => (
             <li key={title}>
               <a
                 href={link}
@@ -55,7 +55,7 @@ export default function PopularCategories() {
 
       {/* Сетка для экранов >=768px (md и выше) */}
       <div className="hidden md:grid grid-cols-2 xl:grid-cols-4">
-        {categories.map(({ title, price, img, link }) => (
+        {categoriesMonuments.map(({ title, price, img, link }) => (
           <div className="mt-5 px-2.5" key={title}>
             <a
               href={link}

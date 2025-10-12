@@ -1,6 +1,6 @@
 import { Category } from "../types/types";
 
-export const categories: Category[] = [
+export const categoriesMonuments: Category[] = [
   {
     title: "Недорогие",
     price: "от 610 руб.",
@@ -47,6 +47,27 @@ export const categories: Category[] = [
     title: "Памятники",
     price: "от 610 руб.",
     img: "/section/monuments.webp",
+    link: "/",
+  },
+];
+
+export const categoriesFences: Category[] = [
+  {
+    title: "Гранитные ограды",
+    price: "от 515 руб.",
+    img: "/section/granite1.webp",
+    link: "/",
+  },
+  {
+    title: "Кованые ограды",
+    price: "от 200 руб.",
+    img: "/section/granite2.webp",
+    link: "/",
+  },
+  {
+    title: "Металлические ограды",
+    price: "от 75 руб.",
+    img: "/section/granite3.webp",
     link: "/",
   },
 ];
