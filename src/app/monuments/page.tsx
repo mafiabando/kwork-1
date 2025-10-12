@@ -144,6 +144,8 @@ const MonumentsPage = () => {
                         onPageChange={setCurrentPage}
                         initialPage={1}
                     />
+                    
+                    {/* Описание страницы */}
                     <div className="mt-7.5 font-[600] shadow-md p-7.5">
                         {/* Первый абзац */}
                         <p className=" text-[#2D4266] mb-5">
