@@ -7,7 +7,7 @@ export const menuCategories = [
   },
   {
     name: 'Памятники',
-    href: '/monuments', // Нет прямой ссылки, только dropdown
+    href: '/monuments',
     icon: '/monuments.webp',
     subcategories: [
       { name: 'Одиночные', href: '/monuments/single', img: '/monuments/single.webp' },

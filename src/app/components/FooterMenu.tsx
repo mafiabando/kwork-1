@@ -7,8 +7,8 @@ import { useDropdown } from "../context/DropDownContext";
 import BurgerDropdown from "./BurgerDropdown";
 import FooterPhoneDropdown from "./FooterPhoneDropdown";
 
-const PHONE_MTS = "+375 29 600-00-00";
-const PHONE_A1 = "+375 33 300-00-01";
+const PHONE_MTS = "+375 33 322-66-52";
+const PHONE_A1 = "+375 29 622-66-45";
 
 const FooterMenu = () => {
   const [isPhoneDropdownOpen, setPhoneDropdownOpen] = useState(false);

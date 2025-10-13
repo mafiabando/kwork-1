@@ -14,12 +14,12 @@ export type Product = {
   textPrice?: string;
   category: string;
   image: string;
-  colors: ColorOption[];
+  colors?: ColorOption[];
 };
 
 export type Category = {
   title: string;
-  price: string;
+  price?: string;
   img: string;
   link: string;
 };

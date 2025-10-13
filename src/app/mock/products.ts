@@ -8,7 +8,7 @@ export const productsMonuments: Product[] = [
     price: 1025,
     oldPrice: 1185,
     discount: 13,
-    category: "Одиночные",
+    category: "одиночные",
     image: "/popular-products/a3.jpg", // базовое изображение
     colors: [
       {
@@ -123,13 +123,13 @@ export const productsMonuments: Product[] = [
   },
   {
     id: 7,
-    name: "Одиночный памятник А-21",
+    name: "Двойной памятник Б-1",
     height: "125 см",
     price: 1765,
     oldPrice: 2000,
     discount: 11,
     category: "Двойные",
-    image: "/popular-products/a21.jpg",
+    image: "/monuments/b1.webp",
     colors: [
       {
         name: "Черный гранит",
@@ -292,13 +292,13 @@ export const productsMonuments: Product[] = [
   },
   {
     id: 15,
-    name: "Одиночный памятник А-21",
+    name: "Двойной памятник Б-2",
     height: "125 см",
     price: 1765,
     oldPrice: 2000,
     discount: 11,
     category: "Двойные",
-    image: "/popular-products/a21.jpg",
+    image: "/monuments/b2.webp",
     colors: [
       {
         name: "Черный гранит",
@@ -336,6 +336,70 @@ export const productsMonuments: Product[] = [
         name: "Золотой гранит",
         color: "#ffd700",
         image: "/popular-products/a18-gold.jpg",
+      },
+    ],
+  },
+  {
+    id: 17,
+    name: "Двойной памятник Б-1",
+    height: "125 см",
+    price: 1765,
+    oldPrice: 2000,
+    discount: 11,
+    category: "Двойные",
+    image: "/monuments/b1.webp",
+    colors: [
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+    ],
+  },
+  {
+    id: 18,
+    name: "Двойной памятник Б-2",
+    height: "125 см",
+    price: 1765,
+    oldPrice: 2000,
+    discount: 11,
+    category: "Двойные",
+    image: "/monuments/b2.webp",
+    colors: [
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#000000",
+        image: "/popular-products/a21-black.jpg",
       },
     ],
   },
@@ -632,3 +696,170 @@ export const productsFences: Product[] = [
   },
 
 ];
+
+export const productsAccessories: Product[] = [
+  {
+    id: 1,
+    name: "Полимерная ваза 1",
+    price: 75,
+    category: "Вазы",
+    image: "/accessories/1.webp",
+  },
+  {
+    id: 2,
+    name: "Полимерная ваза 2",
+    price: 90,
+    category: "Вазы",
+    image: "/accessories/2.webp",
+  },
+  {
+    id: 3,
+    name: "Полимерная ваза 3",
+    price: 110,
+    category: "Вазы",
+    image: "/accessories/3.webp",
+  },
+  {
+    id: 4,
+    name: "Лампада полимерная 1",
+    price: 155,
+    category: "Лампады",
+    image: "/accessories/4.webp",
+  },
+  {
+    id: 5,
+    name: "Лампада полимерная 2",
+    price: 155,
+    category: "Лампады",
+    image: "/accessories/5.webp",
+  },
+  {
+    id: 6,
+    name: "Скульптура ритуальная 1",
+    price: 260,
+    category: "Скульптуры",
+    image: "/accessories/6.webp",
+  },
+  {
+    id: 7,
+    name: "Скульптура ритуальная 2",
+    price: 260,
+    category: "Скульптуры",
+    image: "/accessories/7.webp",
+  },
+  {
+    id: 8,
+    name: "Крест из бронзы 1",
+    price: 385,
+    category: "Изделия из бронзы",
+    image: "/accessories/8.webp",
+  },
+  {
+    id: 9,
+    name: "Крест из бронзы 2",
+    price: 385,
+    category: "Изделия из бронзы",
+    image: "/accessories/9.webp",
+  },
+]
+
+export const productsLandscape: Product[] = [
+  {
+    id: 1,
+    name: "Скамейка из гранита 1",
+    textPrice: 'Цена по запросу',
+    category: "Столы и скамейки",
+    image: "/landscape/1.webp",
+  },
+  {
+    id: 2,
+    name: "Скамейка из гранита 2",
+    textPrice: 'Цена по запросу',
+    category: "Столы и скамейки",
+    image: "/landscape/2.webp",
+  },
+  {
+    id: 3,
+    name: "Скамейка из гранита 3",
+    textPrice: 'Цена по запросу',
+    category: "Столы и скамейки",
+    image: "/landscape/3.webp",
+  },
+  {
+    id: 4,
+    name: "Стол из гранита 1",
+    textPrice: 'Цена по запросу',
+    category: "Столы и скамейки",
+    image: "/landscape/4.webp",
+  },
+  {
+    id: 5,
+    name: "Стол из гранита 2",
+    textPrice: 'Цена по запросу',
+    category: "Столы и скамейки",
+    image: "/landscape/5.webp",
+  },
+  {
+    id: 6,
+    name: "Щебень декоративный белый",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/6.webp",
+  },
+  {
+    id: 7,
+    name: "Щебень декоративный серо-голубой",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/7.webp",
+  },
+  {
+    id: 8,
+    name: "Щебень декоративный розовый мрамор",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/8.webp",
+  },
+  {
+    id: 9,
+    name: "Щебень декоративный синий",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/9.webp",
+  },
+  {
+    id: 10,
+    name: "Щебень декоративный серебристый",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/10.webp",
+  },
+  {
+    id: 11,
+    name: "Щебень декоративный чёрный",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/11.webp",
+  },
+  {
+    id: 12,
+    name: "Щебень декоративный зелёный",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/12.webp",
+  },
+  {
+    id: 13,
+    name: "Щебень декоративный бордовый",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/13.webp",
+  },
+  {
+    id: 14,
+    name: "Щебень декоративный коричневый",
+    textPrice: 'Цена по запросу',
+    category: "Щебень декоративный",
+    image: "/landscape/14.webp",
+  },
+]

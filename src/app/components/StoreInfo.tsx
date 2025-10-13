@@ -357,14 +357,14 @@ const StoreInfo = () => {
                   src={"/phone.svg"}
                 />
                 <div className="flex flex-col font-bold">
-                  <a href="tel:+375296000000">
+                  <a href="tel:+375333226652">
                     <span className="text-gray-600 text-[16px]">
-                      +375 29 600-00-00
+                      +375 33 322-66-52
                     </span>
                   </a>
-                  <a href="tel:+375333000001">
+                  <a href="tel:+375296226645">
                     <span className="text-gray-600 text-[16px]">
-                      +375 33 300-00-01
+                      +375 29 622-66-45
                     </span>
                   </a>
                 </div>
@@ -453,10 +453,10 @@ const StoreInfo = () => {
                 />
                 <div className="flex flex-col font-bold">
                   <span className="text-gray-600 text-[16px]">
-                    +375 29 600-00-00
+                    +375 33 322-66-52
                   </span>
                   <span className="text-gray-600 text-[16px]">
-                    +375 33 300-00-01
+                    +375 29 622-66-45
                   </span>
                 </div>
               </div>
@@ -543,14 +543,14 @@ const StoreInfo = () => {
                 src={"/phone.svg"}
               />
               <div className="flex flex-col font-bold">
-                <a href="tel:+375296000000">
+                <a href="tel:+375333226652">
                   <span className="text-gray-600 text-[16px]">
-                    +375 29 600-00-00
+                    +375 33 322-66-52
                   </span>
                 </a>
-                <a href="tel:+375333000001">
+                <a href="tel:+375296226645">
                   <span className="text-gray-600 text-[16px]">
-                    +375 33 300-00-01
+                    +375 29 622-66-45
                   </span>
                 </a>
               </div>
@@ -637,14 +637,14 @@ const StoreInfo = () => {
                 src={"/phone.svg"}
               />
               <div className="flex flex-col font-bold">
-                <a href="tel:+375296000000">
+                <a href="tel:+375333226652">
                   <span className="text-gray-600 text-[16px]">
-                    +375 29 600-00-00
+                    +375 33 322-66-52
                   </span>
                 </a>
-                <a href="tel:+375333000001">
+                <a href="tel:+375296226645">
                   <span className="text-gray-600 text-[16px]">
-                    +375 33 300-00-01
+                    +375 29 622-66-45
                   </span>
                 </a>
               </div>

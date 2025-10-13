@@ -56,7 +56,7 @@ const SidebarCatalogMenu = () => {
                         {/* Выпадающее меню подкатегорий */}
                         {activeCategory === category.name && category.subcategories.length > 0 && (
                             <div
-                                className="absolute left-full top-0 h-full mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2 w-[500px]"
+                                className="absolute left-full top-0 min-h-full mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2 w-[500px]"
                                 style={{
                                     boxShadow: `0 0 30px 0 #2c3A5426`,
                                 }}

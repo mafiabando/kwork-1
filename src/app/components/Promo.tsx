@@ -13,13 +13,13 @@ const Promo = () => {
         {campaigns.map((campaign) => (
           <div
             key={campaign.id}
-            className="w-full md:w-1/3 bg-[#f5f6fa] mx-2.5 rounded-lg shadow-sm overflow-hidden"
+            className="w-full md:w-1/3 px-2.5 overflow-hidden"
           >
-            <a href={campaign.link} className="block">
+            <a href={campaign.link} className="block h-full bg-[#f5f6fa] rounded-lg shadow-sm">
               <img
                 src={campaign.image}
                 alt={campaign.title}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-lg"
               />
               <div className="px-4.25 py-3.75 md:p-6">
                 <h3 className="font-bold text-md lg:text-xl text-[#2c3a54] mb-1.25">{campaign.title}</h3>

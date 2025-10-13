@@ -194,7 +194,7 @@ const BurgerDropdown: React.FC<BurgerDropdownProps> = ({
             <Image src="/tm.svg" alt="Telegram" width={28} height={28} />
           </a>
           <a
-            href="whatsapp://send?phone=+375336770166"
+            href="whatsapp://send?phone=+375333226652"
             aria-label="WhatsApp"
             target="_blank"
             rel="noopener noreferrer"

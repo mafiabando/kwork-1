@@ -378,7 +378,7 @@ const PolicyPage = () => {
                       fontFamily: "Arial",
                     }}
                   >
-                    +375 33 677-01-66
+                    +375 33 322-66-52
                   </span>
                 </span>
                 <br />

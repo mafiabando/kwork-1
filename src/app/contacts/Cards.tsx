@@ -14,11 +14,11 @@ const Cards = () => {
                         <span className="text-sm text-[#969ead]">Контакты</span>
                         <div className="flex flex-col mt-2.5">
                             <div className="flex space-x-2.5">
-                                <a href="tel+375296000000" className="text-xl lg:text-[16px]">+375 29 600-00-00</a>
+                                <a href="tel+375333226652" className="text-xl lg:text-[16px]">+375 33 322-66-52</a>
                                 <span className="text-sm self-center">МТС</span>
                             </div>
                             <div className="flex space-x-2.5 ">
-                                <a href="tel+375333000001" className="text-xl lg:text-[16px]">+375 33 300-00-01</a>
+                                <a href="tel+375296226645" className="text-xl lg:text-[16px]">+375 29 622-66-45</a>
                                 <span className="text-sm self-center">А1</span>
                             </div>
                         </div>

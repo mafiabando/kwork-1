@@ -14,8 +14,8 @@ import { additionalMenuItems } from "../mock/menuCategories";
 import PhoneDropdown from "./PhoneDropdown";
 import { useDropdown } from "../context/DropDownContext";
 
-const PHONE_MTS = "+375 29 600-00-00";
-const PHONE_A1 = "+375 33 300-00-01";
+const PHONE_MTS = "+375 33 322-66-52";
+const PHONE_A1 = "+375 29 622-66-45";
 
 const Header = () => {
   // Состояния открытия dropdown-меню
@@ -291,8 +291,8 @@ const Header = () => {
                   </div>
                 </div>
                 <div className="flex space-x-3 mt-1 font-bold text-3.5 xl:text-4">
-                  <span>+375 29 600-00-00</span>
-                  <span>+375 33 300-00-01</span>
+                  <span>+375 33 322-66-52</span>
+                  <span>+375 29 622-66-45</span>
                 </div>
               </div>
 

@@ -86,7 +86,7 @@ const PhoneDropdown = forwardRef<HTMLDivElement, PhoneDropdownProps> (({
         </div>
         <div className="flex gap-2.5 items-center space-y-1 text-center">
           <a
-            href="whatsapp://send?phone=+375336770166"
+            href="whatsapp://send?phone=+375333226652"
             aria-label="WhatsApp"
             target="_blank"
             rel="noopener noreferrer"

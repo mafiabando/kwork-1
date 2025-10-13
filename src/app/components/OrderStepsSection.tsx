@@ -120,7 +120,7 @@ const OrderStepsSection = () => {
             <div className="mt-2.5">
               <p className="text-[#2c3a54] text-center">
                 Позвоните по телефону <br />
-                <a href="tel:+375296000000" className="text-[#2c3a54] font-bold underline">+375 29 600-00-00</a>,<br />
+                <a href="tel:+375333226652" className="text-[#2c3a54] font-bold underline">+375 33 322-66-52</a>,<br />
                 напишите в мессенджерах
               </p>
               <div className="flex justify-center space-x-2 mt-1.75 mb-3.25">

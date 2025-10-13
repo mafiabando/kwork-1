@@ -91,8 +91,8 @@ const Footer = () => {
         {/* Колонка 1: Контакты (1/3 ширины на десктопе) */}
         <div className="col-span-4">
           <div className="space-y-2">
-            <div className="text-[#2c3a54]">+375 33 677-01-66 MTC</div>
-            <div className="text-[#2c3a54]">+375 29 182-01-66 A1</div>
+            <div className="text-[#2c3a54]">+375 33 322-66-52 MTC</div>
+            <div className="text-[#2c3a54]">+375 29 622-66-45 A1</div>
           </div>
           <div className="flex mt-1">
             <button className="bg-white border border-[#2c3a54] text-[#2c3a54] px-3.5 py-1 mr-4.25 md:px-3.75 md:py-2.25 rounded-full font-bold hover:bg-[#2c3a54] hover:text-white transition">

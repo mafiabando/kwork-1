@@ -8,8 +8,7 @@ interface ProductCardProps {
     isTablet: boolean;
     isMobile: boolean;
     isNarrowMobile: boolean;
-}
-
+}   
 
 const ProductCard = ({
     product,
@@ -22,11 +21,21 @@ const ProductCard = ({
     const [selectedColorIndex, setSelectedColorIndex] = useState(0); // 0 = дефолт
     const imageRef = useRef<HTMLDivElement>(null);
 
-    // Расширенный массив — 0 = дефолт, 1+ = цвета
-    const expandedColors: ColorOption[] = [
-        { name: "Дефолт", color: "#808080", image: product.image },
-        ...product.colors,
-    ];
+    // Проверяем, существуют ли цвета и есть ли в них хотя бы один элемент
+    // Явно указываем тип для локальной переменной, чтобы избежать ошибки
+    const productColors: ColorOption[] = Array.isArray(product.colors) ? product.colors : [];
+
+    const hasColors = productColors.length > 0;
+
+    // Если цвета есть, добавляем "Дефолт" как первый элемент, иначе только "Дефолт"
+    const expandedColors: ColorOption[] = hasColors
+        ? [
+            { name: "Дефолт", color: "#808080", image: product.image },
+            ...productColors,
+        ]
+        : [
+            { name: "Дефолт", color: "#808080", image: product.image },
+        ];
 
     // Изображение для отображения
     const displayImage = isTablet
@@ -137,7 +146,7 @@ const ProductCard = ({
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 {/* Индикаторы цветов для десктопа */}
-                {!isTablet && expandedColors.length > 1 && (
+                {!isTablet && hasColors && (
                     <div
                         className={`absolute bottom-3 left-[10%] right-[10%] flex space-x-0.5 transition-all duration-300 z-10 ${showIndicators ? "opacity-100" : "opacity-0"
                             }`}
@@ -153,7 +162,7 @@ const ProductCard = ({
                         ))}
                     </div>
                 )}
-                {isTablet && expandedColors.length > 1 && (
+                {isTablet && hasColors && (
                     <div className="absolute bottom-0 right-3 flex flex-col items-end z-10">
                         <div className="bg-gray-300 h-2 rounded-full px-1.5 flex space-x-1 justify-end">
                             {expandedColors.map((color, index) => (
@@ -171,7 +180,7 @@ const ProductCard = ({
                 )}
             </div>
             {/* Нижняя часть карточки (убрали fixed height, чтобы контент определял) */}
-            <div className="p-3 flex flex-col">
+            <div className="p-3 flex flex-col h-[calc(100%-256px)]">
                 {/* Title */}
                 <h3
                     className={`font-bold text-gray-800 mb-1 ${isTablet ? "text-base" : "text-lg"
@@ -186,10 +195,10 @@ const ProductCard = ({
                     </p>
                 ) : null}
                 {/* Блок с ценой и кнопкой: flex-row на десктопе (цена слева, кнопка справа), на мобиле - как раньше (col) */}
-                <div className="flex-1 flex flex-col xl:flex-row xl:justify-between">
+                <div className="flex-1 flex flex-col xl:flex-row justify-between">
                     {/* Цены в одну строку */}
                     <div
-                        className={`flex items-center self-end xl:flex-col xl:items-start ${isNarrowMobile ? "flex-col gap-0 items-start" : "gap-2"
+                        className={`flex items-center xl:self-end xl:flex-col xl:items-start ${isNarrowMobile ? "flex-col gap-0 items-start" : "gap-2"
                             }`}
                     >
                         {/* Если есть price, показываем цену, иначе textPrice */}

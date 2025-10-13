@@ -8,6 +8,7 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import { categoriesFences } from "../mock/categories";
 import { productsFences } from "../mock/products";
+import Link from "next/link";
 
 // Функция для получения продуктов для конкретной страницы
 const getProductsForPage = (cards: typeof productsFences, page: number, productsPerPage: number) => {
@@ -20,7 +21,7 @@ const getTotalPages = (totalProducts: number, productsPerPage: number) => {
     return Math.ceil(totalProducts / productsPerPage);
 };
 
-const MonumentsPage = () => {
+const FencesPage = () => {
     const [isClient, setIsClient] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage, setProductsPerPage] = useState(60); // По умолчанию показываем 60 товаров
@@ -73,18 +74,18 @@ const MonumentsPage = () => {
                                 <a
                                     key={category.title}
                                     href={category.link}
-                                    className="block overflow-hidden"
+                                    className="block overflow-hidden rounded-lg"
                                 >
-                                    <div className="flex h-[120px] p-4 justify-between bg-[#f5f6fa] rounded-lg hover:border-2 border-[#2c3a54]">
-                                        <div className="flex flex-col self-center">
+                                    <div className="relative flex h-[80px] lg:h-[120px] py-5 pl-3.75 pr-12.5 lg:pr-25 justify-between bg-[#f5f6fa] rounded-lg hover:border-2 border-[#2c3a54]">
+                                        <div className="flex flex-col w-[70%] self-center z-10">
                                             <h2 className="text-[16px] font-bold text-[#222222] mb-2.5">{category.title}</h2>
                                             <p className="text-[12px] text-[#969ead]">{category.price}</p>
                                         </div>
-                                        <div className="relative max-w-[100px] overflow-hidden">
+                                        <div className="absolute self-center -right-2 rounded-lg max-w-[130px] overflow-hidden">
                                             <img
                                                 src={category.img}
                                                 alt={category.title}
-                                                className="w-full h-full object-cover rounded-lg"
+                                                className={`h-full object-cover rounded-lg ${isTablet ? 'w-[75px]' : 'w-[130px]'}`}
                                             />
                                         </div>
                                     </div>
@@ -146,21 +147,21 @@ const MonumentsPage = () => {
                     />
 
                     {/* Описание страницы */}
-                    <div className="mt-7.5 font-[600] shadow-md p-7.5">
+                    <div className="mt-7.5 font-[600] shadow-md p-7.5 rounded-lg">
                         {/* Первый абзац */}
-                        <p className=" text-[#2D4266] mb-5">
+                        <p className=" text-[#2c3a54] mb-5">
                             Ограда на могилу – старая традиция со времен, когда памятники устанавливали по уровню земли без заливки фундамента. Тогда оградки ограничивали соседние участки на кладбище. Сегодня же они выполняют больше эстетическую функцию, дополняют памятник. А по православной традиции ограды на кладбище служат границей между миром живых и царством мёртвых, придавая месту погребения завершённый вид.
                         </p>
 
                         {/* Второй абзац */}
-                        <p className=" text-[#2D4266] mb-5">
+                        <p className=" text-[#2c3a54] mb-5">
                             Изначально ограждения делали из металлических труб, они быстро ржавели и требовали постоянного ухода. Изготовление могильных оград из гранита, мрамора, нержавеющих труб или ковки началось только около 20 лет назад.
                         </p>
 
                         {/* Заголовок "Виды ритуальных оградок" */}
-                        <h2 className="text-[24px] font-bold text-[#2D4266] mb-3.75">Виды ритуальных оградок</h2>
-                        <p className=" text-[#2D4266] mb-5">«Центр Гранит» предлагает около 100 моделей ограждений на кладбище. По материалу изготовления оградки на кладбище делят на:</p>
-                        <ol className="list-decimal pl-5  text-[#2D4266] space-y-1 mb-5">
+                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Виды ритуальных оградок</h2>
+                        <p className=" text-[#2c3a54] mb-5">«Центр Гранит» предлагает около 100 моделей ограждений на кладбище. По материалу изготовления оградки на кладбище делят на:</p>
+                        <ol className="list-decimal pl-5  text-[#2c3a54] space-y-1 mb-5">
                             <li>Гранитные ограды. Гарантируют долговечность, эстетику. Гранит устойчив к механическим повреждениям, перепадам температур и влаге, сохраняя свои свойства столетиями. Эти ограды не требуют ухода. Цены на гранитные ограждения начинаются от 560 руб. (модель ГО-2).</li>
                             <li>Кованые ограды. Элегантное решение, сочетающее красоту и прочность. Они подчеркивают уникальность дизайна захоронения и служат десятилетиями.</li>
                             <li>Металлические ограды. Доступный, функциональный вариант. Их стоимость начинается от 80 руб. за м.п. Однако такие конструкции нуждаются в периодической покраске для поддержания внешнего вида.</li>
@@ -168,29 +169,29 @@ const MonumentsPage = () => {
                         </ol>
 
                         {/* Заголовок "Почему важна ограда на могилу?" */}
-                        <h2 className="text-[24px] font-bold text-[#2D4266] mb-3.75">Почему важна ограда на могилу?</h2>
-                        <p className=" text-[#2D4266] mb-5">Ограда на могилу – это классический способ оформления захоронения в соответствии с религиозными и культурными традициями. Она:</p>
-                        <ul className="list-disc pl-5  text-[#2D4266] space-y-1 mb-5">
+                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Почему важна ограда на могилу?</h2>
+                        <p className=" text-[#2c3a54] mb-5">Ограда на могилу – это классический способ оформления захоронения в соответствии с религиозными и культурными традициями. Она:</p>
+                        <ul className="list-disc pl-5  text-[#2c3a54] space-y-1 mb-5">
                             <li>Обозначает границы участка, защищая его от случайных нарушений.</li>
                             <li>Органично дополняет надгробие, особенно если выполнена в едином стиле с другими элементами – скамейкой, столиком или бордюром.</li>
                             <li>Ограничивает доступ животных/случайных прохожих, предотвращая загрязнение.</li>
                         </ul>
-                        <p className=" text-[#2D4266] mb-5">Облагородьте место захоронения своих близких. Закажите ограду, чтобы сохранить память и заботу о них.</p>
+                        <p className=" text-[#2c3a54] mb-5">Облагородьте место захоронения своих близких. Закажите ограду, чтобы сохранить память и заботу о них.</p>
 
                         {/* Заголовок "Как выбрать ограду?" */}
-                        <h2 className="text-[24px] font-bold text-[#2D4266] mb-3.75">Как выбрать ограду?</h2>
-                        <p className=" text-[#2D4266] mb-5">Чтобы купить ограду на кладбище, важно учитывать следующие аспекты:</p>
-                        <ul className="list-disc pl-5  text-[#2D4266] space-y-1 mb-5">
+                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Как выбрать ограду?</h2>
+                        <p className=" text-[#2c3a54] mb-5">Чтобы купить ограду на кладбище, важно учитывать следующие аспекты:</p>
+                        <ul className="list-disc pl-5  text-[#2c3a54] space-y-1 mb-5">
                             <li>Металлические ограды – дешевле, легче по весу, но требуют регулярной покраски. Такие оградки нужно периодически подкрашивать, так как на них со временем появляются следы ржавчины. Полимерные покрытия удлиняют срок службы, делают конструкцию более привлекательной.</li>
                             <li>Кованые ограды меньше подвержены появлению коррозии, но также требуют периодической подкраски.</li>
                             <li>Гранитные ограды и комбинированные подчеркивают статус и легко обслуживаются – достаточно периодически очищать их от загрязнений. Они устойчивы к любым погодным условиям. То же самое можно сказать и о нержавеющей трубе.</li>
                         </ul>
-                        <p className=" text-[#2D4266] mb-5">Наши специалисты могут ответить на Ваши вопросы и помочь в выборе.</p>
+                        <p className=" text-[#2c3a54] mb-5">Наши специалисты могут ответить на Ваши вопросы и помочь в выборе.</p>
 
                         {/* Заголовок "Почему выбирают «Центр Гранит»?" */}
-                        <h2 className="text-[24px] font-bold text-[#2D4266] mb-3.75">Почему выбирают «Центр Гранит»?</h2>
-                        <p className=" text-[#2D4266] mb-5">Покупая ограду на могилу в Минске у нас, вы получите:</p>
-                        <ul className="list-disc pl-5  text-[#2D4266] space-y-1 mb-5">
+                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Почему выбирают «Центр Гранит»?</h2>
+                        <p className=" text-[#2c3a54] mb-5">Покупая ограду на могилу в Минске у нас, вы получите:</p>
+                        <ul className="list-disc pl-5  text-[#2c3a54] space-y-1 mb-5">
                             <li>Большой каталог гранитных оград: от угловых до полностью закрытых.</li>
                             <li>Более 30 пород гранита для гранитных ограждений.</li>
                             <li>Возможность дополнить ограду лавкой или столиком.</li>
@@ -200,12 +201,12 @@ const MonumentsPage = () => {
                             <li>Услуги монтажа.</li>
                             <li>Гибкие условия оплаты – наличный и безналичный расчёт, рассрочка до 6 месяцев без переплат.</li>
                         </ul>
-                        <p className=" text-[#2D4266] mb-5">В последнее время набирают популярность угловые гранитные ограды. Они ограничивают участок только по углам. Такие модели стоят дешевле классических ограждений и при этом визуально не перегружают участок. Каталог угловых оград постоянно пополняется строгими и фигурными вариантами.</p>
+                        <p className=" text-[#2c3a54] mb-5">В последнее время набирают популярность угловые гранитные ограды. Они ограничивают участок только по углам. Такие модели стоят дешевле классических ограждений и при этом визуально не перегружают участок. Каталог угловых оград постоянно пополняется строгими и фигурными вариантами.</p>
 
                         {/* Заголовок "От чего зависит цена ограды на кладбище?" */}
-                        <h2 className="text-[24px] font-bold text-[#2D4266] mb-3.75">От чего зависит цена ограды на кладбище?</h2>
-                        <p className=" text-[#2D4266] mb-5">Цена на ограду для кладбища формируется индивидуально и зависит от:</p>
-                        <ul className="list-disc pl-5  text-[#2D4266] space-y-1 mb-5">
+                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">От чего зависит цена ограды на кладбище?</h2>
+                        <p className=" text-[#2c3a54] mb-5">Цена на ограду для кладбища формируется индивидуально и зависит от:</p>
+                        <ul className="list-disc pl-5  text-[#2c3a54] space-y-1 mb-5">
                             <li>Сложности дизайна.</li>
                             <li>Выбранных материалов и их объёма.</li>
                             <li>Вида декоративной отделки.</li>
@@ -213,22 +214,22 @@ const MonumentsPage = () => {
                             <li>Типа фундамента.</li>
                             <li>Дополнительных услуг, таких как демонтаж старой ограды.</li>
                         </ul>
-                        <p className=" text-[#2D4266] mb-5">Мы предлагаем продукцию с доставкой и установкой.</p>
+                        <p className=" text-[#2c3a54] mb-5">Мы предлагаем продукцию с доставкой и установкой.</p>
 
                         {/* Заголовок "Как сделать заказ на сайте?" */}
-                        <h2 className="text-[24px] font-bold text-[#2D4266] mb-3.75">Как сделать заказ на сайте?</h2>
-                        <p className=" text-[#2D4266] mb-5">Компания «Центр Гранит» использует современные технологии и оборудование для производства ритуальных изделий. Чтобы заказать ограду на кладбище, зайдите на наш сайт в раздел «Ограды». Выберите модель, ознакомьтесь с ценами. При необходимости свяжитесь с консультантами по форме обратной связи или номере в шапке сайта.</p>
-                        <p className=" text-[#2D4266] mb-5">Сохраните память о близких на долгие годы с качественными ритуальными изделиями от «Центр Гранит»!</p>
+                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Как сделать заказ на сайте?</h2>
+                        <p className=" text-[#2c3a54] mb-5">Компания «Центр Гранит» использует современные технологии и оборудование для производства ритуальных изделий. Чтобы заказать ограду на кладбище, зайдите на наш сайт в раздел «Ограды». Выберите модель, ознакомьтесь с ценами. При необходимости свяжитесь с консультантами по форме обратной связи или номере в шапке сайта.</p>
+                        <p className=" text-[#2c3a54] mb-5">Сохраните память о близких на долгие годы с качественными ритуальными изделиями от «Центр Гранит»!</p>
                     </div>
 
                     {/* Блок "Другие категории" */}
                     <div className={`mt-17 lg:mt-30 ${isTablet ? 'container-centered' : ''}`}>
-                        <h2 className="text-[28px] font-bold text-[#2D4266] ml-2.5 mb-3.5 lg:mb-5">Другие категории</h2>
+                        <h2 className="text-[28px] font-bold text-[#2c3a54] ml-2.5 mb-3.5 lg:mb-5">Другие категории</h2>
                         {/* Общий блок с flex */}
                         <div className={`flex flex-wrap ${isNarrowMobile ? 'flex-col space-y-2.5' : ''}`}>
                             {/* Карточка "Памятники" */}
                             <div className={`px-1.25 md:px-2.5 max-w-1/2 flex-1/2 min-h-[60px] lg:min-h-[140px] ${isNarrowMobile ? 'max-w-full' : ''}`}>
-                                <a
+                                <Link
                                     href="/monuments"
                                     className="block overflow-hidden rounded-lg hover:border-2 border-[#2c3a54] bg-[#f5f6fa] relative h-full items-center p-7.5"
                                 >
@@ -246,12 +247,12 @@ const MonumentsPage = () => {
                                             transform: 'translateY(-50%)',
                                         }}
                                     />
-                                </a>
+                                </Link>
                             </div>
 
                             {/* Карточка "Аксессуары" */}
                             <div className={`px-1.25 md:px-2.5 max-w-1/2 flex-1/2 min-h-[60px] lg:min-h-[140px] ${isNarrowMobile ? 'max-w-full' : ''}`}>
-                                <a
+                                <Link
                                     href="/accessories"
                                     className="block overflow-hidden rounded-lg hover:border-2 border-[#2c3a54] bg-[#f5f6fa] relative h-full items-center p-7.5"
                                 >
@@ -269,7 +270,7 @@ const MonumentsPage = () => {
                                             transform: 'translateY(-50%)',
                                         }}
                                     />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -284,4 +285,4 @@ const MonumentsPage = () => {
     );
 };
 
-export default MonumentsPage;
+export default FencesPage;

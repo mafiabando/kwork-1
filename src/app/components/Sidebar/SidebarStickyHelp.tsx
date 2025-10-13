@@ -27,7 +27,7 @@ export default function SidebarStickyHelp() {
         {/* Кнопка */}
         <button
           className="w-full py-3 px-4 bg-[#2c3a54] text-white rounded-full font-medium hover:bg-[#1e2b3f] transition-colors"
-          onClick={() => window.location.href = 'tel:+375336770166'}
+          onClick={() => window.location.href = 'tel:+375333226652'}
         >
           Заказать звонок
         </button>
@@ -58,7 +58,7 @@ export default function SidebarStickyHelp() {
             </a>
             {/* WhatsApp */}
             <a
-              href="whatsapp://send?phone=+375336770166"
+              href="whatsapp://send?phone=+375333226652"
               aria-label="WhatsApp"
               target="_blank"
               rel="noopener noreferrer"
