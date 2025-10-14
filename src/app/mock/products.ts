@@ -9,7 +9,7 @@ export const productsMonuments: Product[] = [
     oldPrice: 1185,
     discount: 13,
     category: "одиночные",
-    image: "/popular-products/a3.jpg", // базовое изображение
+    image: "/popular-products/a3.jpg",
     colors: [
       {
         name: "Красный гранит",
@@ -27,6 +27,18 @@ export const productsMonuments: Product[] = [
         image: "/popular-products/a3-white.jpg",
       },
     ],
+    options: {
+      "Общая высота": "120 см",
+      "Общая ширина": "50 см",
+      "Стела": "100x50x5 см",
+      "Подставка": "50x20x15 см",
+      "Цветник": "100x50 см",
+      "Гарантия": "10 лет",
+      "Другие виды гранита": "Более 20",
+      "Другой размер": "Возможно",
+      "Хранение": "Бесплатно",
+      "Покрытие \"Антидождь\"": "Бесплатно"
+    }
   },
   {
     id: 2,

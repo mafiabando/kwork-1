@@ -15,6 +15,7 @@ export type Product = {
   category: string;
   image: string;
   colors?: ColorOption[];
+  options?: Record<string, string>;
 };
 
 export type Category = {
