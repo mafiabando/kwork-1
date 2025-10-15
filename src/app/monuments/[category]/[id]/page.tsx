@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import OurWorksSlider from "../../../components/OurWorksSlider";
 import PathPage from "../../../components/PathPage";
@@ -38,45 +38,82 @@ const ProductPage = () => {
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const [tooltipContent, setTooltipContent] = useState({ image: '', description: '' });
     const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
+    const tooltipRef = useRef<HTMLDivElement>(null); // Реф для элемента тултипа
+    const characteristicsContentRef = useRef<HTMLDivElement>(null); // Ref для содержимого вкладки "Характеристики"
+    const tooltipOpenRef = useRef(tooltipOpen);
+    const activeTabRef = useRef(activeTab);
+    const [tooltipAbsolutePosition, setTooltipAbsolutePosition] = useState({ top: 0, left: 0 });
+
+    // Используем useRef для хранения актуального значения tooltipOpen
+    useEffect(() => {
+        tooltipOpenRef.current = tooltipOpen;
+    }, [tooltipOpen]);
+
+    // Обработчик клика вне, использующий useRef
+    useEffect(() => {
+        activeTabRef.current = activeTab;
+    }, [activeTab]);
+
+    useEffect(() => {
+        const handleClick = (event: MouseEvent) => {
+            if (!tooltipOpenRef.current) return;
+
+            const target = event.target as Node;
+
+            // Единственное исключение: клик по самому тултипу
+            if (tooltipRef.current && tooltipRef.current.contains(target)) {
+                return;
+            }
+
+            // Во ВСЕХ остальных случаях — закрываем
+            setTooltipOpen(false);
+        };
+
+        document.addEventListener('mousedown', handleClick);
+        return () => document.removeEventListener('mousedown', handleClick);
+    }, []);
 
     // Компонент для отображения одной характеристики с тултипом
     const CharacteristicItem = ({ label, value, tooltipImage, tooltipDescription }: { label: string; value: string; tooltipImage?: string; tooltipDescription?: string }) => {
-        const tooltipRef = useRef<HTMLDivElement>(null); // Реф для элемента тултипа
+        const tooltipTriggerRef = useRef<HTMLSpanElement>(null);
 
-        // Внутри ProductPage, в определении CharacteristicItem
-
-        const handleMouseEnter = (e: React.MouseEvent) => {
+        const handleClick = (e: React.MouseEvent) => {
             if (tooltipImage && tooltipDescription) {
-                const element = tooltipRef.current; // Получаем DOM-элемент ?
+                const element = tooltipTriggerRef.current;
                 if (!element) return;
 
-                // Получаем родительский элемент с position: relative
-                const parentContainer = element.closest('.space-y-1.relative') as HTMLElement | null;
+                const parentContainer = characteristicsContentRef.current;
                 if (!parentContainer) return;
 
-                // Получаем координаты элемента ? относительно вьюпорта
                 const elementRect = element.getBoundingClientRect();
-                // Получаем координаты родительского контейнера относительно вьюпорта
                 const parentRect = parentContainer.getBoundingClientRect();
 
-                // Рассчитываем координаты элемента ? относительно родительского контейнера
+                // Относительная позиция (для позиционирования тултипа внутри контейнера)
                 const relativeTop = elementRect.top - parentRect.top;
                 const relativeLeft = elementRect.left - parentRect.left;
 
-                // Устанавливаем позицию тултипа относительно родительского контейнера
-                // Верхняя граница элемента ? (relativeTop) минус небольшой отступ сверху
-                // Центр элемента ? по горизонтали (relativeLeft + elementRect.width / 2)
-                setTooltipPosition({
-                    top: relativeTop - 10, // Немного выше элемента
-                    left: relativeLeft + elementRect.width / 2, // Центр элемента
-                });
-                setTooltipContent({ image: tooltipImage, description: tooltipDescription });
-                setTooltipOpen(true);
-            }
-        };
+                // Абсолютная позиция (для расчёта места сверху/снизу)
+                const absoluteTop = elementRect.top;
+                const absoluteLeft = elementRect.left;
 
-        const handleMouseLeave = () => {
-            setTooltipOpen(false);
+                setTooltipPosition({
+                    top: relativeTop - 10,
+                    left: relativeLeft + elementRect.width / 2,
+                });
+
+                // Передаём абсолютные координаты отдельно
+                setTooltipAbsolutePosition({
+                    top: absoluteTop,
+                    left: absoluteLeft,
+                });
+
+                setTooltipContent({ image: tooltipImage, description: tooltipDescription });
+
+                const img = new window.Image();
+                img.src = tooltipImage;
+                img.onload = () => setTooltipOpen(true);
+                img.onerror = () => setTooltipOpen(true);
+            }
         };
 
         return (
@@ -85,16 +122,15 @@ const ProductPage = () => {
                     <span className="text-[#2D4266]">{label}</span>
                     {tooltipImage && tooltipDescription && (
                         <span
-                            className="text-[#2D4266] text-xs font-bold bg-blue-100 rounded-full w-5 h-5 flex items-center justify-center cursor-default"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            ref={tooltipRef} // Привязываем ref к элементу ?
+                            className="text-[#2D4266] text-xs font-bold bg-blue-100 rounded-full w-5 h-5 flex items-center justify-center cursor-pointer"
+                            ref={tooltipTriggerRef}
+                            onClick={handleClick}
                         >
                             ?
                         </span>
                     )}
                 </div>
-                <span className="text-[#2D4266] font-medium">{value}</span>
+                <span className="text-[#2D4266]">{value}</span>
             </div>
         );
     };
@@ -300,7 +336,7 @@ const ProductPage = () => {
                         {activeTab === 'characteristics' && (
                             <div>
                                 {product.options && Object.keys(product.options).length > 0 ? (
-                                    <div className="space-y-1 relative">
+                                    <div className="space-y-1 relative" ref={characteristicsContentRef}>
                                         {Object.entries(product.options).map(([key, value]) => (
                                             <CharacteristicItem
                                                 key={key}
@@ -325,6 +361,8 @@ const ProductPage = () => {
                                             image={tooltipContent.image}
                                             description={tooltipContent.description}
                                             position={tooltipPosition}
+                                            ref={tooltipRef}
+                                            absolutePosition={tooltipAbsolutePosition}
                                         />
                                     </div>
                                 ) : (
