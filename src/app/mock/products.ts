@@ -8,7 +8,7 @@ export const productsMonuments: Product[] = [
     price: 1025,
     oldPrice: 1185,
     discount: 13,
-    category: "одиночные",
+    category: "Одиночные",
     image: "/popular-products/a3.jpg",
     colors: [
       {

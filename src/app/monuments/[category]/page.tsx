@@ -94,7 +94,7 @@ const subcategoryData: Record<string, CategoryData> = {
                 content: "В нашем каталоге вы сможете выбрать подходящий одиночный монумент, который прослужит не один десяток лет и сохранит свой безупречный внешний вид."
             },
         ],
-        products: productsMonuments.filter(p => p.category === "single"),
+        products: productsMonuments.filter(p => p.category.toLowerCase() === "одиночные"),
         otherCategories: [
             { title: "Недорогие", image: "/section/cheap.webp", link: "/monuments/недорогие" },
             { title: "Памятники", image: "/section/single.webp", link: "/monuments" },
@@ -146,7 +146,7 @@ const subcategoryData: Record<string, CategoryData> = {
             },
 
         ],
-        products: productsMonuments.filter(p => p.category === "Двойные"),
+        products: productsMonuments.filter(p => p.category.toLowerCase() === "двойные"),
         otherCategories: [
             { title: "Недорогие", image: "/section/cheap.webp", link: "/monuments/недорогие" },
             { title: "Памятники", image: "/section/single.webp", link: "/monuments" },
