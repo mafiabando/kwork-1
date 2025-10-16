@@ -11,6 +11,10 @@ interface PaginationProps {
 const Pagination = ({ totalPages, onPageChange, initialPage = 1 }: PaginationProps) => {
     const [activePage, setActivePage] = useState(initialPage);
 
+    if (totalPages <= 1) {
+        return null;
+    }
+
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             setActivePage(page);

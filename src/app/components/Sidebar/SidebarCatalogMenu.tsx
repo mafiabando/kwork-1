@@ -1,20 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { menuCategories } from '../../mock/menuCategories';
 
 const SidebarCatalogMenu = () => {
-    const [activeCategory, setActiveCategory] = useState<string | null>(null);
+    const pathname = usePathname();
+    const [isClient, setIsClient] = useState(false);
 
-    const handleMouseEnter = (categoryName: string) => {
-        setActiveCategory(categoryName);
-    };
+    const activeCategoryFromPath = menuCategories.find(cat =>
+        pathname.startsWith(cat.href)
+    )?.name || null;
 
-    const handleMouseLeave = () => {
-        setActiveCategory(null);
-    };
+    // Определяем активную подкатегорию по пути
+    const activeSubcategoryFromPath = menuCategories
+        .flatMap(cat => cat.subcategories)
+        .find(sub => pathname.includes(sub.href))?.name || null;
+
+    const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return <div className="bg-white rounded-xl animate-pulse h-96" />;
+    }
 
     return (
         <div className="bg-white block rounded-xl">
@@ -34,8 +47,16 @@ const SidebarCatalogMenu = () => {
                     <li
                         key={index}
                         className=""
-                        onMouseEnter={() => category.subcategories.length > 0 && handleMouseEnter(category.name)}
-                        onMouseLeave={handleMouseLeave}
+                        onMouseEnter={() => {
+                            if (category.name !== activeCategoryFromPath && category.subcategories.length > 0) {
+                                setHoveredCategory(category.name);
+                            }
+                        }}
+                        onMouseLeave={() => {
+                            if (category.name !== activeCategoryFromPath) {
+                                setHoveredCategory(null);
+                            }
+                        }}
                     >
                         <Link
                             href={category.href!}
@@ -53,33 +74,57 @@ const SidebarCatalogMenu = () => {
                             )}
                         </Link>
 
-                        {/* Выпадающее меню подкатегорий */}
-                        {activeCategory === category.name && category.subcategories.length > 0 && (
-                            <div
-                                className="absolute left-full top-0 min-h-full mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2 w-[500px]"
-                                style={{
-                                    boxShadow: `0 0 30px 0 #2c3A5426`,
-                                }}
-                            >
-                                <div className="grid grid-cols-2 gap-2">
-                                    {category.subcategories.map((sub, idx) => (
-                                        <Link
-                                            key={idx}
-                                            href={sub.href}
-                                            className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
-                                        >
-                                            <Image
-                                                src={sub.img}
-                                                alt={sub.name}
-                                                width={50}
-                                                height={50}
-                                                className="rounded"
-                                            />
-                                            <span className="text-[#2c3a54]">{sub.name}</span>
-                                        </Link>
-                                    ))}
+                        {/* 1. Выпадающее меню справа для НЕАКТИВНЫХ категорий при наведении */}
+                        {category.name !== activeCategoryFromPath &&
+                            hoveredCategory === category.name &&
+                            category.subcategories.length > 0 && (
+                                <div
+                                    className="absolute left-full top-0 min-h-full mt-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-2 w-[500px]"
+                                    style={{
+                                        boxShadow: `0 0 30px 0 #2c3A5426`,
+                                    }}
+                                >
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {category.subcategories.map((sub, idx) => (
+                                            <Link
+                                                key={idx}
+                                                href={sub.href}
+                                                className="flex items-center space-x-2 px-2.25 py-2 hover:bg-[#f5f6fa] rounded-md"
+                                            >
+                                                <Image
+                                                    src={sub.img}
+                                                    alt={sub.name}
+                                                    width={50}
+                                                    height={50}
+                                                    className="rounded"
+                                                />
+                                                <span className="text-[#2c3a54]">{sub.name}</span>
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
+                            )}
+
+                        {/* 2. Список подкатегорий ПОД активной категорией */}
+                        {category.name === activeCategoryFromPath && category.subcategories.length > 0 && (
+                            <ul className="pl-18 py-1.25 space-y-1.5 mb-1 border-t border-gray-200">
+                                {category.subcategories.map((sub, idx) => {
+                                    const isActive = sub.name === activeSubcategoryFromPath;
+                                    return (
+                                        <li key={idx}>
+                                            <Link
+                                                href={isActive ? '#' : sub.href}
+                                                className={`block font-[600] w-max leading-5 text-[#2c3a54] ${isActive
+                                                        ? 'pointer-events-none'
+                                                        : 'hover:border-b-1 border-gray-200'
+                                                    }`}
+                                            >
+                                                {sub.name}
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
                         )}
                     </li>
                 ))}

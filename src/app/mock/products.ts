@@ -18,13 +18,28 @@ export const productsMonuments: Product[] = [
       },
       {
         name: "Черный гранит",
-        color: "#000000",
-        image: "/popular-products/a3-black.jpg",
+        color: "#a52a2a",
+        image: "/popular-products/a3-red.jpg",
       },
       {
         name: "Белый мрамор",
-        color: "#ffffff",
-        image: "/popular-products/a3-white.jpg",
+        color: "#a52a2a",
+        image: "/popular-products/a3-red.jpg",
+      },
+            {
+        name: "Красный гранит",
+        color: "#a52a2a",
+        image: "/popular-products/a3-red.jpg",
+      },
+      {
+        name: "Черный гранит",
+        color: "#a52a2a",
+        image: "/popular-products/a3-red.jpg",
+      },
+      {
+        name: "Белый мрамор",
+        color: "#a52a2a",
+        image: "/popular-products/a3-red.jpg",
       },
     ],
     options: {

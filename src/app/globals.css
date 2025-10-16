@@ -93,4 +93,10 @@ body {
   background: linear-gradient(180deg,#f5f6fa 0,rgba(245,246,250,0) 100%);
 }
 
-
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}

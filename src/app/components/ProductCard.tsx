@@ -21,10 +21,14 @@ const ProductCard = ({
   const [selectedColorIndex, setSelectedColorIndex] = useState(0); // 0 = дефолт
   const imageRef = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+    // Инициализация состояния из localStorage
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    setIsFavorite(favorites.includes(product.id));
+  }, [product.id]);
 
   // Пока не на клиенте — рендерим "нейтральную" версию
   if (!isClient) {
@@ -44,9 +48,9 @@ const ProductCard = ({
   // Если цвета есть, добавляем "Дефолт" как первый элемент, иначе только "Дефолт"
   const expandedColors: ColorOption[] = hasColors
     ? [
-        { name: "Дефолт", color: "#808080", image: product.image },
-        ...productColors,
-      ]
+      { name: "Дефолт", color: "#808080", image: product.image },
+      ...productColors,
+    ]
     : [{ name: "Дефолт", color: "#808080", image: product.image }];
 
   // Изображение для отображения
@@ -126,11 +130,32 @@ const ProductCard = ({
     }
   };
 
+  // Обработчик клика на звезду (избранное)
+  const toggleFavorite = () => {
+    const newIsFavorite = !isFavorite;
+    setIsFavorite(newIsFavorite);
+
+    // Обновляем localStorage
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    if (newIsFavorite) {
+      // Добавляем в избранное
+      if (!favorites.includes(product.id)) {
+        favorites.push(product.id);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
+    } else {
+      // Удаляем из избранного
+      const newFavorites = favorites.filter((id: number) => id !== product.id);
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    }
+
+    window.dispatchEvent(new Event('favoritesChanged'));
+  };
+
   return (
     <div
-      className={`relative bg-white shadow-sm overflow-hidden group cursor-pointer flex-shrink-0 h-full ${
-        isTablet ? "basis-[calc(100%_/_3)]" : "basis-[calc(100%_/_4)]"
-      }`}
+      className={`relative bg-white shadow-sm overflow-hidden group cursor-pointer flex-shrink-0 h-full ${isTablet ? "basis-[calc(100%_/_3)]" : "basis-[calc(100%_/_4)]"
+        }`}
     >
       {/* Бейдж скидки */}
       {product.discount !== undefined && (
@@ -139,7 +164,11 @@ const ProductCard = ({
         </div>
       )}
       {/* Звезда (избранное) */}
-      <div className="absolute top-2 right-2 z-10 text-gray-400 text-2xl hover:text-[#2c3a54] transition">
+      <div
+        className={`absolute top-2 right-2 z-10 text-2xl hover:text-[#2c3a54] transition cursor-pointer ${isFavorite ? "text-[#2c3a54]" : "text-gray-400"
+          }`}
+        onClick={toggleFavorite}
+      >
         ★
       </div>
       {/* Изображение товара */}
@@ -161,18 +190,16 @@ const ProductCard = ({
         {/* Индикаторы цветов для десктопа */}
         {!isTablet && hasColors && (
           <div
-            className={`absolute bottom-3 left-[10%] right-[10%] flex space-x-0.5 transition-all duration-300 z-10 ${
-              showIndicators ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute bottom-3 left-[10%] right-[10%] flex space-x-0.5 transition-all duration-300 z-10 ${showIndicators ? "opacity-100" : "opacity-0"
+              }`}
           >
             {expandedColors.map((color, index) => (
               <button
                 key={index}
-                className={`w-6 h-1 rounded-full transition-all duration-300 flex-1 ${
-                  index === hoveredColorIndex
-                    ? "opacity-100 bg-[#2c3a54]"
-                    : "opacity-0 bg-transparent"
-                }`}
+                className={`w-6 h-1 rounded-full transition-all duration-300 flex-1 ${index === hoveredColorIndex
+                  ? "opacity-100 bg-[#2c3a54]"
+                  : "opacity-0 bg-transparent"
+                  }`}
               />
             ))}
           </div>
@@ -184,24 +211,22 @@ const ProductCard = ({
                 <button
                   key={index}
                   onClick={() => setSelectedColorIndex(index)}
-                  className={`w-[5px] h-[5px] rounded-full self-center bg-white transition-all duration-200 ${
-                    index === selectedColorIndex
-                      ? "ring-1 ring-[#2c3a54]"
-                      : "opacity-70"
-                  }`}
+                  className={`w-[5px] h-[5px] rounded-full self-center bg-white transition-all duration-200 ${index === selectedColorIndex
+                    ? "ring-1 ring-[#2c3a54]"
+                    : "opacity-70"
+                    }`}
                 />
               ))}
             </div>
           </div>
         )}
       </div>
-      {/* Нижняя часть карточки (убрали fixed height, чтобы контент определял) */}
+      {/* Нижняя часть карточки */}
       <div className="p-3 flex flex-col h-[calc(100%-256px)]">
         {/* Title */}
         <h3
-          className={`font-bold text-gray-800 mb-1 ${
-            isTablet ? "text-base" : "text-lg"
-          }`}
+          className={`font-bold text-gray-800 mb-1 ${isTablet ? "text-base" : "text-lg"
+            }`}
         >
           {product.name}
         </h3>
@@ -211,13 +236,12 @@ const ProductCard = ({
             Общая высота: {product.height}
           </p>
         ) : null}
-        {/* Блок с ценой и кнопкой: flex-row на десктопе (цена слева, кнопка справа), на мобиле - как раньше (col) */}
+        {/* Блок с ценой и кнопкой: flex-row на десктопе (цена слева, кнопка справа), на мобиле - col */}
         <div className="flex-1 flex flex-col xl:flex-row justify-between">
           {/* Цены в одну строку */}
           <div
-            className={`flex items-center xl:self-end xl:flex-col xl:items-start ${
-              isNarrowMobile ? "flex-col gap-0 items-start" : "gap-2"
-            }`}
+            className={`flex items-center xl:self-end xl:flex-col xl:items-start ${isNarrowMobile ? "flex-col gap-0 items-start" : "gap-2"
+              }`}
           >
             {/* Если есть price, показываем цену, иначе textPrice */}
             {product.price !== undefined ? (
@@ -251,7 +275,7 @@ const ProductCard = ({
           {/* На мобильном (isMobile) кнопка не отображается */}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
