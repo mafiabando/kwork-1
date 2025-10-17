@@ -111,7 +111,7 @@ const SidebarCatalogMenu = () => {
                                 {category.subcategories.map((sub, idx) => {
                                     const isActive = sub.name === activeSubcategoryFromPath;
                                     return (
-                                        <li key={idx}>
+                                        <li className='text-[14px]' key={idx}>
                                             <Link
                                                 href={isActive ? '#' : sub.href}
                                                 className={`block font-[600] w-max leading-5 text-[#2c3a54] ${isActive

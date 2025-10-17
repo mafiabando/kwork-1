@@ -4,6 +4,7 @@ import PathPage from "@/app/components/PathPage";
 import SidebarCatalogMenu from "@/app/components/Sidebar/SidebarCatalogMenu";
 import SidebarStickyHelp from "@/app/components/Sidebar/SidebarStickyHelp";
 import Promo from "@/app/components/Promo";
+import Link from "next/link";
 
 const InstallationPage = () => {
     const [isTablet, setIsTablet] = useState(false);
@@ -39,7 +40,7 @@ const InstallationPage = () => {
                     <div className="mt-7.5 font-[600] shadow-xs p-5 lg:p-7.5 rounded-lg">
                         {/* Введение */}
                         <p className="text-[#2c3a54] mb-5">
-                            Установка памятников на могилу — самый ответственный этап работ, так как от него зависит внешний вид и надежность всего комплекса.
+                        <strong>Установка памятников на могилу </strong> — самый ответственный этап работ, так как от него зависит внешний вид и надежность всего комплекса.
                         </p>
 
                         {/* Процедура установки */}
@@ -56,12 +57,12 @@ const InstallationPage = () => {
                         </ol>
 
                         {/* Методы установки */}
-                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Методы установки памятника</h2>
+                        <h2 className="lg:text-[24px] font-bold text-[#2c3a54] mb-3.75">Методы установки памятника</h2>
 
                         {/* Метод 1: По уровню земли */}
-                        <h3 className="text-[20px] font-bold text-[#2c3a54] mb-2.5">1. Установка по уровню земли</h3>
+                        <h3 className="lg:text-[20px] font-bold text-[#2c3a54] mb-2.5">1. Установка по уровню земли</h3>
                         <div className="mb-5">
-                            <img src="/services/1.webp" alt="Установка по уровню земли" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/1.webp" alt="Установка по уровню земли" className="w-full h-auto rounded-lg" />
                         </div>
                         <p className="text-[#2c3a54] mb-5">
                             <strong>Этапы работы:</strong>
@@ -73,22 +74,22 @@ const InstallationPage = () => {
                         </ol>
 
                         <div className="mb-5">
-                            <img src="/services/2.webp" alt="Установка по уровню земли" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/2.webp" alt="Установка по уровню земли" className="w-full h-auto rounded-lg" />
                         </div>
 
                         {/* Пример памятника */}
-                        <h3 className="text-[20px] font-bold text-[#2c3a54] mb-2.5">Пример памятника, установленного на балки</h3>
+                        <h3 className="lg:text-[20px] font-bold text-[#2c3a54] mt-10 mb-2.5">Пример памятника, установленного на балки</h3>
                         <div className="mb-5">
-                            <img src="/services/3.webp" alt="Пример памятника, установленного на балки" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/3.webp" alt="Пример памятника, установленного на балки" className="w-full h-auto rounded-lg" />
                         </div>
 
                         {/* Метод 2: На бетонный фундамент */}
-                        <h3 className="text-[20px] font-bold text-[#2c3a54] mb-2.5">2. На бетонный фундамент</h3>
+                        <h3 className="lg:text-[20px] font-bold text-[#2c3a54] mb-2.5">2. На бетонный фундамент</h3>
                         <p className="text-[#2c3a54] mb-5">
                             Заливка бетонного фундамента — это надежно и надолго.
                         </p>
                         <div className="mb-5">
-                            <img src="/services/4.webp" alt="Памятник на бетонном фундаменте" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/4.webp" alt="Памятник на бетонном фундаменте" className="w-full h-auto rounded-lg" />
                         </div>
                         <p className="text-[#2c3a54] mb-5">
                             <strong>Этапы работы:</strong>
@@ -108,13 +109,13 @@ const InstallationPage = () => {
                             <strong>Памятник на бетонном фундаменте, облицованном плиткой Грес</strong>
                         </p>
                         <div className="mb-5">
-                            <img src="/services/5.webp" alt="Памятник на бетонном фундаменте, облицованном плиткой Грес" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/5.webp" alt="Памятник на бетонном фундаменте, облицованном плиткой Грес" className="w-full h-auto rounded-lg" />
                         </div>
 
                         {/* Метод 3: Фундамент из бессерных блоков */}
-                        <h3 className="text-[20px] font-bold text-[#2c3a54] mb-2.5">3. Фундамент из бессерных блоков</h3>
+                        <h3 className="lg:text-[20px] font-bold text-[#2c3a54] mb-2.5">3. Фундамент из бессерных блоков</h3>
                         <div className="mb-5">
-                            <img src="/services/6.webp" alt="Фундамент из бессерных блоков" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/6.webp" alt="Фундамент из бессерных блоков" className="w-full h-auto rounded-lg" />
                         </div>
                         <p className="text-[#2c3a54] mb-5">
                             <strong>Этапы работы:</strong>
@@ -128,14 +129,14 @@ const InstallationPage = () => {
                         <p className="text-[#2c3a54] mb-5">
                             <strong>Фундамент из бессер-блоков</strong>
                         </p>
-                        <div className="mb-5">
-                            <img src="/services/7.webp" alt="Фундамент из бессер-блоков - готовый вид" className="w-full h-auto rounded-lg" />
+                        <div className="mb-10">
+                            <img src="/services/monuments/7.webp" alt="Фундамент из бессер-блоков - готовый вид" className="w-full h-auto rounded-lg" />
                         </div>
 
                         {/* Инструменты и материалы */}
-                        <h3 className="text-[20px] font-bold text-[#2c3a54] mb-2.5">Какие инструменты используются при установке?</h3>
-                        <p className="text-[#2c3a54] mb-2.5"><strong>Инструмент:</strong></p>
-                        <ul className="list-disc pl-5 text-[#2c3a54] space-y-1 mb-5">
+                        <h3 className="lg:text-[20px] font-bold text-[#2c3a54] mb-2.5">Какие инструменты используются при установке?</h3>
+                        <p className="text-[#2c3a54] ml-10 mb-2.5"><strong>Инструмент:</strong></p>
+                        <ul className="list-disc pl-10 text-[#2c3a54] space-y-1 mb-5">
                             <li>Обычный и резиновый молоток;</li>
                             <li>Шуруповерт или отвертка;</li>
                             <li>Строительный уровень, угольник;</li>
@@ -143,8 +144,8 @@ const InstallationPage = () => {
                             <li>Пистолет для герметика, ведро;</li>
                             <li>Штыковая лопата.</li>
                         </ul>
-                        <p className="text-[#2c3a54] mb-2.5"><strong>Материалы:</strong></p>
-                        <ul className="list-disc pl-5 text-[#2c3a54] space-y-1 mb-5">
+                        <p className="text-[#2c3a54] ml-10 mb-2.5"><strong>Материалы:</strong></p>
+                        <ul className="list-disc pl-10 text-[#2c3a54] space-y-1 mb-5">
                             <li>Два-три мешка цемента.</li>
                             <li>Песок, вода;</li>
                             <li>Доски для опалубки, гвозди.</li>
@@ -157,9 +158,9 @@ const InstallationPage = () => {
                         </p>
 
                         {/* Демонтаж старых памятников */}
-                        <h2 className="text-[24px] font-bold text-[#2c3a54] mb-3.75">Демонтаж старых памятников</h2>
+                        <h2 className="lg:text-[24px] font-bold text-[#2c3a54] mb-3.75">Демонтаж старых памятников</h2>
                         <div className="mb-5">
-                            <img src="/services/8.webp" alt="Демонтаж старого памятника" className="w-full h-auto rounded-lg" />
+                            <img src="/services/monuments/8.webp" alt="Демонтаж старого памятника" className="w-full h-auto rounded-lg" />
                         </div>
                         <p className="text-[#2c3a54] mb-5">
                             Отдельно следует выделить важность подготовки участка. В особых случаях требуется провести демонтаж старой конструкции. Цена установки памятника останется неизменной.
@@ -174,11 +175,11 @@ const InstallationPage = () => {
                             Закажите изготовление и установку памятников в г. Минске по адресу: пр-т Любимова, 26, к.3.
                         </p>
                         <p className="text-[#2c3a54] mb-2.5">
-                            <strong>Перейти в разделы:</strong>
+                            Перейти в разделы:
                         </p>
-                        <ul className="list-disc pl-5 text-[#2c3a54] space-y-1 mb-5">
-                            <li>Плитка на могилу</li>
-                            <li>Установка оград</li>
+                        <ul className="list-disc pl-10 text-[#2c3a54] space-y-1">
+                            <li><Link href={"/"} className="text-[#969ead]">Плитка на могилу</Link></li>
+                            <li><Link href={"/"} className="text-[#969ead]">Установка оград</Link></li>
                         </ul>
                     </div>
                     {/* Блок "Другие категории" */}
@@ -188,12 +189,12 @@ const InstallationPage = () => {
                         <div className={`flex flex-wrap ${isNarrowMobile ? 'flex-col space-y-2.5' : ''}`}>
                             {/* Карточка "Установка оград" */}
                             <div className={`px-1.25 md:px-2.5 max-w-1/2 flex-1/2 min-h-[60px] lg:min-h-[140px] ${isNarrowMobile ? 'max-w-full' : ''}`}>
-                                <a href="/fences-installation" className="block overflow-hidden rounded-lg hover:border-2 border-[#2c3a54] bg-[#f5f6fa] relative h-full flex items-center p-7.5">
+                                <a href="/fences-installation" className="overflow-hidden rounded-lg hover:border-2 border-[#2c3a54] bg-[#f5f6fa] relative h-full block items-center pr-40 p-7.5">
                                     {/* Текст */}
                                     <h2 className="text-[16px] font-bold text-[#222222] self-start">Установка оград</h2>
                                     {/* Изображение с абсолютным позиционированием */}
                                     <img
-                                        src="/fence.webp"
+                                        src="/services/fence-installation.webp"
                                         alt="Установка оград"
                                         className="w-[75px] lg:w-[130px] h-auto object-cover rounded-lg absolute top-1/2 right-2.5 transform -translate-y-1/2"
                                     />

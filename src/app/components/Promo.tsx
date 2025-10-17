@@ -32,7 +32,7 @@ const Promo = () => {
         ))}
       </div>
 
-      <div className="ml-2.5 mt-6 md:mt-8 flex text-center">
+      <div className="mt-6 md:mt-8 flex text-center">
         <Link href={'/'} className="font-bold w-full md:max-w-[338px] px-7.5 py-3 bg-[#2c3a54] border border-[#2c3a54] text-white rounded-full hover:bg-white hover:text-[#2c3a54] transition">
           Смотреть все
         </Link>

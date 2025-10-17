@@ -28,7 +28,7 @@ body {
   font-family: LatoRegular, Arial, sans-serif;
 }
 
-.font-bold {
+.font-bold, strong {
   font-family: LatoBold, Arial, sans-serif;
   font-weight: 700;
 }
