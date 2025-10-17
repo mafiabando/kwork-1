@@ -24,7 +24,7 @@ const FavoritesPage = () => {
         const checkScreenSize = () => {
             setIsTablet(window.innerWidth < 1024);
             setIsMobile(window.innerWidth < 768);
-            setIsNarrowMobile(window.innerWidth < 425);
+            setIsNarrowMobile(window.innerWidth < 420);
         };
         checkScreenSize();
         window.addEventListener("resize", checkScreenSize);

@@ -62,7 +62,7 @@ const ServicesPage = () => {
                 </div>
             </section>
 
-            {/* OurWorksSlider внизу страницы */}
+            {/* внизу страницы */}
             <div className="mb-12.5 lg:mb-15">
                 <Promo />
             </div>

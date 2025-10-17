@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import OurWorksSlider from "@/app/components/OurWorksSlider";
 import PathPage from "@/app/components/PathPage";
 import SidebarCatalogMenu from "@/app/components/Sidebar/SidebarCatalogMenu";
 import SidebarStickyHelp from "@/app/components/Sidebar/SidebarStickyHelp";
@@ -9,6 +8,13 @@ import ProductCard from "@/app/components/ProductCard";
 import Pagination from "@/app/components/Pagination";
 import { productsMonuments } from "@/app/mock/products";
 import SubcategoryDescription from "@/app/components/SubcategoryDescription";
+import Promo from "@/app/components/Promo";
+
+export const categorySlugToName: Record<string, string> = {
+        'single': 'Одиночные',
+        'double': 'Двойные',
+        'exclusive': 'Эксклюзивные',
+    };
 
 // Типы
 interface CategoryData {
@@ -351,9 +357,9 @@ const MonumentsSubcategoryPage = () => {
                 </div>
             </section>
 
-            {/* OurWorksSlider внизу страницы */}
+            {/* внизу страницы */}
             <div className="mb-12.5 lg:mb-15">
-                <OurWorksSlider />
+                <Promo />
             </div>
         </>
     );

@@ -27,17 +27,17 @@ export const productsMonuments: Product[] = [
         image: "/popular-products/a3-red.jpg",
       },
             {
-        name: "Красный гранит",
+        name: "Цвет1",
         color: "#a52a2a",
         image: "/popular-products/a3-red.jpg",
       },
       {
-        name: "Черный гранит",
+        name: "Цвет2",
         color: "#a52a2a",
         image: "/popular-products/a3-red.jpg",
       },
       {
-        name: "Белый мрамор",
+        name: "Цвет3",
         color: "#a52a2a",
         image: "/popular-products/a3-red.jpg",
       },

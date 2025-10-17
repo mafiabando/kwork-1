@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import OurWorksSlider from "../../../components/OurWorksSlider";
 import PathPage from "../../../components/PathPage";
 import SidebarCatalogMenu from "../../../components/Sidebar/SidebarCatalogMenu";
@@ -11,6 +11,7 @@ import { graniteTypes } from "../../../mock/graniteTypes";
 import Image from "next/image";
 import Tooltip from "@/app/components/Tooltip";
 import ModalCommunication from "@/app/components/Modal/ModalCommunication";
+import { categorySlugToName } from "../page";
 
 interface ImageItem {
     id: number;
@@ -22,11 +23,16 @@ interface ImageItem {
 const ProductPage = () => {
     const params = useParams();
     const productId = parseInt(params?.id as string);
-    // const categorySlug = params?.category as string;
+    const categorySlug = params?.category as string;
 
     // Находим продукт по ID
     const product = productsMonuments.find((p) => p.id === productId);
 
+    // ПРОВЕРКА: Совпадает ли категория товара с URL?
+    const expectedCategoryName = categorySlugToName[categorySlug];
+    if (!product || product.category !== expectedCategoryName) {
+        notFound();
+    }
 
     // Состояния
     const [selectedColor, setSelectedColor] = useState<{
@@ -190,7 +196,7 @@ const ProductPage = () => {
         const checkScreenSize = () => {
             setIsTablet(window.innerWidth < 1024);
             setIsMobile(window.innerWidth < 768);
-            setIsNarrowMobile(window.innerWidth < 425);
+            setIsNarrowMobile(window.innerWidth < 420);
         };
         checkScreenSize();
         window.addEventListener("resize", checkScreenSize);
@@ -589,7 +595,7 @@ const ProductPage = () => {
                                                     <button
                                                         key="default"
                                                         onClick={() => setSelectedColor(null)}
-                                                        className={`w-1/4 aspect-square rounded-lg border-2 transition ${selectedColor === null
+                                                        className={`w-[calc(25%-8px)] aspect-square rounded-lg border-2 transition ${selectedColor === null
                                                             ? "border-[#2c3a54] bg-[#f5f6fa]"
                                                             : "border-gray-300 hover:border-[#2c3a54]"
                                                             }`}
@@ -604,7 +610,7 @@ const ProductPage = () => {
                                                         <button
                                                             key={index}
                                                             onClick={() => setSelectedColor(color)}
-                                                            className={`w-1/4 aspect-square rounded-lg border-2 transition ${selectedColor?.name === color.name
+                                                            className={`w-[calc(25%-8px)] aspect-square rounded-lg border-2 transition ${selectedColor?.name === color.name
                                                                 ? "border-[#2c3a54] bg-[#f5f6fa]"
                                                                 : "border-gray-300 hover:border-[#2c3a54]"
                                                                 }`}
@@ -873,7 +879,7 @@ const ProductPage = () => {
                 </div>
             </section>
 
-            {/* OurWorksSlider внизу страницы */}
+            {/* внизу страницы */}
             <div className="mb-22.5">
                 <OurWorksSlider />
             </div>
