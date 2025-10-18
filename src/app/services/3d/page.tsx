@@ -7,20 +7,6 @@ import Promo from "@/app/components/Promo";
 import Link from "next/link";
 
 const ThreeDModelingPage = () => {
-    const [isTablet, setIsTablet] = useState(false);
-    const [isNarrowMobile, setIsNarrowMobile] = useState(false);
-
-    // Для адаптивности
-    useEffect(() => {
-        const checkScreenSize = () => {
-            const width = window.innerWidth;
-            setIsTablet(width < 1024);
-            setIsNarrowMobile(width < 420);
-        };
-        checkScreenSize();
-        window.addEventListener("resize", checkScreenSize);
-        return () => window.removeEventListener("resize", checkScreenSize);
-    }, []);
 
     return (
         <>
